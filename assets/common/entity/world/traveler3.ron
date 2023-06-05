@@ -1,0 +1,42 @@
+// T5
+// legendary
+#![enable(implicit_some)]
+(
+    name: Name("Experienced Traveler"),
+    body: RandomWith("humanoid"),
+    alignment: Alignment(Npc),
+    loot: LootTable("common.loot_tables.world.traveler3"),
+    inventory: (
+        loadout: Inline((
+            inherit: Choice([
+                (1, Asset("common.loadout.world.traveler3.bloodsteel")),
+                (1, Asset("common.loadout.world.traveler3.moonweave")),
+                (1, Asset("common.loadout.world.traveler3.primal")),
+                (1, Asset("common.loadout.world.traveler3.orichalcum")),
+                (1, Asset("common.loadout.world.traveler3.sunsilk")),
+                (1, Asset("common.loadout.world.traveler3.dragonscale")),
+            ]),
+            active_hands: InHands((Choice([
+                (2, ModularWeapon(tool: Sword, material: Orichalcum, hands: None)),
+                (2, ModularWeapon(tool: Axe, material: Orichalcum, hands: None)),
+                (2, ModularWeapon(tool: Hammer, material: Orichalcum, hands: None)),
+                (2, ModularWeapon(tool: Bow, material: Eldwood, hands: None)),
+                (2, ModularWeapon(tool: Staff, material: Eldwood, hands: None)),
+                (2, ModularWeapon(tool: Sceptre, material: Eldwood, hands: None)),
+                (2, Item("common.items.weapons.sword.caladbolg")),
+                (2, Item("common.items.weapons.hammer.mjolnir")),
+                (2, Item("common.items.weapons.axe.parashu")),
+                (2, Item("common.items.weapons.bow.sagitta")),
+                (2, Item("common.items.weapons.staff.laevateinn")),
+                (1, Item("common.items.weapons.sceptre.caduceus")),
+            ]), None)),
+        )),
+        items: [
+            (50, "common.items.consumable.potion_big"),
+            (50, "common.items.food.sunflower_icetea"),
+        ],
+    ),
+    meta: [
+        SkillSetAsset("common.skillset.preset.rank5.fullskill"),
+    ],
+)

@@ -1,0 +1,182 @@
+({
+    (StoneGolem, Male): (
+        head: (
+            offset: (-3.5, -4.0, -0.0),
+            central: ("npc.stonegolem.male.head"),
+        ),
+        jaw: (
+            offset: (-3.5, -4.0, -0.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-10.5, -10.5, -10.5),
+            central: ("npc.stonegolem.male.chest_upper"),
+        ),
+        torso_lower: (
+            offset: (-4.5, -4.5, -7.0),
+            central: ("npc.stonegolem.male.chest_lower"),
+        ),
+    ),
+    (StoneGolem, Female): (
+        head: (
+            offset: (-3.5, -4.0, -0.0),
+            central: ("npc.stonegolem.male.head"),
+        ),
+        jaw: (
+            offset: (-3.5, -4.0, -0.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-10.5, -10.5, -10.5),
+            central: ("npc.stonegolem.male.chest_upper"),
+        ),
+        torso_lower: (
+            offset: (-4.5, -4.5, -7.0),
+            central: ("npc.stonegolem.male.chest_lower"),
+        ),
+    ),
+    (Treant, Male): (
+        head: (
+            offset: (-6.0, -6.5, 5.0),
+            central: ("npc.treant.male.head"),
+        ),
+        jaw: (
+            offset: (-7.0, 0.0, -3.0),
+            central: ("npc.treant.male.jaw"),
+        ),
+        torso_upper: (
+            offset: (-18.0, -16.0, -15.5),
+            central: ("npc.treant.male.chest_upper"),
+        ),
+        torso_lower: (
+            offset: (-8.0, -15.0, -10.0),
+            central: ("npc.treant.male.chest_lower"),
+        ),
+    ),
+    (Treant, Female): (
+        head: (
+            offset: (-6.0, -6.5, 5.0),
+            central: ("npc.treant.male.head"),
+        ),
+        jaw: (
+            offset: (-7.0, 0.0, -3.0),
+            central: ("npc.treant.male.jaw"),
+        ),
+        torso_upper: (
+            offset: (-18.0, -16.0, -15.5),
+            central: ("npc.treant.male.chest_upper"),
+        ),
+        torso_lower: (
+            offset: (-8.0, -15.0, -10.0),
+            central: ("npc.treant.male.chest_lower"),
+        ),
+    ),
+    (ClayGolem, Male): (
+        head: (
+            offset: (-10.5, -3.0, -3.0),
+            central: ("npc.claygolem.male.head"),
+        ),
+        jaw: (
+            offset: (-9.5, 0.0, -3.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-9.5, -7.0, -6.5),
+            central: ("npc.claygolem.male.chest_upper"),
+        ),
+        torso_lower: (
+            offset: (-9.5, -7.0, -8.0),
+            central: ("npc.claygolem.male.chest_lower"),
+        ),
+    ),
+    (ClayGolem, Female): (
+        head: (
+            offset: (-10.5, -3.0, -3.0),
+            central: ("npc.claygolem.male.head"),
+        ),
+        jaw: (
+            offset: (-9.5, 0.0, -3.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-9.5, -7.0, -6.5),
+            central: ("npc.claygolem.male.chest_upper"),
+        ),
+        torso_lower: (
+            offset: (-9.5, -7.0, -8.0),
+            central: ("npc.claygolem.male.chest_lower"),
+        ),
+    ),
+    (WoodGolem, Male): (
+        head: (
+            offset: (-6.5, -4.5, -3.0),
+            central: ("npc.woodgolem.male.head"),
+        ),
+        jaw: (
+            offset: (-9.5, 0.0, -3.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-6.5, -7.0, -4.5),
+            central: ("npc.woodgolem.male.chest_upper"),
+        ),
+        torso_lower: (
+            offset: (-2.5, -3.5, -7.0),
+            central: ("npc.woodgolem.male.chest_lower"),
+        ),
+    ),
+    (WoodGolem, Female): (
+        head: (
+            offset: (-6.5, -4.5, -3.0),
+            central: ("npc.woodgolem.male.head"),
+        ),
+        jaw: (
+            offset: (-9.5, 0.0, -3.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-6.5, -7.0, -4.5),
+            central: ("npc.woodgolem.male.chest_upper"),
+        ),
+        torso_lower: (
+            offset: (-2.5, -3.5, -7.0),
+            central: ("npc.woodgolem.male.chest_lower"),
+        ),
+    ),
+    (CoralGolem, Male): (
+        head: (
+            offset: (-8.5, -2.5, -7.0),
+            central: ("npc.coralgolem.male.head"),
+        ),
+        jaw: (
+            offset: (-9.5, 0.0, -3.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-11.5, -16.0, -11.5),
+            central: ("npc.coralgolem.male.chest_upper"),
+        ),
+        torso_lower: (
+            offset: (-4.5, -4.0, -8.0),
+            central: ("npc.coralgolem.male.chest_lower"),
+        ),
+    ),
+    (CoralGolem, Female): (
+        head: (
+            offset: (-8.5, -2.5, -7.0),
+            central: ("npc.coralgolem.male.head"),
+        ),
+        jaw: (
+            offset: (-9.5, 0.0, -3.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-11.5, -16.0, -11.5),
+            central: ("npc.coralgolem.male.chest_upper"),
+        ),
+        torso_lower: (
+            offset: (-4.5, -4.0, -8.0),
+            central: ("npc.coralgolem.male.chest_lower"),
+        ),
+    ),
+})

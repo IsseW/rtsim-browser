@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Woolen Pants",
+    description: "Thick and ready for the snow.",
+    kind: Armor((
+        kind: Pants,
+        stats: FromSet("Wool"),
+    )),
+    quality: Common,
+    tags: [
+        Material(Wool),
+        SalvageInto(Wool),
+    ],
+)

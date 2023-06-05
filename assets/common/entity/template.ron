@@ -1,0 +1,18 @@
+/// Template file for EntityConfig, check documentation in code for more
+/// By the time of writing this comment it lives in common/src/generation.rs
+#![enable(implicit_some)]
+(
+    name: Name("Paddy"),
+    body: RandomWith("humanoid"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.creature.humanoid"),
+    inventory: (
+        loadout: Inline((
+            inherit: Asset("common.loadout.village.merchant"),
+            active_hands: InHands((Item("common.items.weapons.sword.cultist"), None)),
+        )),
+    ),
+    meta: [
+        SkillSetAsset("common.skillset.preset.rank3.fullskill"),
+    ],
+)

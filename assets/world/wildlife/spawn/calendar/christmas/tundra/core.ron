@@ -1,0 +1,18 @@
+SpawnEntry (
+    name: "Tundra rare animals for christmas.",
+    note: "Search for them in the heart of tundra.",
+    rules: [
+        Pack(
+            groups: [
+                (15, (1, 1, "common.entity.wild.aggressive.snow_raptor")),
+                (1, (1, 1, "common.entity.wild.aggressive.wendigo")),
+                (1, (2, 6, "common.entity.wild.peaceful.mammoth")),
+                (1, (1, 1, "common.entity.wild.aggressive.mountain_troll")),
+                (1, (1, 1, "common.entity.calendar.christmas.aggressive.yeti")),
+            ],
+            spawn_mode: Land,
+            calendar_events: Some([Christmas]),
+            day_period: [Night, Morning, Noon, Evening],
+        ),
+    ],
+)

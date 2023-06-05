@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Black Lantern",
+    description: "Quite common due to popular use of budding adventurers!",
+    kind: Lantern(
+        (
+            color: (r: 255, g: 128, b: 26),
+            strength_thousandths: 5000,
+            flicker_thousandths: 150,
+        ),
+    ),
+    quality: Common,
+    tags: [Utility],
+)

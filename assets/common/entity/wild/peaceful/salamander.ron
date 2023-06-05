@@ -1,0 +1,14 @@
+#![enable(implicit_some)]
+(
+    name: Name("Salamander"),
+    body: Exact(QuadrupedLow((
+        species: Salamander,
+        body_type: Male,
+    ))),
+    alignment: Alignment(Wild),
+    loot: LootTable("common.loot_tables.creature.quad_low.salamander"),
+    inventory: (
+        loadout: FromBody,
+    ),
+    meta: [],
+)

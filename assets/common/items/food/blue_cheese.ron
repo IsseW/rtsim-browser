@@ -1,0 +1,19 @@
+ItemDef(
+    name: "Blue Cheese",
+    description: "Pungent and filling",
+    kind: Consumable(
+        kind: Food,
+        effects: One(
+            Buff((
+                kind: Saturation,
+                data: (
+                    strength: 3.0,
+                    duration: Some(20),
+                ),
+                cat_ids: [Natural],
+            )),
+        )
+    ),
+    quality: High,
+    tags: [Food],
+)

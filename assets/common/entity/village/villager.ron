@@ -1,0 +1,28 @@
+#![enable(implicit_some)]
+(
+    name: Name("Villager"),
+    body: RandomWith("humanoid"),
+    alignment: Alignment(Npc),
+    loot: LootTable("common.loot_tables.creature.humanoid"),
+    inventory: (
+        loadout: Inline((
+            inherit: Asset("common.loadout.village.villager"),
+            active_hands: InHands((Choice([
+                (1, Item("common.items.weapons.tool.broom")),
+                (1, Item("common.items.weapons.tool.hoe")),
+                (1, Item("common.items.weapons.tool.pickaxe")),
+                (1, Item("common.items.weapons.tool.rake")),
+                (1, Item("common.items.weapons.tool.shovel-0")),
+                (1, Item("common.items.weapons.tool.shovel-1")),
+                (1, Item("common.items.tool.instruments.lyre")),
+                (1, Item("common.items.tool.instruments.lute")),
+                (1, Item("common.items.tool.instruments.guitar")),
+            ]), None)),
+        )),
+        items: [
+            (10, "common.items.consumable.potion_big"),
+            (10, "common.items.food.sunflower_icetea"),
+        ],
+    ),
+    meta: [],
+)

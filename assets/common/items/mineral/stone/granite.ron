@@ -1,0 +1,9 @@
+ItemDef(
+    name: "Granite",
+    description: "A light-colored igneous rock, coarse-grained and formed by intrusion.",
+    kind: Ingredient(
+        descriptor: "Granite",
+    ),
+    quality: Common,
+    tags: [],
+)

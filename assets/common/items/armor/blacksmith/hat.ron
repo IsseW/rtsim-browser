@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Blacksmith Hat",
+    description: "",
+    kind: Armor((
+        kind: Head,
+        stats: FromSet("Blacksmith"),
+    )),
+    quality: High,
+    tags: [
+    ],
+)

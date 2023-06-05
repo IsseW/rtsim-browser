@@ -1,0 +1,15 @@
+ItemDef(
+    name: "Honeycomb Pendant",
+    description: "This necklace is always spewing out honey...",
+    kind: Armor((
+        kind: Neck,
+        stats: Direct((
+            protection: Some(Normal(1.0)),
+            energy_max: Some(8.0),
+            energy_reward: Some(0.04),
+            crit_power: Some(-0.06),
+        )),
+    )),
+    quality: Moderate,
+    tags: [],
+)

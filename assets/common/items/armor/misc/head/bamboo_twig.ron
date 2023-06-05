@@ -1,0 +1,12 @@
+ItemDef(
+    name: "Bamboo Twig",
+    description: "A tiny stray shoot from a larger bamboo shaft.",
+	kind: Armor((
+        kind: Head,
+        stats: Direct((
+            energy_reward: Some(0.033),
+        )),
+    )),
+    quality: Common,
+    tags: [],
+)

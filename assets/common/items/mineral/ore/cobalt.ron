@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Cobalt Ore",
+    description: "A blue, shiny ore.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: High,
+    tags: [],
+)

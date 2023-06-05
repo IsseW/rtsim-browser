@@ -1,0 +1,9 @@
+ItemDef(
+    name: "Ruby",
+    description: "A superbly scarlet gem.",
+    kind: Ingredient(
+        descriptor: "Ruby",
+    ),
+    quality: High,
+    tags: [],
+)

@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Rawhide Shoes",
+    description: "Tightly packed pieces of leather. Light-weight and sturdy!",
+    kind: Armor((
+        kind: Foot,
+        stats: FromSet("Rawhide"),
+    )),
+    quality: Low,
+    tags: [
+        Material(Rawhide),
+        SalvageInto(Rawhide),
+    ],
+)

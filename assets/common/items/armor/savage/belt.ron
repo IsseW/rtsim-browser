@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Savage Belt",
+    description: "Brings the fury of the barbarians.",
+    kind: Armor((
+        kind: Belt,
+        stats: FromSet("Savage"),
+    )),
+    quality: Moderate,
+    tags: [
+        Material(Leather),
+        SalvageInto(Leather),
+    ],
+)

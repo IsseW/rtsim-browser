@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Druid Cape",
+    description: "Incredibly light, with the essence of nature.",
+    kind: Armor((
+        kind: Back,
+        stats: FromSet("Lifecloth"),
+    )),
+    quality: High,
+    tags: [
+        Material(Lifecloth),
+        SalvageInto(Lifecloth),
+    ],
+)

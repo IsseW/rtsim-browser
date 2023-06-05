@@ -1,0 +1,19 @@
+ItemDef(
+    name: "Cooked Fish",
+    description: "A fresh cooked seafood steak.",
+    kind: Consumable(
+        kind: Food,
+        effects: One(
+            Buff((
+                kind: Saturation,
+                data: (
+                    strength: 2.5,
+                    duration: Some(10),
+                    ),
+                cat_ids: [Natural],
+            )),
+        )
+    ),
+    quality: Common,
+    tags: [Food],
+)

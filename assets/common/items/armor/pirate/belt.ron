@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Pirate Belt",
+    description: "",
+    kind: Armor((
+        kind: Belt,
+        stats: FromSet("Pirate"),
+    )),
+    quality: Epic,
+    tags: [
+    ],
+)

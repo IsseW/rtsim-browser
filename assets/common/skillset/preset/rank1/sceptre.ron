@@ -1,0 +1,12 @@
+([
+    Group(Weapon(Sceptre)),
+
+    // Beam
+    Skill((Sceptre(LDamage), 1)),
+    Skill((Sceptre(LRange), 1)),
+
+    // Heal
+    Skill((Sceptre(HHeal), 1)),
+    Skill((Sceptre(HDuration), 1)),
+
+])

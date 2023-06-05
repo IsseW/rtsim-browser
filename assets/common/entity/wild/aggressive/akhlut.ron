@@ -1,0 +1,11 @@
+#![enable(implicit_some)]
+(
+    name: Automatic,
+    body: RandomWith("akhlut"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.creature.quad_medium.ice"),
+    inventory: (
+        loadout: FromBody,
+    ),
+    meta: [],
+)

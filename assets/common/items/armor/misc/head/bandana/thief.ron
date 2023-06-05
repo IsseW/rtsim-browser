@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Thief Bandana",
+    description: "Common bandit's mask.",
+    kind: Armor((
+        kind: Head,
+        stats: Direct((
+            crit_power: Some(0.0045),
+            stealth: Some(0.18),
+        )),
+    )),
+    quality: Common,
+    tags: [],
+)

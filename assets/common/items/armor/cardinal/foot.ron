@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Cardinal's Boots",
+    description: "The boots with millions of steps.",
+    kind: Armor((
+        kind: Foot,
+        stats: FromSet("Cardinal"),
+    )),
+    quality: Legendary,
+    tags: [
+    ],
+)

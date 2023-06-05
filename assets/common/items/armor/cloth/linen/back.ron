@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Linen Shawl",
+    description: "Roughly stitched, but it seems to hold.",
+    kind: Armor((
+        kind: Back,
+        stats: FromSet("Linen"),
+    )),
+    quality: Low,
+    tags: [
+        Material(Linen),
+        SalvageInto(Linen),
+    ],
+)

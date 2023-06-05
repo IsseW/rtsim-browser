@@ -1,0 +1,11 @@
+#![enable(implicit_some)]
+(
+    name: Name("Possessed Turret"),
+    body: Exact(Object(Crossbow)),
+    alignment: Alignment(Enemy),
+    loot: Item("common.items.crafting_ing.twigs"),
+    inventory: (
+        loadout: FromBody,
+    ),
+    meta: [],
+)

@@ -1,0 +1,20 @@
+SpinMelee(
+    buildup_duration: 0.25,
+    swing_duration: 0.3,
+    recover_duration: 1.0,
+    melee_constructor: (
+        kind: SonicWave(
+            damage: 10,
+            poise: 100,
+            knockback: 20,
+        ),
+        range: 10,
+        angle: 360.0,
+    ),
+    energy_cost: 0.0,
+    is_infinite: false,
+    movement_behavior: Stationary,
+    forward_speed: 0.0,
+    num_spins: 1,
+    specifier: None,
+)

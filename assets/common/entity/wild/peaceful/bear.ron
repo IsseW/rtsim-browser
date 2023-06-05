@@ -1,0 +1,12 @@
+// FIXME: move this boi to spot directory
+#![enable(implicit_some)]
+(
+    name: Name("Well-fed Bear"),
+    body: RandomWith("bear"),
+    alignment: Alignment(Wild),
+    loot: LootTable("common.loot_tables.creature.quad_medium.clawed"),
+    inventory: (
+        loadout: FromBody,
+    ),
+    meta: [],
+)

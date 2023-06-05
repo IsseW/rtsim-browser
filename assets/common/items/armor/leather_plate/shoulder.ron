@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Leather Plate Shoulder Pad",
+    description: "Leather adorned with steel for better protection.",
+    kind: Armor((
+        kind: Shoulder,
+        stats: FromSet("Leather Plate"),
+    )),
+    quality: Moderate,
+    tags: [
+        Material(Leather),
+        SalvageInto(Leather),
+    ],
+)

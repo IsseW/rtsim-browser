@@ -1,0 +1,15 @@
+ItemDef(
+    name: "Iron and Leather Spaulders",
+    description: "Leather inset with iron fragments provide protection to the wearer.",
+    kind: Armor((
+        kind: Shoulder,
+        stats: Direct((
+            protection: Some(Normal(9.0)),
+        )),
+    )),
+    quality: Common,
+    tags: [
+        Material(Leather),
+        SalvageInto(Leather),
+    ],
+)

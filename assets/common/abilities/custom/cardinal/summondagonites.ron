@@ -1,0 +1,18 @@
+BasicSummon(
+    buildup_duration: 0.2,
+    cast_duration: 0.3,
+    recover_duration: 0.3,
+    summon_amount: 2,
+    summon_distance: (4, 4),
+    summon_info: (
+        body: Arthropod((
+            species: Dagonite,
+            body_type: Male,
+        )),
+        scale: None,
+        has_health: true,
+        loadout_config: None,
+        skillset_config: Some(Rank3),
+    ),
+    duration: None,
+)

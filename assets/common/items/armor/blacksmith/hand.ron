@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Blacksmith Gloves",
+    description: "",
+    kind: Armor((
+        kind: Hand,
+        stats: FromSet("Blacksmith"),
+    )),
+    quality: Epic,
+    tags: [
+    ],
+)

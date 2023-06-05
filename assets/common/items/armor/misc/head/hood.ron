@@ -1,0 +1,14 @@
+ItemDef(
+    name: "Hood",
+    description: "Become one with the treetops.",
+    kind: Armor((
+        kind: Head,
+        stats: Direct((
+            protection: Some(Normal(2.5)),
+            crit_power: Some(0.016),
+            stealth: Some(0.22),
+        )),
+    )),
+    quality: Moderate,
+    tags: [],
+)

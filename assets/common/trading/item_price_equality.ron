@@ -1,0 +1,7 @@
+[
+    // Legendary sceptres
+    Set([
+        "common.items.weapons.sceptre.root_evil",
+        "common.items.weapons.sceptre.caduceus",
+    ]),
+]

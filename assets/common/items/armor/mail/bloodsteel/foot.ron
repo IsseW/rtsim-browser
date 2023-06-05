@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Bloodsteel Sabatons",
+    description: "Forged to preserve life, at the cost of another.",
+    kind: Armor((
+        kind: Foot,
+        stats: FromSet("Bloodsteel"),
+    )),
+    quality: Epic,
+    tags: [
+        Material(Bloodsteel),
+        SalvageInto(Bloodsteel),
+    ],
+)

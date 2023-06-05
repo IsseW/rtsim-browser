@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Lively Vine",
+    description: "I think it just moved...",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Common,
+    tags: [],
+)

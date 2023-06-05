@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Assassin Chest",
+    description: "Only the best for a member of the creed.",
+    kind: Armor((
+        kind: Chest,
+        stats: FromSet("Assassin"),
+    )),
+    quality: Moderate,
+    tags: [
+        Material(Leather),
+        SalvageInto(Leather),
+    ],
+)

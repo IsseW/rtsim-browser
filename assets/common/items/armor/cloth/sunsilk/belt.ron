@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Sunsilk Sash",
+    description: "It radiates with the sun's power, and the grace to harness it.",
+    kind: Armor((
+        kind: Belt,
+        stats: FromSet("Sunsilk"),
+    )),
+    quality: Legendary,
+    tags: [
+        Material(Sunsilk),
+        SalvageInto(Sunsilk),
+    ],
+)

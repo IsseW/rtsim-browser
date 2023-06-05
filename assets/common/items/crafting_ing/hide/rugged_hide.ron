@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Rugged Hide",
+    description: "A durable pelt from fierce creatures, favored by leatherworkers.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Epic,
+    tags: [
+    ],
+)

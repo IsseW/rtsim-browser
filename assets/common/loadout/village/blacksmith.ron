@@ -1,0 +1,10 @@
+#![enable(implicit_some)]
+(
+    head: Item("common.items.armor.blacksmith.hat"),
+    chest: Item("common.items.armor.blacksmith.chest"),
+    gloves: Item("common.items.armor.blacksmith.hand"),
+    belt: Item("common.items.armor.blacksmith.belt"),
+    legs: Item("common.items.armor.blacksmith.pants"),
+    feet: Item("common.items.armor.mail.iron.foot"),
+    lantern: Item("common.items.lantern.black_0"),
+)

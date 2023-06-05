@@ -1,0 +1,11 @@
+#![enable(implicit_some)]
+(
+    name: Automatic,
+    body: RandomWith("axebeak"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.creature.theropod.axebeak"),
+    inventory: (
+        loadout: FromBody,
+    ),
+    meta: [],
+)

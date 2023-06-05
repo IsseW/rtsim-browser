@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Leather Gloves",
+    description: "Swift like the wind.",
+    kind: Armor((
+        kind: Hand,
+        stats: FromSet("Leather"),
+    )),
+    quality: Common,
+    tags: [
+        Material(Leather),
+        SalvageInto(Leather),
+    ],
+)

@@ -1,0 +1,13 @@
+SpawnEntry (
+    name: "Tropical rocks wildlife.",
+    note: "",
+    rules: [
+        Pack(
+            groups: [
+                (1, (1, 3, "common.entity.wild.peaceful.gecko")),
+            ],
+            spawn_mode: Land,
+            day_period: [Night, Morning, Noon, Evening],
+        ),
+    ],
+)

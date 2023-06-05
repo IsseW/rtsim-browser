@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Witch Mantle",
+    description: "",
+    kind: Armor((
+        kind: Shoulder,
+        stats: FromSet("Witch"),
+    )),
+    quality: Epic,
+    tags: [
+    ],
+)

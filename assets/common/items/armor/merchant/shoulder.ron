@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Merchant Mantle",
+    description: "",
+    kind: Armor((
+        kind: Shoulder,
+        stats: FromSet("Merchant"),
+    )),
+    quality: Epic,
+    tags: [
+    ],
+)

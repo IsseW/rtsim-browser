@@ -1,0 +1,15 @@
+ItemDef(
+    name: "Leather Cap",
+    description: "Swift like the wind.",
+    kind: Armor((
+        kind: Head,
+        stats: Direct((
+            protection: Some(Normal(1.0)),
+        )),
+    )),
+    quality: Common,
+    tags: [
+        Material(Leather),
+        SalvageInto(Leather),
+    ],
+)

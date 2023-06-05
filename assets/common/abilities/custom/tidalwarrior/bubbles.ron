@@ -1,0 +1,19 @@
+BasicBeam(
+    buildup_duration: 0.75,
+    recover_duration: 1.0,
+    beam_duration: 2.5,
+    damage: 7.5,
+    tick_rate: 2.0,
+    range: 25.0,
+    max_angle: 15.0,
+    damage_effect: Some(Buff((
+        kind: Wet,
+        dur_secs: 5.0,
+        strength: Value(2.5),
+        chance: 1.0,
+    ))),
+    energy_regen: 0,
+    energy_drain: 0,
+    ori_rate: 0.3,
+    specifier: Bubbles,
+)

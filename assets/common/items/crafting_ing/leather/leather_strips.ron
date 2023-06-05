@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Leather Strips",
+    description: "Simple and versatile.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Common,
+    tags: [BaseMaterial],
+)

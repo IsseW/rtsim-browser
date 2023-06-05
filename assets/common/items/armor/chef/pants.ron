@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Chef Pants",
+    description: "",
+    kind: Armor((
+        kind: Pants,
+        stats: FromSet("Chef"),
+    )),
+    quality: Epic,
+    tags: [
+    ],
+)

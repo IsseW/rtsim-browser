@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2019 Artem Polishchuk <ego.cordatus@gmail.com> -->
+<component type="desktop-application">
+  <id>net.veloren.veloren.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+
+  <name>Veloren</name>
+  <provides>
+    <binary>veloren-voxygen</binary>
+  </provides>
+
+  <content_rating type="oars-1.0">
+    <content_attribute id="social-chat">intense</content_attribute>
+    <content_attribute id="social-info">mild</content_attribute>
+    <content_attribute id="violence-cartoon">mild</content_attribute>
+    <content_attribute id="violence-fantasy">mild</content_attribute>
+  </content_rating>
+
+  <summary>
+    Veloren is a multiplayer voxel RPG written in Rust. It is inspired by games
+    such as Cube World, Legend of Zelda: Breath of the Wild, Dwarf Fortress and
+    Minecraft.
+  </summary>
+  <summary xml:lang="de">
+    Veloren ist ein in Rust geschriebenes Mehrspieler Voxel RPG. Es wurde von
+    Spielen wie Cube World, The Legend of Zelda: Breath of the Wild, Dwarf
+    Fortress und Minecraft inspiriert.
+  </summary>
+
+  <description>
+    <p>
+      Welcome To Veloren!
+    </p><p xml:lang="de">
+        Willkommen bei Veloren!
+    </p><p>
+      Veloren is a multiplayer voxel RPG written in Rust. Veloren takes
+      inspiration from games such as Cube World, Minecraft and Dwarf Fortress.
+      The game is currently under heavy development, but is playable.
+    </p><p xml:lang="de">
+        Veloren ist ein in Rust geschriebenes Mehrspieler Voxel RPG. Es wurde
+        von Spielen wie Cube World, Minecraft und Dwarf Fortress inspiriert.
+        Das Spiel befindet sich mommentan noch in Entwicklung, ist aber bereits
+        spielbar.
+    </p><p>
+      Development
+    </p><p xml:lang="de">
+      Entwicklung
+    </p><p>
+      Currently the communication of contributors happens mainly on our official
+      Discord server (https://discord.gg/kjwJwjK). You can join it to keep up
+      with the development, talk to us or contribute something yourself. Anyone
+      who shows genuine effort to help is welcome in our team. You don't have to
+      know how to program to contribute!
+    </p><p xml:lang="de">
+      Aktuell findet die Kommunikation zwischen Beitragenden hauptsächlich auf
+      unserem offiziellen Discord (https://discord.gg/kjwJwjK) Server statt.
+      Du kannst beitreten um Neuigkeiten über die Entwicklung zu erhalten, mit
+      uns zu reden oder selbst etwas beizutragen. Jeder, der sich bemüht zu helfen
+      ist in unserem Team willkommen. Du musst nicht wissen wie man programmiert,
+      um etwas beizutragen.
+    </p>
+  </description>
+
+  <releases>
+    <release date="@DATE@" version="@VERSION@"></release>
+  </releases>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://media.discordapp.net/attachments/634860358623821835/884138091537907793/screenshot_1630865233900.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://media.discordapp.net/attachments/634860358623821835/885141629902684180/bg_12.jpg</image>
+    </screenshot>
+    <screenshot>
+      <image>https://media.discordapp.net/attachments/634860358623821835/884297602462539876/screenshot_1630903166427.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://media.discordapp.net/attachments/634860358623821835/885141632519905330/bg_10.jpg</image>
+    </screenshot>
+  </screenshots>
+
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>gamepad</control>
+  </supports>
+
+  <keywords>
+    <keyword>multiplayer</keyword>
+    <keyword>sandbox</keyword>
+    <keyword>world</keyword>
+  </keywords>
+
+  <url type="bugtracker">https://gitlab.com/veloren/veloren/issues</url>
+  <url type="faq">https://gitlab.com/veloren/veloren#faq</url>
+  <url type="help">https://book.veloren.net/</url>
+  <url type="homepage">https://veloren.net</url>
+</component>

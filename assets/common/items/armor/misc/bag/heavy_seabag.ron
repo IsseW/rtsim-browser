@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Heavy Seabag",
+    description: "Commonly used by sailors.",
+    kind: Armor((
+        kind: Bag,
+        stats: Direct(()),
+    )),
+    quality: Moderate,
+    tags: [Bag],
+    slots: 14,
+)

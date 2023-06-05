@@ -1,0 +1,16 @@
+ItemDef(
+    name: "Chieftain Mask",
+    description: "It smells like burned wood.",
+	kind: Armor((
+        kind: Head,
+        stats: Direct((
+            protection: Some(Normal(3.0)),
+            poise_resilience: Some(Normal(1.0)),
+            energy_max: Some(14.0),
+        )),
+    )),
+    quality: High,
+    tags: [
+        Gnarling,
+        ],
+)

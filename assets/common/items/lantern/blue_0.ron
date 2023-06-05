@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Cool Blue Lantern",
+    description: "This lantern is surprisingly cold when lit.",
+    kind: Lantern(
+        (
+            color: (r: 55, g: 100, b: 255),
+            strength_thousandths: 7000,
+            flicker_thousandths: 300,
+        ),
+    ),
+    quality: High,
+    tags: [Utility],
+)

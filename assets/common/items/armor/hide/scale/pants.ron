@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Scale Leggings",
+    description: "Each embedded scale provides additional protection.",
+    kind: Armor((
+        kind: Pants,
+        stats: FromSet("Scale"),
+    )),
+    quality: Moderate,
+    tags: [
+        Material(Scale),
+        SalvageInto(Scale),
+    ],
+)

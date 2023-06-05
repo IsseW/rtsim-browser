@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Twig Wraps",
+    description: "Magically imbued twigs interlocked into simple hand wraps.",
+    kind: Armor((
+        kind: Hand,
+        stats: FromSet("Twigs"),
+    )),
+    quality: Moderate,
+    tags: [
+    ],
+)

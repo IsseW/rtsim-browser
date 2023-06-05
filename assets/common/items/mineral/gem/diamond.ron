@@ -1,0 +1,9 @@
+ItemDef(
+    name: "Diamond",
+    description: "A sparkling silver gem.",
+    kind: Ingredient(
+        descriptor: "Diamond",
+    ),
+    quality: Epic,
+    tags: [],
+)

@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Blue Linen Boots",
+    description: "Cobbled rough fabric boots, dyed blue.",
+    kind: Armor((
+        kind: Foot,
+        stats: FromSet("Cloth Blue"),
+    )),
+    quality: Common,
+    tags: [
+        Material(Linen),
+        SalvageInto(Linen),
+    ],
+)

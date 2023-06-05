@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Bonerattler Belt",
+    description: "Sections of vertebrae fastened together with hide and a bonerattler eye for the buckle.",
+    kind: Armor((
+        kind: Belt,
+        stats: FromSet("Bonerattler"),
+    )),
+    quality: High,
+    tags: [
+        Material(Leather),
+        SalvageInto(Leather),
+    ],
+)

@@ -1,0 +1,43 @@
+ItemDef(
+    name: "Golden Cheese",
+    description: "They say gods eat it to get eternal youth.",
+    kind: Consumable(
+        kind: Drink,
+        effects: All([
+            Buff((
+                kind: Regeneration,
+                data: (
+                    strength: 1000,
+                    duration: Some(999),
+                    ),
+                cat_ids: [Natural],
+            )),
+            Buff((
+                kind: EnergyRegen,
+                data: (
+                    strength: 1000,
+                    duration: Some(999),
+                    ),
+                cat_ids: [Natural],
+            )),
+            Buff((
+                kind: IncreaseMaxHealth,
+                data: (
+                    strength: 50000,
+                    duration: Some(999),
+                    ),
+                cat_ids: [Natural],
+            )),
+            Buff((
+                kind: IncreaseMaxEnergy,
+                data: (
+                    strength: 50000,
+                    duration: Some(999),
+                    ),
+                cat_ids: [Natural],
+            )),
+        ])
+    ),
+    quality: Debug,
+    tags: [Food],
+)

@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Silken Skirt",
+    description: "Weaved with care by a skilled tailor.",
+    kind: Armor((
+        kind: Pants,
+        stats: FromSet("Silk"),
+    )),
+    quality: Moderate,
+    tags: [
+        Material(Silk),
+        SalvageInto(Silk),
+    ],
+)

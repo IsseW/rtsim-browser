@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Thick Bone",
+    description: "A thick bone, it seems sturdy enough to craft with.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Common,
+    tags: [],
+)

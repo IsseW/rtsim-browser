@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Pirate Mantle",
+    description: "",
+    kind: Armor((
+        kind: Shoulder,
+        stats: FromSet("Pirate"),
+    )),
+    quality: Epic,
+    tags: [
+    ],
+)

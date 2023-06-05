@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Medium Grass",
+    description: "Greener than an orc's snout.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Common,
+    tags: [],
+)

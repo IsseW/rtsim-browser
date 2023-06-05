@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Twig Pants",
+    description: "Magically imbued twigs formed into links similar to chainmail.",
+    kind: Armor((
+        kind: Pants,
+        stats: FromSet("Twigs"),
+    )),
+    quality: Moderate,
+    tags: [
+    ],
+)

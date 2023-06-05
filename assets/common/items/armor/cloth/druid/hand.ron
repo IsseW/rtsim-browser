@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Druid Handwraps",
+    description: "Incredibly light, with the essence of nature.",
+    kind: Armor((
+        kind: Hand,
+        stats: FromSet("Lifecloth"),
+    )),
+    quality: High,
+    tags: [
+        Material(Lifecloth),
+        SalvageInto(Lifecloth),
+    ],
+)

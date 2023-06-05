@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Druid Leggings",
+    description: "Incredibly light, with the essence of nature.",
+    kind: Armor((
+        kind: Pants,
+        stats: FromSet("Lifecloth"),
+    )),
+    quality: High,
+    tags: [
+        Material(Lifecloth),
+        SalvageInto(Lifecloth),
+    ],
+)

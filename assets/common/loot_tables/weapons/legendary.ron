@@ -1,0 +1,4 @@
+[
+    (1.0, LootTable("common.loot_tables.weapons.legendary_melee")),
+    (1.0, LootTable("common.loot_tables.weapons.legendary_ranged")),
+]

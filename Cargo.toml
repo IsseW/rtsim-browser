@@ -1,0 +1,36 @@
+[package]
+name = "rtsim-browser"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = "0.10.1"
+veloren-server = { git = "https://gitlab.com/veloren/veloren.git" }
+veloren-common = { git = "https://gitlab.com/veloren/veloren.git" }
+veloren-rtsim = { git = "https://gitlab.com/veloren/veloren.git" }
+veloren-common-net = { git = "https://gitlab.com/veloren/veloren.git" }
+veloren-common-base = { git = "https://gitlab.com/veloren/veloren.git" }
+veloren-world = { git = "https://gitlab.com/veloren/veloren.git" }
+tokio = { version = "*", features = ["rt-multi-thread"] }
+bevy_egui = "0.20.3"
+seldom_fn_plugin = "0.3.0"
+num_cpus = "1.15.0"
+futures-lite = "1.13.0"
+bevy_pancam = "0.8.0"
+vek = "0.15.10"
+specs = { version = "0.18", features = ["nightly"] }
+
+[profile.dev]
+opt-level = 2
+overflow-checks = true
+debug-assertions = true
+panic = "abort"
+debug = false
+lto = false
+incremental = true
+# All packages that aren't members of this workspace
+[profile.dev.package."*"]
+# TODO: seems like opt-level=2 should be sufficient here....
+opt-level = 3

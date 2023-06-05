@@ -1,0 +1,14 @@
+common-abilities-debug-possess = Săgeată Manipulatoare
+    .desc = Trage o săgeată otrăvitoare care te lasă să controlezi inamicul.
+common-abilities-sword-spin = Vârtej de vânt
+    .desc = Mișcă-te înainte în timp ce te rotești cu sabia.
+common-abilities-axe-leap = Saltul Toporului
+    .desc = Un salt cu mișcare tăioasă la poziția cursorului.
+common-abilities-hammer-leap = Lovitura Morții
+    .desc = Un atac „Zonă de Efect” cu aruncare. Salt la poziția cursorului.
+common-abilities-bow-shotgun = Burst
+    .desc = Trage rapid mai multe sageți
+common-abilities-staff-fireshockwave = Inel de Foc
+    .desc = Aprinde pământul cu undă de șoc în flăcări.
+common-abilities-sceptre-wardingaura = Aură Protectoare
+    .desc = Protejează aliații tăi împotriva atacutilor inamicilor

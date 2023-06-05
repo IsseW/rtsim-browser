@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Alchemist Hat",
+    description: "It seems like a parrot was perched up here.",
+    kind: Armor((
+        kind: Head,
+        stats: FromSet("Alchemist"),
+    )),
+    quality: High,
+    tags: [
+    ],
+)

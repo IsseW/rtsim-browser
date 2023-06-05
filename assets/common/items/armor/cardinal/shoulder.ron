@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Cardinal's Shoulderguard",
+    description: "The other was lost in a vicious fight.",
+    kind: Armor((
+        kind: Shoulder,
+        stats: FromSet("Cardinal"),
+    )),
+    quality: Legendary,
+    tags: [
+    ],
+)

@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Bronze Gauntlets",
+    description: "'Heavy and dull, but it can take a punch.'",
+    kind: Armor((
+        kind: Hand,
+        stats: FromSet("Bronze"),
+    )),
+    quality: Low,
+    tags: [
+        Material(Bronze),
+        SalvageInto(Bronze),
+    ],
+)

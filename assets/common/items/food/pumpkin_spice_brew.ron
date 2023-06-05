@@ -1,0 +1,19 @@
+ItemDef(
+    name: "Pumpkin Spice Brew",
+    description: "Brewed from moldy pumpkins.",
+    kind: Consumable(
+        kind: Drink,
+        effects: One(
+            Buff((
+                kind: Saturation,
+                data: (
+                    strength: 2.0,
+                    duration: Some(10),
+                    ),
+                cat_ids: [Natural],
+            )),
+        )
+    ),
+    quality: Moderate,
+    tags: [Food],
+)

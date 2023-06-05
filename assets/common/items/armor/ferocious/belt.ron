@@ -1,0 +1,12 @@
+ItemDef(
+    name: "Ferocious Sash",
+    description: "The dark side of nature",
+    kind: Armor((
+        kind: Belt,
+        stats: FromSet("Ferocious"),
+    )),
+    quality: Epic,
+    tags: [
+        Material(Moonweave),
+    ],
+)

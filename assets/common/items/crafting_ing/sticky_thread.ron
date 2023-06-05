@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Sticky Thread",
+    description: "A messy spider extract, but a tailor may have use for it.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Common,
+    tags: [],
+)

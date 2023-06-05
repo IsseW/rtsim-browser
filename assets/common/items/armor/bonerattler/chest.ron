@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Bonerattler Cuirass",
+    description: "The spiny back and hide of a bonerattler fastened together into a protective cuirass.",
+    kind: Armor((
+        kind: Chest,
+        stats: FromSet("Bonerattler"),
+    )),
+    quality: High,
+    tags: [
+        Material(Leather),
+        SalvageInto(Leather),
+    ],
+)

@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Coal",
+    description: "A combustible black rock that happens to be really good at burning.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Common,
+    tags: [],
+)

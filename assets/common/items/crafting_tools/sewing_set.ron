@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Sewing Set",
+    description: "Used to craft various items.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Moderate,
+    tags: [CraftingTool],
+)

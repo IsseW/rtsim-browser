@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Steel Boots",
+    description: "Metal alloy boots providing a more comfortable and durable protection.",
+    kind: Armor((
+        kind: Foot,
+        stats: FromSet("Steel"),
+    )),
+    quality: Moderate,
+    tags: [
+        Material(Steel),
+        SalvageInto(Steel),
+    ],
+)

@@ -1,0 +1,19 @@
+#![enable(implicit_some)]
+(
+    name: Name("Pirate"),
+    body: RandomWith("humanoid"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.spots.pirate"),
+    inventory: (
+        loadout: Inline((
+            inherit: Asset("common.loadout.spots.pirate"),
+            active_hands: InHands((
+                ModularWeapon(tool: Sword, material: Iron, hands: One),
+                ModularWeapon(tool: Sword, material: Iron, hands: One),
+            )),
+        )),
+    ),
+    meta: [
+        SkillSetAsset("common.skillset.preset.rank2.fullskill"),
+    ],
+)

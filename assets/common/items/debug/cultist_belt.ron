@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Velorite Belt",
+    description: "",
+    kind: Armor((
+        kind: Belt,
+        stats: Direct(()),
+    )),
+    quality: Debug,
+    tags: [],
+)

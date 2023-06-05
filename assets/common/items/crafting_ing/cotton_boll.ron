@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Cotton Boll",
+    description: "Plucked from a common cotton plant.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Common,
+    tags: [],
+)

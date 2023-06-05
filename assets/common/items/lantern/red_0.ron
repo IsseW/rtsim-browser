@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Red Lantern",
+    description: "Caution: contents hot",
+    kind: Lantern(
+        (
+            color: (r: 255, g: 70, b: 70),
+            strength_thousandths: 5000,
+            flicker_thousandths: 250,
+        ),
+    ),
+    quality: Common,
+    tags: [Utility],
+)

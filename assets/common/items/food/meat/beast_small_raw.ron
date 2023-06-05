@@ -1,0 +1,19 @@
+ItemDef(
+    name: "Raw Meat Sliver",
+    description: "Small hunk of beastly animal meat, best after cooking.",
+    kind: Consumable(
+        kind: Food,
+        effects: One(
+            Buff((
+                kind: Saturation,
+                data: (
+                    strength: .25,
+                    duration: Some(10),
+                    ),
+                cat_ids: [Natural],
+            )),
+        )
+    ),
+    quality: Common,
+    tags: [Food],
+)

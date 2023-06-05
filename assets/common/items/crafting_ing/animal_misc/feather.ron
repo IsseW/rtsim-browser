@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Feather",
+    description: "Feather from a bird.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Common,
+    tags: [],
+)

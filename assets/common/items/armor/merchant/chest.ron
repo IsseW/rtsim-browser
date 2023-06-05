@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Merchant Jacket",
+    description: "",
+    kind: Armor((
+        kind: Chest,
+        stats: FromSet("Merchant"),
+    )),
+    quality: Epic,
+    tags: [
+    ],
+)

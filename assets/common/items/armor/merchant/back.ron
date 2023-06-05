@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Merchant Backpack",
+    description: "",
+    kind: Armor((
+        kind: Back,
+        stats: FromSet("Merchant"),
+    )),
+    quality: High,
+    slots: 18,
+    tags: [],
+)

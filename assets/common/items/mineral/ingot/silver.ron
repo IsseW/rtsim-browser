@@ -1,0 +1,9 @@
+ItemDef(
+    name: "Silver Ingot",
+    description: "An ingot made of refined metallic silver.",
+    kind: Ingredient(
+        descriptor: "Silver",
+    ),
+    quality: Epic,
+    tags: [MaterialKind(Metal)],
+)

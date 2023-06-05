@@ -1,0 +1,14 @@
+ItemDef(
+    name: "Hog Hood",
+    description: "Wear the guise of a great swine now felled, so that you may honor its sacrifice.",
+    kind: Armor((
+        kind: Head,
+        stats: Direct((
+            protection: Some(Normal(3.0)),
+            crit_power: Some(0.0095),
+            stealth: Some(0.21),
+        )),
+    )),
+    quality: Moderate,
+    tags: [],
+)

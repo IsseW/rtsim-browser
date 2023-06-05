@@ -1,0 +1,11 @@
+#![enable(implicit_some)]
+(
+    name: Automatic,
+    body: RandomWith("black_widow"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.creature.arthropod.black_widow"),
+    inventory: (
+        loadout: FromBody,
+    ),
+    meta: [],
+)

@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Rawhide Shoulderpads",
+    description: "Tightly packed pieces of leather. Light-weight and sturdy!",
+    kind: Armor((
+        kind: Shoulder,
+        stats: FromSet("Rawhide"),
+    )),
+    quality: Low,
+    tags: [
+        Material(Rawhide),
+        SalvageInto(Rawhide),
+    ],
+)

@@ -1,0 +1,27 @@
+#![enable(implicit_some)]
+(
+    name: Name("Blacksmith"),
+    body: RandomWith("humanoid"),
+    alignment: Alignment(Npc),
+    loot: LootTable("common.loot_tables.creature.humanoid"),
+    inventory: (
+        loadout: Inline((
+            inherit: Asset("common.loadout.village.blacksmith"),
+            active_hands: InHands((Choice([
+                (1, Item("common.items.weapons.tool.broom")),
+                (1, Item("common.items.weapons.tool.hoe")),
+                (1, Item("common.items.weapons.tool.pickaxe")),
+                (1, Item("common.items.weapons.tool.rake")),
+                (1, Item("common.items.weapons.tool.shovel-0")),
+                (1, Item("common.items.weapons.tool.shovel-1")),
+            ]), None)),
+        )),
+        items: [
+            (10, "common.items.consumable.potion_big"),
+            (10, "common.items.food.sunflower_icetea"),
+        ],
+    ),
+    meta: [
+        SkillSetAsset("common.skillset.preset.rank3.fullskill"),
+    ],
+)

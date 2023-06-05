@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Leather Plate Gloves",
+    description: "Leather adorned with steel for better protection.",
+    kind: Armor((
+        kind: Hand,
+        stats: FromSet("Leather Plate"),
+    )),
+    quality: Moderate,
+    tags: [
+        Material(Leather),
+        SalvageInto(Leather),
+    ],
+)

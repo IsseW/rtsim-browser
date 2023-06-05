@@ -1,0 +1,14 @@
+#![enable(implicit_some)]
+(
+    name: Name("Arctic Fox"),
+    body: Exact(QuadrupedSmall((
+        species: Fox,
+        body_type: Female,
+    ))),
+    alignment: Alignment(Wild),
+    loot: LootTable("common.loot_tables.creature.quad_small.generic"),
+    inventory: (
+        loadout: FromBody,
+    ),
+    meta: [],
+)

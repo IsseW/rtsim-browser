@@ -1,0 +1,19 @@
+#![enable(implicit_some)]
+(
+    name: Name("Grim Salvager"),
+    body: RandomWith("humanoid"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.spots.bandit"),
+    inventory: (
+        loadout: Inline((
+            inherit: Asset("common.loadout.spots.dwarf_graverobber"),
+            active_hands: InHands((
+                ModularWeapon(tool: Hammer, material: Steel, hands: Two),
+                None
+            )),
+        )),
+    ),
+    meta: [
+        SkillSetAsset("common.skillset.preset.rank1.fullskill"),
+    ],
+)

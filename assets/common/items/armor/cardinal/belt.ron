@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Cardinal's Belt",
+    description: "Seemlessly transitions...",
+    kind: Armor((
+        kind: Belt,
+        stats: FromSet("Cardinal"),
+    )),
+    quality: Legendary,
+    tags: [
+    ],
+)

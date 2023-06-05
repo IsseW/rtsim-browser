@@ -1,0 +1,12 @@
+ItemDef(
+    name: "Velorite Battlemage Vest",
+    description: "",
+    kind: Armor((
+        kind: Chest,
+        stats: FromSet("Velorite Battlemage"),
+    )),
+    quality: High,
+    tags: [
+        Material(Velorite),
+    ],
+)

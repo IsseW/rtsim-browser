@@ -1,0 +1,14 @@
+#![enable(implicit_some)]
+(
+    name: Name("Gnarling Logger"),
+    body: RandomWith("gnarling"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.dungeon.tier-0.enemy"),
+    inventory: (
+        loadout: Inline((
+            inherit: Asset("common.loadout.dungeon.gnarling.logger"),
+            active_hands: InHands((Item("common.items.npc_weapons.biped_small.gnarling.logger"), None)),
+        )),
+    ),
+    meta: [],
+)

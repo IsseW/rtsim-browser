@@ -1,0 +1,7 @@
+ItemDef(
+    name: "Plain Cloth Glider",
+    description: "Simple, but classy.",
+    kind: Glider,
+    quality: Moderate,
+    tags: [],
+)

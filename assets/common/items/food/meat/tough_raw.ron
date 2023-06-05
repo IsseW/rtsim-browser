@@ -1,0 +1,19 @@
+ItemDef(
+    name: "Raw Tough Meat",
+    description: "Peculiar bit of meat, best after cooking.",
+    kind: Consumable(
+        kind: Food,
+        effects: One(
+            Buff((
+                kind: Saturation,
+                data: (
+                    strength: .36,
+                    duration: Some(10),
+                    ),
+                cat_ids: [Natural],
+            )),
+        )
+    ),
+    quality: Common,
+    tags: [Food],
+)

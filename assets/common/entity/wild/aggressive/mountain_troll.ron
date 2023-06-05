@@ -1,0 +1,11 @@
+#![enable(implicit_some)]
+(
+    name: Automatic,
+    body: RandomWith("troll_mountain"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.creature.biped_large.troll"),
+    inventory: (
+        loadout: FromBody,
+    ),
+    meta: [],
+)

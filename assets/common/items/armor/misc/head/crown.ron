@@ -1,0 +1,15 @@
+ItemDef(
+    name: "Crown",
+    description: "A crown fit for royal stature.",
+    kind: Armor((
+        kind: Head,
+        stats: Direct((
+            protection: Some(Normal(9.0)),
+            poise_resilience: Some(Normal(2.0)),
+            energy_max: Some(5.0),
+            crit_power: Some(0.006),
+        )),
+    )),
+    quality: Epic,
+    tags: [],
+)

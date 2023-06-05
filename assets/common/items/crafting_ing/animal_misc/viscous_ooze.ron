@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Viscous Ooze",
+    description: "A measure of viscous ooze from a slimy creature.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Common,
+    tags: [],
+)

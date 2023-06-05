@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Iron Pants",
+    description: "Sturdy and unyielding, across ages of war.",
+    kind: Armor((
+        kind: Pants,
+        stats: FromSet("Iron"),
+    )),
+    quality: Common,
+    tags: [
+        Material(Iron),
+        SalvageInto(Iron),
+    ],
+)

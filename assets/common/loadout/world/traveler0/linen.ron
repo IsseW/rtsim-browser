@@ -1,0 +1,16 @@
+#![enable(implicit_some)]
+(
+    shoulders: Item("common.items.armor.cloth.linen.shoulder"),
+    chest: Item("common.items.armor.cloth.linen.chest"),
+    gloves: Item("common.items.armor.cloth.linen.hand"),
+    back: Choice([
+        (1, Item("common.items.armor.cloth.linen.back")),
+        (1, None),
+    ]),
+    belt: Item("common.items.armor.cloth.linen.belt"),
+    legs: Item("common.items.armor.cloth.linen.pants"),
+    feet: Item("common.items.armor.cloth.linen.foot"),
+    lantern: Choice([
+        (1, Item("common.items.lantern.black_0")),
+    ]),
+)

@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Wanderer's Hat",
+    description: "The perfect headwear for those who feel at home on the highways and byways of Veloren.",
+    kind: Armor((
+        kind: Head,
+        stats: Direct((
+            crit_power: Some(0.016),
+            stealth: Some(0.1),
+        )),
+    )),
+    quality: Moderate,
+    tags: [],
+)

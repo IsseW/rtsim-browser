@@ -1,0 +1,12 @@
+ItemDef(
+    name: "Cultist Mantle",
+    description: "Ceremonial attire used by members.",
+    kind: Armor((
+        kind: Shoulder,
+        stats: FromSet("Cultist"),
+    )),
+    quality: Epic,
+    tags: [
+        Cultist,
+    ],
+)

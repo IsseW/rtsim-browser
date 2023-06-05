@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Collar",
+    description: "Tames neutral wild animals within 5 blocks",
+    kind: Utility(
+        kind: Collar,
+    ),
+    amount: 1,
+    quality: Moderate,
+    tags: [Utility],
+)

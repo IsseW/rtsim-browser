@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Bowl",
+    description: "A simple bowl for preparing meals.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Common,
+    tags: [],
+)

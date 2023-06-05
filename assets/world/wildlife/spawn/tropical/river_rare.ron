@@ -1,0 +1,13 @@
+SpawnEntry (
+    name: "Tropical rare river wildlife.",
+    note: "",
+    rules: [
+        Pack(
+            groups: [
+                (1, (1, 2, "common.entity.wild.aggressive.alligator")),
+            ],
+            spawn_mode: Land,
+            day_period: [Night, Morning, Noon, Evening],
+        ),
+    ],
+)

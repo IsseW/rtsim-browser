@@ -1,0 +1,12 @@
+ItemDef(
+    name: "Tarasque Boots",
+    description: "Tarasque claws form the outside of these boots, protecting the wearer's feet.",
+    kind: Armor((
+        kind: Foot,
+        stats: FromSet("Tarasque"),
+    )),
+    quality: High,
+    tags: [
+        Material(Carapace),
+    ],
+)

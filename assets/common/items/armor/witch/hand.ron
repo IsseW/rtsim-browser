@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Witch Handwarmers",
+    description: "",
+    kind: Armor((
+        kind: Hand,
+        stats: FromSet("Witch"),
+    )),
+    quality: Epic,
+    tags: [
+    ],
+)

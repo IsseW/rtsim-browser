@@ -1,0 +1,9 @@
+ItemDef(
+    name: "Hard Carapace",
+    description: "Tough, hard carapace, a shield to many creatures.",
+    kind: Ingredient(
+        descriptor: "Carapace",
+    ),
+    quality: High,
+    tags: [MaterialKind(Hide), Material(Carapace)],
+)

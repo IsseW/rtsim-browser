@@ -1,0 +1,17 @@
+BasicMelee(
+    energy_cost: 0,
+    buildup_duration: 0.3,
+    swing_duration: 0.05,
+    recover_duration: 0.45,
+    melee_constructor: (
+        kind: Slash(
+            damage: 9,
+            poise: 5,
+            knockback: 0,
+            energy_regen: 0,
+        ),
+        range: 3,
+        angle: 30,
+    ),
+    ori_modifier: 1.0,
+)

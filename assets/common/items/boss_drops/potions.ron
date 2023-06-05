@@ -1,0 +1,28 @@
+ItemDef(
+    name: "Potent Potion",
+    description: "A potent healing potion.",
+    kind: Consumable(
+        kind: Drink,
+        effects: All([
+            Buff((
+                kind: Potion,
+                data: (
+                    strength: 100.0,
+                    duration: Some(1),
+                    ),
+                cat_ids: [Natural],
+            )),
+            Buff((
+                kind: PotionSickness,
+                data: (
+                    strength: 0.33,
+                    duration: Some(45),
+                    delay: Some(1)
+                ),
+                cat_ids: [Natural],
+            )),
+        ])
+    ),
+    quality: High,
+    tags: [Potion],
+)

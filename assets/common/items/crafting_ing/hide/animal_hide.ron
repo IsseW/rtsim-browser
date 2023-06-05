@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Animal Hide",
+    description: "A common pelt from most animals. Becomes leather.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Low,
+    tags: [
+    ],
+)

@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Assassin Gloves",
+    description: "Only the best for a member of the creed.",
+    kind: Armor((
+        kind: Hand,
+        stats: FromSet("Assassin"),
+    )),
+    quality: Moderate,
+    tags: [
+        Material(Leather),
+        SalvageInto(Leather),
+    ],
+)

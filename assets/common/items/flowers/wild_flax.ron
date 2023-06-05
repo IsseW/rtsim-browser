@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Wild Flax",
+    description: "Could be used to spin some simple cloth.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Common,
+    tags: [],
+)

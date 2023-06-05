@@ -1,0 +1,24 @@
+#![enable(implicit_some)]
+(
+    name: Name("Guard"),
+    body: RandomWith("humanoid"),
+    alignment: Alignment(Npc),
+    loot: LootTable("common.loot_tables.creature.humanoid"),
+    inventory: (
+        loadout: Inline((
+            inherit: Asset("common.loadout.village.guard"),
+            active_hands: InHands((Choice([
+                (1, ModularWeapon(tool: Sword, material: Cobalt, hands: None)),
+                (2, ModularWeapon(tool: Bow, material: Ironwood, hands: None)),
+                (1, ModularWeapon(tool: Axe, material: Cobalt, hands: None)),
+            ]), None)),
+        )),
+        items: [
+            (25, "common.items.consumable.potion_big"),
+            (25, "common.items.food.sunflower_icetea"),
+        ],
+    ),
+    meta: [
+        SkillSetAsset("common.skillset.preset.rank3.fullskill"),
+    ],
+)

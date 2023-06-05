@@ -1,0 +1,14 @@
+ItemDef(
+    name: "Worn out Sandals",
+    description: "Loyal companions, though they don't look like they can go much further.",
+    kind: Armor((
+        kind: Foot,
+        stats: Direct((
+        )),
+    )),
+    quality: Low,
+    tags: [
+        Material(Linen),
+        SalvageInto(Linen),
+    ],
+)

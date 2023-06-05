@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Savage Shoulder Pad",
+    description: "Brings the fury of the barbarians.",
+    kind: Armor((
+        kind: Shoulder,
+        stats: FromSet("Savage"),
+    )),
+    quality: Moderate,
+    tags: [
+        Material(Leather),
+        SalvageInto(Leather),
+    ],
+)

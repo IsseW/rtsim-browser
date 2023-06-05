@@ -1,0 +1,32 @@
+ComboMelee2(
+    strikes: [
+        (
+            melee_constructor: (
+                kind: Stab(
+                    damage: 13,
+                    poise: 5,
+                    knockback: 0,
+                    energy_regen: 0,
+                ),
+                range: 5.0,
+                angle: 5.0,
+                damage_effect: Some(BuffsVulnerable(0.5, Parried)),
+            ),
+            buildup_duration: 0.15,
+            swing_duration: 0.1,
+            hit_timing: 0.5,
+            recover_duration: 0.4,
+            ori_modifier: 0.6,
+            movement: (
+                buildup: Some(Forward(2.0)),
+                swing: Some(Forward(2.0)),
+                recover: None,
+            ),
+        ),
+    ],
+    energy_cost_per_strike: 5,
+    meta: (
+        // The ability will parry melee attacks in the buildup portion
+        capabilities: ("BUILDUP_PARRIES"),
+    ),
+)

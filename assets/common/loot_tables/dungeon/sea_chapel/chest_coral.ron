@@ -1,0 +1,5 @@
+[
+    // Ingredients
+    (2.0, Item("common.items.crafting_ing.coral_branch")),
+    (0.5, Item("common.items.crafting_ing.pearl")),
+]

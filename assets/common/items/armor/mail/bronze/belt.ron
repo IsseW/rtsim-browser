@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Bronze Girdle",
+    description: "'Heavy and dull, but it can take a punch.'",
+    kind: Armor((
+        kind: Belt,
+        stats: FromSet("Bronze"),
+    )),
+    quality: Low,
+    tags: [
+        Material(Bronze),
+        SalvageInto(Bronze),
+    ],
+)

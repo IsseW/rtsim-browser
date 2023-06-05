@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Druid Sash",
+    description: "Incredibly light, with the essence of nature.",
+    kind: Armor((
+        kind: Belt,
+        stats: FromSet("Lifecloth"),
+    )),
+    quality: High,
+    tags: [
+        Material(Lifecloth),
+        SalvageInto(Lifecloth),
+    ],
+)

@@ -1,0 +1,21 @@
+([
+    Group(Weapon(Sceptre)),
+
+    // Beam
+    Skill((Sceptre(LDamage), 3)),
+    Skill((Sceptre(LRange), 2)),
+    Skill((Sceptre(LLifesteal), 3)),
+    Skill((Sceptre(LRegen), 2)),
+
+    // Heal
+    Skill((Sceptre(HHeal), 3)),
+    Skill((Sceptre(HDuration), 2)),
+    Skill((Sceptre(HRange), 2)),
+    Skill((Sceptre(HCost), 2)),
+    // Ward
+    Skill((Sceptre(UnlockAura), 1)),
+    Skill((Sceptre(AStrength), 2)),
+    Skill((Sceptre(ADuration), 2)),
+    Skill((Sceptre(ARange), 2)),
+    Skill((Sceptre(ACost), 2)),
+])

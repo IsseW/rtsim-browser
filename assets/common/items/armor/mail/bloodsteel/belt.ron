@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Bloodsteel Girdle",
+    description: "Forged to preserve life, at the cost of another.",
+    kind: Armor((
+        kind: Belt,
+        stats: FromSet("Bloodsteel"),
+    )),
+    quality: Epic,
+    tags: [
+        Material(Bloodsteel),
+        SalvageInto(Bloodsteel),
+    ],
+)

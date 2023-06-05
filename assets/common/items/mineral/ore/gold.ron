@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Gold Ore",
+    description: "A precious yellow metal.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Epic,
+    tags: [],
+)

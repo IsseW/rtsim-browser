@@ -1,0 +1,31 @@
+#![enable(implicit_some)]
+(
+    name: Name("Greenhorn Traveler"),
+    body: RandomWith("humanoid"),
+    alignment: Alignment(Npc),
+    loot: LootTable("common.loot_tables.world.traveler0"),
+    inventory: (
+        loadout: Inline((
+            inherit: Choice([
+                (1, Asset("common.loadout.world.traveler0.bronze")),
+                (1, Asset("common.loadout.world.traveler0.linen")),
+                (1, Asset("common.loadout.world.traveler0.rawhide")),
+            ]),
+            active_hands: InHands((Choice([
+                (1, ModularWeapon(tool: Sword, material: Bronze, hands: None)),
+                (1, ModularWeapon(tool: Axe, material: Bronze, hands: None)),
+                (1, ModularWeapon(tool: Hammer, material: Bronze, hands: None)),
+                (1, ModularWeapon(tool: Bow, material: Wood, hands: None)),
+                (1, ModularWeapon(tool: Staff, material: Wood, hands: None)),
+                (1, ModularWeapon(tool: Sceptre, material: Wood, hands: None)),
+            ]), None)),
+        )),
+        items: [
+            (5, "common.items.consumable.potion_minor"),
+            (5, "common.items.food.sunflower_icetea"),
+        ],
+    ),
+    meta: [
+        SkillSetAsset("common.skillset.preset.rank1.fullskill"),
+    ],
+)

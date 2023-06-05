@@ -1,0 +1,9 @@
+ItemDef(
+    name: "Ironwood Logs",
+    description: "A particularly sturdy wood.\n\nThis can be used when crafting wooden weapons.",
+    kind: Ingredient(
+        descriptor: "Ironwood",
+    ),
+    quality: High,
+    tags: [MaterialKind(Wood), Material(Ironwood)],
+)

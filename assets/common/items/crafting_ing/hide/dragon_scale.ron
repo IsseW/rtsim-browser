@@ -1,0 +1,9 @@
+ItemDef(
+    name: "Dragon Scale",
+    description: "Tough scale from a legendary beast, hot to the touch.",
+    kind: Ingredient(
+        descriptor: "Dragonscale",
+    ),
+    quality: Legendary,
+    tags: [MaterialKind(Hide), Material(Dragonscale)],
+)

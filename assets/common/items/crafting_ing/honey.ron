@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Honey",
+    description: "Stolen from a beehive. Surely the bees won't be happy with this!",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Common,
+    tags: [],
+)

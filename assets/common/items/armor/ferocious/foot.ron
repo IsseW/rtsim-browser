@@ -1,0 +1,12 @@
+ItemDef(
+    name: "Ferocious Waraji",
+    description: "The dark side of nature",
+    kind: Armor((
+        kind: Foot,
+        stats: FromSet("Ferocious"),
+    )),
+    quality: Epic,
+    tags: [
+        Material(Moonweave),
+    ],
+)

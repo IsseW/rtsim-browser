@@ -1,0 +1,12 @@
+ItemDef(
+    name: "Ferocious Wraps",
+    description: "The dark side of nature",
+    kind: Armor((
+        kind: Hand,
+        stats: FromSet("Ferocious"),
+    )),
+    quality: Epic,
+    tags: [
+        Material(Moonweave),
+    ],
+)

@@ -1,0 +1,9 @@
+#![enable(implicit_some)]
+(
+    head: Item("common.items.npc_armor.biped_small.myrmidon.head.hoplite"),
+    chest: Item("common.items.npc_armor.biped_small.myrmidon.chest.hoplite"),
+    gloves: Item("common.items.npc_armor.biped_small.myrmidon.hand.hoplite"),
+    belt: Item("common.items.npc_armor.biped_small.myrmidon.tail.hoplite"),
+    legs: Item("common.items.npc_armor.biped_small.myrmidon.pants.hoplite"),
+    feet: Item("common.items.npc_armor.biped_small.myrmidon.foot.hoplite"),
+)

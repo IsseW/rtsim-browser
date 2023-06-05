@@ -1,0 +1,14 @@
+([
+    Group(Weapon(Axe)),
+
+    // DoubleStrike
+    Skill((Axe(DsCombo), 1)),
+    Skill((Axe(DsDamage), 1)),
+    Skill((Axe(DsRegen), 1)),
+    // Spin
+    Skill((Axe(SInfinite), 1)),
+    Skill((Axe(SHelicopter), 1)),
+    Skill((Axe(SDamage), 1)),
+    Skill((Axe(SSpeed), 1)),
+
+])

@@ -1,0 +1,13 @@
+#![enable(implicit_some)]
+(
+    name: Name("Saurok Bandit"),
+    body: RandomWith("saurok_mighty"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.creature.biped_large.saurok"),
+    inventory: (
+        loadout: Inline((
+            active_hands: InHands((Item("common.items.npc_weapons.bow.saurok_bow"), None)),
+        )),
+    ),
+    meta: [],
+)

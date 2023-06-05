@@ -1,0 +1,9 @@
+ItemDef(
+    name: "Basalt",
+    description: "A dark volcanic rock, most volcanic rock tends to be basalt..",
+    kind: Ingredient(
+        descriptor: "Basalt",
+    ),
+    quality: High,
+    tags: [],
+)

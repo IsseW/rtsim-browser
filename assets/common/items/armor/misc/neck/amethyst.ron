@@ -1,0 +1,14 @@
+ItemDef(
+    name: "Amethyst Necklace",
+    description: "A tin necklace lined with amethyst gems.",
+    kind: Armor((
+        kind: Neck,
+        stats: Direct((
+            protection: Some(Normal(1.0)),
+            energy_reward: Some(0.075),
+            crit_power: Some(-0.03),
+        )),
+    )),
+    quality: Moderate,
+    tags: [],
+)

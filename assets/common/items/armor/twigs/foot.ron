@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Twig Boots",
+    description: "Small twigs intertwined and imbued with magic to provide simple protection.",
+    kind: Armor((
+        kind: Foot,
+        stats: FromSet("Twigs"),
+    )),
+    quality: Moderate,
+    tags: [
+    ],
+)

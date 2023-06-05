@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Red Bandana",
+    description: "Very sneaky, but also, bright red.",
+    kind: Armor((
+        kind: Head,
+        stats: Direct((
+            crit_power: Some(0.006),
+            stealth: Some(0.14),
+        )),
+    )),
+    quality: Common,
+    tags: [],
+)

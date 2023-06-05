@@ -1,0 +1,15 @@
+ItemDef(
+    name: "Pirate Hat",
+    description: "It seems like a parrot was perched up here.",
+    kind: Armor((
+        kind: Head,
+        stats: Direct((
+            protection: Some(Normal(2.5)),
+            energy_reward: Some(0.025),
+            crit_power: Some(0.08),
+        )),
+    )),
+    quality: Epic,
+    tags: [
+    ],
+)

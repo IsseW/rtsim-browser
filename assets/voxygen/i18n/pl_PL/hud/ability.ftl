@@ -1,0 +1,14 @@
+common-abilities-debug-possess = Strzała Opętania
+    .desc = Pozwala przejąć kontrolę nad twoim celem.
+common-abilities-sword-spin = Cyklon
+    .desc = Poruszasz się do przodu kręcąc się z Twoim mieczem.
+common-abilities-axe-leap = Skok Drwala
+    .desc = Skaczesz w kierunku kursora, tnąc swoją siekierą.
+common-abilities-hammer-leap = Uderzenie Zagłady
+    .desc = Atak obszarowy z odrzutem. Skaczesz w kierunku kursora, uderzając w ziemię swoim młotem.
+common-abilities-bow-shotgun = Salwa
+    .desc = Wystrzeliwujesz salwę strzał.
+common-abilities-staff-fireshockwave = Pierścień Ognia
+    .desc = Przywołujesz ognisty pierścień odrzucający przeciwników.
+common-abilities-sceptre-wardingaura = Ochronna Aura
+    .desc = Chroni twoich sojuszników przed atakami.

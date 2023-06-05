@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Helmet",
+    description: "yep.",
+    kind: Armor((
+        kind: Head,
+        stats: Direct((
+            protection: Some(Normal(12.0)),
+            poise_resilience: Some(Normal(3.0)),
+        )),
+    )),
+    quality: Moderate,
+    tags: [],
+)

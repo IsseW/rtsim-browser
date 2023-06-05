@@ -1,0 +1,12 @@
+ItemDef(
+    name: "Tarasque Cuirass",
+    description: "The rough protective underbelly and back of a tarasque's shell, formed to fit humanoid proportions.",
+    kind: Armor((
+        kind: Chest,
+        stats: FromSet("Tarasque"),
+    )),
+    quality: High,
+    tags: [
+        Material(Carapace),
+    ],
+)

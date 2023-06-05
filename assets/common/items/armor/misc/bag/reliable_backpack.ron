@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Reliable Backpack",
+    description: "It will never give you up.",
+    kind: Armor((
+        kind: Bag,
+        stats: Direct(()),
+    )),
+    quality: High,
+    tags: [Bag],
+    slots: 16,
+)

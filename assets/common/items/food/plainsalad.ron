@@ -1,0 +1,19 @@
+ItemDef(
+    name: "Plain Salad",
+    description: "Literally just chopped lettuce. Does this even count as a salad?",
+    kind: Consumable(
+        kind: Food,
+        effects: One(
+            Buff((
+                kind: Saturation,
+                data: (
+                    strength: 2.0,
+                    duration: Some(5),
+                    ),
+                cat_ids: [Natural],
+            )),
+        )
+    ),
+    quality: Common,
+    tags: [Food],
+)

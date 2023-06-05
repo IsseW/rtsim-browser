@@ -1,0 +1,19 @@
+ItemDef(
+    name: "Mushroom Stick",
+    description: "Roasted mushrooms on a stick for easy carrying",
+    kind: Consumable(
+        kind: Food,
+        effects: One(
+            Buff((
+                kind: Saturation,
+                data: (
+                    strength: 4.0,
+                    duration: Some(5),
+                    ),
+                cat_ids: [Natural],
+            )),
+        )
+    ),
+    quality: Common,
+    tags: [Food],
+)

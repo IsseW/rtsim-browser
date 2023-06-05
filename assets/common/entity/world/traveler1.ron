@@ -1,0 +1,31 @@
+#![enable(implicit_some)]
+(
+    name: Name("Traveler"),
+    body: RandomWith("humanoid"),
+    alignment: Alignment(Npc),
+    loot: LootTable("common.loot_tables.world.traveler1"),
+    inventory: (
+        loadout: Inline((
+            inherit: Choice([
+                (1, Asset("common.loadout.world.traveler1.iron")),
+                (1, Asset("common.loadout.world.traveler1.leather")),
+                (1, Asset("common.loadout.world.traveler1.wool")),
+            ]),
+            active_hands: InHands((Choice([
+                (1, ModularWeapon(tool: Sword, material: Iron, hands: None)),
+                (1, ModularWeapon(tool: Axe, material: Iron, hands: None)),
+                (1, ModularWeapon(tool: Hammer, material: Iron, hands: None)),
+                (1, ModularWeapon(tool: Bow, material: Bamboo, hands: None)),
+                (1, ModularWeapon(tool: Staff, material: Bamboo, hands: None)),
+                (1, ModularWeapon(tool: Sceptre, material: Bamboo, hands: None)),
+            ]), None)),
+        )),
+        items: [
+            (25, "common.items.consumable.potion_minor"),
+            (25, "common.items.food.sunflower_icetea"),
+        ],
+    ),
+    meta: [
+        SkillSetAsset("common.skillset.preset.rank2.fullskill"),
+    ],
+)

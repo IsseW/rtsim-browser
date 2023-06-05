@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Dragonscale Mantle",
+    description: "Crafted from the scales of a legendary creature, power can be felt pulsing through it.",
+    kind: Armor((
+        kind: Shoulder,
+        stats: FromSet("Dragonscale"),
+    )),
+    quality: Legendary,
+    tags: [
+        Material(Dragonscale),
+        SalvageInto(Dragonscale),
+    ],
+)

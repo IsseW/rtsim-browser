@@ -1,0 +1,11 @@
+#![enable(implicit_some)]
+(
+    name: Automatic,
+    body: RandomWith("asp"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.creature.quad_low.venemous"),
+    inventory: (
+        loadout: FromBody,
+    ),
+    meta: [],
+)

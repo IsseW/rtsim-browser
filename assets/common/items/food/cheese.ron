@@ -1,0 +1,19 @@
+ItemDef(
+    name: "Dwarven Cheese",
+    description: "Made from goat milk from the finest dwarven produce. Aromatic and nutritious!",
+    kind: Consumable(
+        kind: Food,
+        effects: One(
+            Buff((
+                kind: Saturation,
+                data: (
+                    strength: 1.5,
+                    duration: Some(10),
+                    ),
+                cat_ids: [Natural],
+            )),
+        )
+    ),
+    quality: Common,
+    tags: [Food],
+)

@@ -1,0 +1,11 @@
+#![enable(implicit_some)]
+(
+    name: Name("Crazy Sheep"),
+    body: RandomWith("sheep"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.fallback"),
+    inventory: (
+        loadout: FromBody,
+    ),
+    meta: [],
+)

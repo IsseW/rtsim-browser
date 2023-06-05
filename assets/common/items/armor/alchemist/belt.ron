@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Alchemist Belt",
+    description: "",
+    kind: Armor((
+        kind: Belt,
+        stats: FromSet("Alchemist"),
+    )),
+    quality: Epic,
+    tags: [
+    ],
+)

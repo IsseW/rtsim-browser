@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Steel Belt",
+    description: "Metal alloy interlocking plates to improve protection.",
+    kind: Armor((
+        kind: Belt,
+        stats: FromSet("Steel"),
+    )),
+    quality: Moderate,
+    tags: [
+        Material(Steel),
+        SalvageInto(Steel),
+    ],
+)

@@ -1,0 +1,14 @@
+ItemDef(
+    name: "Sapphire Necklace",
+    description: "A sturdy iron necklace, with polished sapphire gems embedded into it.",
+    kind: Armor((
+        kind: Neck,
+        stats: Direct((
+            protection: Some(Normal(1.0)),
+            energy_reward: Some(-0.0225),
+            crit_power: Some(0.0225),
+        )),
+    )),
+    quality: Moderate,
+    tags: [],
+)

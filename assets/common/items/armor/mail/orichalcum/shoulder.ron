@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Orichalcum Mantle",
+    description: "An ancient alloy. Myths remain of heroes who once wore this armor.",
+    kind: Armor((
+        kind: Shoulder,
+        stats: FromSet("Orichalcum"),
+    )),
+    quality: Legendary,
+    tags: [
+        Material(Orichalcum),
+        SalvageInto(Orichalcum),
+    ],
+)

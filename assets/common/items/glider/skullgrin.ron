@@ -1,0 +1,7 @@
+ItemDef(
+    name: "Skullgrin",
+    description: "Death from above.",
+    kind: Glider,
+    quality: Legendary,
+    tags: [],
+)

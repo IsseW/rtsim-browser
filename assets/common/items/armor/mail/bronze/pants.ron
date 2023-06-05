@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Bronze Pantalons",
+    description: "'Heavy and dull, but it can take a punch.'",
+    kind: Armor((
+        kind: Pants,
+        stats: FromSet("Bronze"),
+    )),
+    quality: Low,
+    tags: [
+        Material(Bronze),
+        SalvageInto(Bronze),
+    ],
+)

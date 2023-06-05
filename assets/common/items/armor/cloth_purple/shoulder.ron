@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Purple Linen Coat",
+    description: "A rough fabric coat, dyed purple.",
+    kind: Armor((
+        kind: Shoulder,
+        stats: FromSet("Cloth Purple"),
+    )),
+    quality: Common,
+    tags: [
+        Material(Linen),
+        SalvageInto(Linen),
+    ],
+)

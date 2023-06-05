@@ -1,0 +1,12 @@
+ItemDef(
+    name: "Cultist Skirt",
+    description: "Ceremonial attire used by members.",
+    kind: Armor((
+        kind: Pants,
+        stats: FromSet("Cultist"),
+    )),
+    quality: Epic,
+    tags: [
+        Cultist,
+    ],
+)

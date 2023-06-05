@@ -1,0 +1,30 @@
+#![enable(implicit_some)]
+(
+    inherit: Combine([
+        Asset("test.loadout.ok.just_crafted_rings"),
+        Choice([
+            (1, Asset("test.loadout.ok.just_ori_armor")),
+            (1, Asset("test.loadout.ok.just_dragonscale")),
+        ]),
+        Asset("test.loadout.ok.just_butterfly_gliders"),
+        Asset("test.loadout.ok.just_lanterns"),
+    ]),
+    active_hands: Choice([
+        (1, InHands((
+            Item("common.items.weapons.sword.caladbolg"),
+            None,
+        ))),
+        (1, InHands((
+            Item("common.items.weapons.bow.sagitta"),
+            None,
+        ))),
+        (1, InHands((
+            ModularWeapon(tool: Hammer, material: Orichalcum, hands: One),
+            ModularWeapon(tool: Hammer, material: Orichalcum, hands: One),
+        ))),
+        (1, InHands((
+            ModularWeapon(tool: Axe, material: Orichalcum, hands: One),
+            Item("common.items.weapons.shield.shield_1"),
+        ))),
+    ]),
+)

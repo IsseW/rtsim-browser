@@ -1,0 +1,21 @@
+#![enable(implicit_some)]
+(
+    name: Name("Yan Hus"),
+    body: RandomWith("humanoid"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.fallback"),
+    inventory: (
+        loadout: Inline((
+            active_hands: InHands((Choice([
+                (1, Item("common.items.weapons.tool.broom")),
+                (1, Item("common.items.weapons.tool.hoe")),
+                (1, Item("common.items.weapons.tool.pickaxe")),
+                (1, Item("common.items.weapons.tool.rake")),
+                (1, Item("common.items.weapons.tool.shovel-0")),
+                (1, Item("common.items.weapons.tool.shovel-1")),
+                (1, Item("common.items.weapons.bow.starter")),
+            ]), None)),
+        )),
+    ),
+    meta: [],
+)

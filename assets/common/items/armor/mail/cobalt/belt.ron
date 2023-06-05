@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Cobalt Girdle",
+    description: "Ornamental and impenetrable, the metal will never dull.",
+    kind: Armor((
+        kind: Belt,
+        stats: FromSet("Cobalt"),
+    )),
+    quality: High,
+    tags: [
+        Material(Cobalt),
+        SalvageInto(Cobalt),
+    ],
+)

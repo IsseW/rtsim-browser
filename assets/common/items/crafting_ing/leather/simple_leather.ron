@@ -1,0 +1,9 @@
+ItemDef(
+    name: "Simple Leather",
+    description: "Light and flexible.",
+    kind: Ingredient(
+        descriptor: "Raw Hide",
+    ),
+    quality: Low,
+    tags: [BaseMaterial, MaterialKind(Hide), Material(Rawhide)],
+)

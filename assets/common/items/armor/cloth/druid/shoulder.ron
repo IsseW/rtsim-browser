@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Druid Shoulderpads",
+    description: "Incredibly light, with the essence of nature.",
+    kind: Armor((
+        kind: Shoulder,
+        stats: FromSet("Lifecloth"),
+    )),
+    quality: High,
+    tags: [
+        Material(Lifecloth),
+        SalvageInto(Lifecloth),
+    ],
+)

@@ -1,0 +1,14 @@
+ItemDef(
+    name: "Sapphire Ring",
+    description: "An iron ring with a sapphire gem.",
+    kind: Armor((
+        kind: Ring,
+        stats: Direct((
+            protection: Some(Normal(0.5)),
+            energy_reward: Some(-0.015),
+            crit_power: Some(0.015),
+        )),
+    )),
+    quality: Moderate,
+    tags: [],
+)

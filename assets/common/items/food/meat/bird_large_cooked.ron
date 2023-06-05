@@ -1,0 +1,19 @@
+ItemDef(
+    name: "Huge Cooked Drumstick",
+    description: "Makes for a legendary meal.",
+    kind: Consumable(
+        kind: Food,
+        effects: One(
+            Buff((
+                kind: Saturation,
+                data: (
+                    strength: 5.5,
+                    duration: Some(15),
+                    ),
+                cat_ids: [Natural],
+            )),
+        )
+    ),
+    quality: Common,
+    tags: [Food],
+)

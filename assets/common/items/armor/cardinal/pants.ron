@@ -1,0 +1,11 @@
+ItemDef(
+    name: "Cardinal's Jeans",
+    description: "Pants with many experiences.",
+    kind: Armor((
+        kind: Pants,
+        stats: FromSet("Cardinal"),
+    )),
+    quality: Legendary,
+    tags: [
+    ],
+)

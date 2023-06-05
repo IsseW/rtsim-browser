@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Primal Gauntlets",
+    description: "Smithed from hide tougher than steel.",
+    kind: Armor((
+        kind: Hand,
+        stats: FromSet("Plate"),
+    )),
+    quality: Epic,
+    tags: [
+        Material(Plate),
+        SalvageInto(Plate),
+    ],
+)

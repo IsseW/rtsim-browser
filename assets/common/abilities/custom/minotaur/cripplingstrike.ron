@@ -1,0 +1,24 @@
+BasicMelee(
+    energy_cost: 0,
+    buildup_duration: 0.45,
+    swing_duration: 0.1,
+    recover_duration: 1.2,
+    melee_constructor: (
+        kind: Slash(
+            damage: 15.0,
+            poise: 60.0,
+            knockback: 15.0,
+            energy_regen: 0.0,
+        ),
+        range: 5.0,
+        angle: 60.0,
+        damage_effect: Some(Buff((
+            kind: Crippled,
+            dur_secs: 10.0,
+            strength: Value(0.5),
+            chance: 1.0,
+        ))),
+        multi_target: Some(Normal),
+    ),
+    ori_modifier: 1.0,
+)

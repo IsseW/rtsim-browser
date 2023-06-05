@@ -1,0 +1,11 @@
+#![enable(implicit_some)]
+(
+    name: Automatic,
+    body: RandomWith("dreadhorn"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.creature.quad_medium.dreadhorn"),
+    inventory: (
+        loadout: FromBody,
+    ),
+    meta: [],
+)

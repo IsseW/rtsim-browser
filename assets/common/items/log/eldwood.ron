@@ -1,0 +1,9 @@
+ItemDef(
+    name: "Eldwood Logs",
+    description: "Old logs that emanate magic.\n\nThis can be used when crafting wooden weapons.",
+    kind: Ingredient(
+        descriptor: "Eldwood",
+    ),
+    quality: Legendary,
+    tags: [MaterialKind(Wood), Material(Eldwood)],
+)

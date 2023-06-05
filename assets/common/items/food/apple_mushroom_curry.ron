@@ -1,0 +1,27 @@
+ItemDef(
+    name: "Mushroom Curry",
+    description: "Who could say no to that?",
+    kind: Consumable(
+        kind: ComplexFood,
+        effects: All([
+            Buff((
+                kind: Saturation,
+                data: (
+                    strength: 10.0,
+                    duration: Some(5),
+                    ),
+                cat_ids: [Natural],
+            )),
+            Buff((
+                kind: Regeneration,
+                data: (
+                    strength: 1.0,
+                    duration: Some(70),
+                    ),
+                cat_ids: [Natural],
+            )),
+        ])
+    ),
+    quality: Moderate,
+    tags: [Food],
+)

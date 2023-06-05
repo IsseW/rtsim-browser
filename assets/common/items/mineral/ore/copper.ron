@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Copper Ore",
+    description: "A brown metal. Key part of bronze.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Low,
+    tags: [],
+)

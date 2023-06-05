@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Moonweave Cape",
+    description: "The fabric dances silently, like moonlight.",
+    kind: Armor((
+        kind: Back,
+        stats: FromSet("Moonweave"),
+    )),
+    quality: Epic,
+    tags: [
+        Material(Moonweave),
+        SalvageInto(Moonweave),
+    ],
+)

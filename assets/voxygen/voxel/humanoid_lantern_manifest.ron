@@ -1,0 +1,40 @@
+((
+    default: (
+        vox_spec: ("armor.empty", (0.0, 0.0, 0.0)),
+        color: None
+    ),
+    map: {
+      "common.items.lantern.green_0": (
+          vox_spec: ("lantern.green-0", (-2.5, -2.0, -9.0)),
+          color: None
+      ),
+      "common.items.boss_drops.lantern": (
+          vox_spec: ("lantern.magic_lantern", (-2.0, -2.0, -7.0)),
+          color: None
+      ),
+      "common.items.lantern.black_0": (
+          vox_spec: ("lantern.black-0", (-2.5, -2.0, -8.5)),
+          color: None
+      ),
+      "common.items.lantern.red_0": (
+          vox_spec: ("lantern.red-0", (-2.0, -2.0, -7.0)),
+          color: None
+      ),
+      "common.items.lantern.blue_0": (
+          vox_spec: ("lantern.blue-0", (-2.5, -2.0, -8.0)),
+          color: None
+      ),
+      "common.items.lantern.geode_purp": (
+          vox_spec: ("lantern.geode_purp", (-2.5, -2.5, -9.5)),
+          color: None
+      ),
+      "common.items.lantern.pumpkin": (
+          vox_spec: ("lantern.pumpkin", (-4.0, -4.0, -8.5)),
+          color: None
+      ),
+      "common.items.lantern.polaris": (
+          vox_spec: ("lantern.polaris", (-3.5, -4.0, -8.5)),
+          color: None
+      ),
+    },
+))

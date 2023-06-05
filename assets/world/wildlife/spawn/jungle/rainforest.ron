@@ -1,0 +1,32 @@
+SpawnEntry (
+    name: "Jungle rainforest core wildlife.",
+    note: "Concentrated in the core of biome.",
+    rules: [
+        Pack(
+            groups: [
+                // Casual
+                (5, (1, 1, "common.entity.wild.aggressive.asp")),
+                (5, (1, 1, "common.entity.wild.aggressive.tiger")),
+                (5, (1, 1, "common.entity.wild.aggressive.maneater")),
+                // Rare
+                (1, (1, 1, "common.entity.wild.aggressive.sunlizard")),
+                (1, (1, 1, "common.entity.wild.aggressive.odonto")),
+                (1, (1, 1, "common.entity.wild.aggressive.mighty_saurok")),
+                (1, (1, 1, "common.entity.wild.aggressive.occult_saurok")),
+                (1, (1, 1, "common.entity.wild.aggressive.sly_saurok")),
+                (1, (1, 1, "common.entity.wild.aggressive.mossdrake")),
+            ],
+            spawn_mode: Land,
+            day_period: [Morning, Noon, Evening],
+        ),
+        Pack(
+            groups: [
+                (1, (1, 1, "common.entity.wild.aggressive.tiger")),
+                (1, (1, 1, "common.entity.wild.aggressive.maneater")),
+                (1, (1, 1, "common.entity.wild.aggressive.cockatrice")),
+            ],
+            spawn_mode: Land,
+            day_period: [Night],
+        ),
+    ],
+)

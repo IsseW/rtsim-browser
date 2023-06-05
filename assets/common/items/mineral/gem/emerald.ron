@@ -1,0 +1,9 @@
+ItemDef(
+    name: "Emerald",
+    description: "A vibrant viridian gem.",
+    kind: Ingredient(
+        descriptor: "Emerald",
+    ),
+    quality: High,
+    tags: [],
+)

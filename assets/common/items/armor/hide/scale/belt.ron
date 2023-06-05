@@ -1,0 +1,13 @@
+ItemDef(
+    name: "Scale Girdle",
+    description: "Each embedded scale provides additional protection.",
+    kind: Armor((
+        kind: Belt,
+        stats: FromSet("Scale"),
+    )),
+    quality: Moderate,
+    tags: [
+        Material(Scale),
+        SalvageInto(Scale),
+    ],
+)

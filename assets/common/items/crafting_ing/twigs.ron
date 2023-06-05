@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Twigs",
+    description: "Found near trees, a squirrel must've knocked it down.",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: Common,
+    tags: [],
+)

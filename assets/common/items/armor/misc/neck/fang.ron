@@ -1,0 +1,14 @@
+ItemDef(
+    name: "Fang Necklace",
+    description: "Only the most savage beings can handle the power of this necklace...",
+    kind: Armor((
+        kind: Neck,
+        stats: Direct((
+            protection: Some(Normal(1.0)),
+            crit_power: Some(0.07),
+            energy_max: Some(-3.5),
+        )),
+    )),
+    quality: High,
+    tags: [],
+)

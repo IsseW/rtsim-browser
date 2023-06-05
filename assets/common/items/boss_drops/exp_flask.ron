@@ -1,0 +1,10 @@
+ItemDef(
+    name: "Flask of Velorite Dust",
+    description: "Take with plenty of water",
+    kind: Ingredient(
+        // Descriptor not needed
+        descriptor: "",
+    ),
+    quality: High,
+    tags: [Potion],
+)

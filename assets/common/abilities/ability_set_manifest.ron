@@ -3,102 +3,109 @@
 // A set of abilities is a primary, a secondary, and a vec of all extra abilities
 ({
     Tool(Sword): (
+        guard: Some(Contextualized(
+            pseudo_id: "veloren.core.pseudo_abilities.sword.guard",
+            abilities: [
+                ((stance: Sword(Defensive)), (None, "common.abilities.sword.defensive_guard")),
+                ((), (None, "common.abilities.sword.basic_guard")),
+            ],
+        )),
         primary: Contextualized(
             pseudo_id: "veloren.core.pseudo_abilities.sword.double_slash",
             abilities: [
-                ([Stance(Sword(Heavy))], (None, "common.abilities.sword.heavy_double_slash")),
-                ([Stance(Sword(Agile))], (None, "common.abilities.sword.agile_double_slash")),
-                ([Stance(Sword(Defensive))], (None, "common.abilities.sword.defensive_double_slash")),
-                ([Stance(Sword(Crippling))], (None, "common.abilities.sword.crippling_double_slash")),
-                ([Stance(Sword(Cleaving))], (None, "common.abilities.sword.cleaving_double_slash")),
-                ([], (None, "common.abilities.sword.basic_double_slash")),
+                ((stance: Sword(Heavy)), (None, "common.abilities.sword.heavy_double_slash")),
+                ((stance: Sword(Agile)), (None, "common.abilities.sword.agile_double_slash")),
+                ((stance: Sword(Defensive)), (None, "common.abilities.sword.defensive_double_slash")),
+                ((stance: Sword(Crippling)), (None, "common.abilities.sword.crippling_double_slash")),
+                ((stance: Sword(Cleaving)), (None, "common.abilities.sword.cleaving_double_slash")),
+                ((), (None, "common.abilities.sword.basic_double_slash")),
             ],
         ),
         secondary: Contextualized(
             pseudo_id: "veloren.core.pseudo_abilities.sword.secondary_ability",
             abilities: [
-                ([Stance(Sword(Heavy))], (None, "common.abilities.sword.heavy_slam")),
-                ([Stance(Sword(Agile)), DualWieldingSameKind], (None, "common.abilities.sword.agile_dual_perforate")),
-                ([Stance(Sword(Agile))], (None, "common.abilities.sword.agile_perforate")),
-                ([Stance(Sword(Defensive))], (None, "common.abilities.sword.defensive_vital_jab")),
-                ([Stance(Sword(Crippling))], (None, "common.abilities.sword.crippling_deep_rend")),
-                ([Stance(Sword(Cleaving)), DualWieldingSameKind], (None, "common.abilities.sword.cleaving_dual_spiral_slash")),
-                ([Stance(Sword(Cleaving))], (None, "common.abilities.sword.cleaving_spiral_slash")),
-                ([], (None, "common.abilities.sword.basic_thrust")),
+                ((stance: Sword(Heavy)), (None, "common.abilities.sword.heavy_slam")),
+                ((stance: Sword(Agile), dual_wielding_same_kind: true), (None, "common.abilities.sword.agile_dual_perforate")),
+                ((stance: Sword(Agile)), (None, "common.abilities.sword.agile_perforate")),
+                ((stance: Sword(Defensive)), (None, "common.abilities.sword.defensive_vital_jab")),
+                ((stance: Sword(Crippling)), (None, "common.abilities.sword.crippling_deep_rend")),
+                ((stance: Sword(Cleaving), dual_wielding_same_kind: true), (None, "common.abilities.sword.cleaving_dual_spiral_slash")),
+                ((stance: Sword(Cleaving)), (None, "common.abilities.sword.cleaving_spiral_slash")),
+                ((), (None, "common.abilities.sword.basic_thrust")),
             ],
         ),
         abilities: [
             Contextualized(
                 pseudo_id: "veloren.core.pseudo_abilities.sword.crescent_slash",
                 abilities: [
-                    ([Stance(Sword(Heavy))], (Sword(CrescentSlash), "common.abilities.sword.heavy_crescent_slash")),
-                    ([Stance(Sword(Agile))], (Sword(CrescentSlash), "common.abilities.sword.agile_crescent_slash")),
-                    ([Stance(Sword(Defensive))], (Sword(CrescentSlash), "common.abilities.sword.defensive_crescent_slash")),
-                    ([Stance(Sword(Crippling))], (Sword(CrescentSlash), "common.abilities.sword.crippling_crescent_slash")),
-                    ([Stance(Sword(Cleaving))], (Sword(CrescentSlash), "common.abilities.sword.cleaving_crescent_slash")),
-                    ([], (Sword(CrescentSlash), "common.abilities.sword.basic_crescent_slash")),
+                    ((stance: Sword(Heavy)), (Sword(CrescentSlash), "common.abilities.sword.heavy_crescent_slash")),
+                    ((stance: Sword(Agile)), (Sword(CrescentSlash), "common.abilities.sword.agile_crescent_slash")),
+                    ((stance: Sword(Defensive)), (Sword(CrescentSlash), "common.abilities.sword.defensive_crescent_slash")),
+                    ((stance: Sword(Crippling)), (Sword(CrescentSlash), "common.abilities.sword.crippling_crescent_slash")),
+                    ((stance: Sword(Cleaving)), (Sword(CrescentSlash), "common.abilities.sword.cleaving_crescent_slash")),
+                    ((), (Sword(CrescentSlash), "common.abilities.sword.basic_crescent_slash")),
                 ],
             ),
             Contextualized(
                 pseudo_id: "veloren.core.pseudo_abilities.sword.fell_strike",
                 abilities: [
-                    ([Stance(Sword(Heavy))], (Sword(FellStrike), "common.abilities.sword.heavy_fell_strike")),
-                    ([Stance(Sword(Agile))], (Sword(FellStrike), "common.abilities.sword.agile_fell_strike")),
-                    ([Stance(Sword(Defensive))], (Sword(FellStrike), "common.abilities.sword.defensive_fell_strike")),
-                    ([Stance(Sword(Crippling))], (Sword(FellStrike), "common.abilities.sword.crippling_fell_strike")),
-                    ([Stance(Sword(Cleaving))], (Sword(FellStrike), "common.abilities.sword.cleaving_fell_strike")),
-                    ([], (Sword(FellStrike), "common.abilities.sword.basic_fell_strike")),
+                    ((stance: Sword(Heavy)), (Sword(FellStrike), "common.abilities.sword.heavy_fell_strike")),
+                    ((stance: Sword(Agile)), (Sword(FellStrike), "common.abilities.sword.agile_fell_strike")),
+                    ((stance: Sword(Defensive)), (Sword(FellStrike), "common.abilities.sword.defensive_fell_strike")),
+                    ((stance: Sword(Crippling)), (Sword(FellStrike), "common.abilities.sword.crippling_fell_strike")),
+                    ((stance: Sword(Cleaving)), (Sword(FellStrike), "common.abilities.sword.cleaving_fell_strike")),
+                    ((), (Sword(FellStrike), "common.abilities.sword.basic_fell_strike")),
                 ],
             ),
             Contextualized(
                 pseudo_id: "veloren.core.pseudo_abilities.sword.skewer",
                 abilities: [
-                    ([Stance(Sword(Heavy))], (Sword(Skewer), "common.abilities.sword.heavy_skewer")),
-                    ([Stance(Sword(Agile))], (Sword(Skewer), "common.abilities.sword.agile_skewer")),
-                    ([Stance(Sword(Defensive))], (Sword(Skewer), "common.abilities.sword.defensive_skewer")),
-                    ([Stance(Sword(Crippling))], (Sword(Skewer), "common.abilities.sword.crippling_skewer")),
-                    ([Stance(Sword(Cleaving))], (Sword(Skewer), "common.abilities.sword.cleaving_skewer")),
-                    ([], (Sword(Skewer), "common.abilities.sword.basic_skewer")),
+                    ((stance: Sword(Heavy)), (Sword(Skewer), "common.abilities.sword.heavy_skewer")),
+                    ((stance: Sword(Agile)), (Sword(Skewer), "common.abilities.sword.agile_skewer")),
+                    ((stance: Sword(Defensive)), (Sword(Skewer), "common.abilities.sword.defensive_skewer")),
+                    ((stance: Sword(Crippling)), (Sword(Skewer), "common.abilities.sword.crippling_skewer")),
+                    ((stance: Sword(Cleaving)), (Sword(Skewer), "common.abilities.sword.cleaving_skewer")),
+                    ((), (Sword(Skewer), "common.abilities.sword.basic_skewer")),
                 ],
             ),
             Contextualized(
                 pseudo_id: "veloren.core.pseudo_abilities.sword.cascade",
                 abilities: [
-                    ([Stance(Sword(Heavy))], (Sword(Cascade), "common.abilities.sword.heavy_cascade")),
-                    ([Stance(Sword(Agile))], (Sword(Cascade), "common.abilities.sword.agile_cascade")),
-                    ([Stance(Sword(Defensive))], (Sword(Cascade), "common.abilities.sword.defensive_cascade")),
-                    ([Stance(Sword(Crippling))], (Sword(Cascade), "common.abilities.sword.crippling_cascade")),
-                    ([Stance(Sword(Cleaving))], (Sword(Cascade), "common.abilities.sword.cleaving_cascade")),
-                    ([], (Sword(Cascade), "common.abilities.sword.basic_cascade")),
+                    ((stance: Sword(Heavy)), (Sword(Cascade), "common.abilities.sword.heavy_cascade")),
+                    ((stance: Sword(Agile)), (Sword(Cascade), "common.abilities.sword.agile_cascade")),
+                    ((stance: Sword(Defensive)), (Sword(Cascade), "common.abilities.sword.defensive_cascade")),
+                    ((stance: Sword(Crippling)), (Sword(Cascade), "common.abilities.sword.crippling_cascade")),
+                    ((stance: Sword(Cleaving)), (Sword(Cascade), "common.abilities.sword.cleaving_cascade")),
+                    ((), (Sword(Cascade), "common.abilities.sword.basic_cascade")),
                 ],
             ),
             Contextualized(
                 pseudo_id: "veloren.core.pseudo_abilities.sword.cross_cut",
                 abilities: [
-                    ([Stance(Sword(Heavy)), DualWieldingSameKind], (Sword(CrossCut), "common.abilities.sword.heavy_dual_cross_cut")),
-                    ([Stance(Sword(Agile)), DualWieldingSameKind], (Sword(CrossCut), "common.abilities.sword.agile_dual_cross_cut")),
-                    ([Stance(Sword(Defensive)), DualWieldingSameKind], (Sword(CrossCut), "common.abilities.sword.defensive_dual_cross_cut")),
-                    ([Stance(Sword(Crippling)), DualWieldingSameKind], (Sword(CrossCut), "common.abilities.sword.crippling_dual_cross_cut")),
-                    ([Stance(Sword(Cleaving)), DualWieldingSameKind], (Sword(CrossCut), "common.abilities.sword.cleaving_dual_cross_cut")),
-                    ([DualWieldingSameKind], (Sword(CrossCut), "common.abilities.sword.basic_dual_cross_cut")),
-                    ([Stance(Sword(Heavy))], (Sword(CrossCut), "common.abilities.sword.heavy_cross_cut")),
-                    ([Stance(Sword(Agile))], (Sword(CrossCut), "common.abilities.sword.agile_cross_cut")),
-                    ([Stance(Sword(Defensive))], (Sword(CrossCut), "common.abilities.sword.defensive_cross_cut")),
-                    ([Stance(Sword(Crippling))], (Sword(CrossCut), "common.abilities.sword.crippling_cross_cut")),
-                    ([Stance(Sword(Cleaving))], (Sword(CrossCut), "common.abilities.sword.cleaving_cross_cut")),
-                    ([], (Sword(CrossCut), "common.abilities.sword.basic_cross_cut")),
+                    ((stance: Sword(Heavy), dual_wielding_same_kind: true), (Sword(CrossCut), "common.abilities.sword.heavy_dual_cross_cut")),
+                    ((stance: Sword(Agile), dual_wielding_same_kind: true), (Sword(CrossCut), "common.abilities.sword.agile_dual_cross_cut")),
+                    ((stance: Sword(Defensive), dual_wielding_same_kind: true), (Sword(CrossCut), "common.abilities.sword.defensive_dual_cross_cut")),
+                    ((stance: Sword(Crippling), dual_wielding_same_kind: true), (Sword(CrossCut), "common.abilities.sword.crippling_dual_cross_cut")),
+                    ((stance: Sword(Cleaving), dual_wielding_same_kind: true), (Sword(CrossCut), "common.abilities.sword.cleaving_dual_cross_cut")),
+                    ((dual_wielding_same_kind: true), (Sword(CrossCut), "common.abilities.sword.basic_dual_cross_cut")),
+                    ((stance: Sword(Heavy)), (Sword(CrossCut), "common.abilities.sword.heavy_cross_cut")),
+                    ((stance: Sword(Agile)), (Sword(CrossCut), "common.abilities.sword.agile_cross_cut")),
+                    ((stance: Sword(Defensive)), (Sword(CrossCut), "common.abilities.sword.defensive_cross_cut")),
+                    ((stance: Sword(Crippling)), (Sword(CrossCut), "common.abilities.sword.crippling_cross_cut")),
+                    ((stance: Sword(Cleaving)), (Sword(CrossCut), "common.abilities.sword.cleaving_cross_cut")),
+                    ((), (Sword(CrossCut), "common.abilities.sword.basic_cross_cut")),
                 ],
             ),
             Contextualized(
                 pseudo_id: "veloren.core.pseudo_abilities.sword.finisher",
                 abilities: [
-                    ([Stance(Sword(Heavy))], (Sword(Finisher), "common.abilities.sword.heavy_guillotine")),
-                    ([Stance(Sword(Agile))], (Sword(Finisher), "common.abilities.sword.agile_hundred_cuts")),
-                    ([Stance(Sword(Defensive))], (Sword(Finisher), "common.abilities.sword.defensive_counter")),
-                    ([Stance(Sword(Crippling))], (Sword(Finisher), "common.abilities.sword.crippling_mutilate")),
-                    ([Stance(Sword(Cleaving)), DualWieldingSameKind], (Sword(Finisher), "common.abilities.sword.cleaving_dual_bladestorm")),
-                    ([Stance(Sword(Cleaving))], (Sword(Finisher), "common.abilities.sword.cleaving_bladestorm")),
-                    ([], (Sword(Finisher), "common.abilities.sword.basic_mighty_strike")),
+                    ((stance: Sword(Heavy)), (Sword(Finisher), "common.abilities.sword.heavy_guillotine")),
+                    ((stance: Sword(Agile)), (Sword(Finisher), "common.abilities.sword.agile_hundred_cuts")),
+                    ((stance: Sword(Defensive)), (Sword(Finisher), "common.abilities.sword.defensive_counter")),
+                    ((stance: Sword(Crippling)), (Sword(Finisher), "common.abilities.sword.crippling_mutilate")),
+                    ((stance: Sword(Cleaving), dual_wielding_same_kind: true), (Sword(Finisher), "common.abilities.sword.cleaving_dual_bladestorm")),
+                    ((stance: Sword(Cleaving)), (Sword(Finisher), "common.abilities.sword.cleaving_bladestorm")),
+                    ((), (Sword(Finisher), "common.abilities.sword.basic_mighty_strike")),
                 ],
             ),
             Simple(Sword(HeavySweep), "common.abilities.sword.heavy_sweep"),
@@ -112,8 +119,8 @@
             Contextualized(
                 pseudo_id: "common.abilities.sword.cleaving_whirlwind_slice",
                 abilities: [
-                    ([DualWieldingSameKind], (Sword(CleavingWhirlwindSlice), "common.abilities.sword.cleaving_dual_whirlwind_slice")),
-                    ([], (Sword(CleavingWhirlwindSlice), "common.abilities.sword.cleaving_whirlwind_slice")),
+                    ((dual_wielding_same_kind: true), (Sword(CleavingWhirlwindSlice), "common.abilities.sword.cleaving_dual_whirlwind_slice")),
+                    ((), (Sword(CleavingWhirlwindSlice), "common.abilities.sword.cleaving_whirlwind_slice")),
                 ],
             ),
             Simple(Sword(CleavingEarthSplitter), "common.abilities.sword.cleaving_earth_splitter"),
@@ -123,8 +130,8 @@
             Contextualized(
                 pseudo_id: "common.abilities.sword.agile_flurry",
                 abilities: [
-                    ([Stance(Sword(Agile)), DualWieldingSameKind], (Sword(AgileFlurry), "common.abilities.sword.agile_dual_flurry")),
-                    ([Stance(Sword(Agile))], (Sword(AgileFlurry), "common.abilities.sword.agile_flurry")),
+                    ((stance: Sword(Agile), dual_wielding_same_kind: true), (Sword(AgileFlurry), "common.abilities.sword.agile_dual_flurry")),
+                    ((stance: Sword(Agile)), (Sword(AgileFlurry), "common.abilities.sword.agile_flurry")),
                 ],
             ),
             Simple(Sword(DefensiveStalwartSword), "common.abilities.sword.defensive_stalwart_sword"),
@@ -136,17 +143,102 @@
         ],
     ),
     Tool(Axe): (
-        primary: Simple(None, "common.abilities.axe.doublestrike"),
-        secondary: Simple(None, "common.abilities.axe.spin"),
+        guard: Some(Simple(None, "common.abilities.axe.basic_guard")),
+        primary: Simple(None, "common.abilities.axe.triple_chop"),
+        secondary: Simple(None, "common.abilities.axe.cleave"),
         abilities: [
-            Simple(Some(Axe(UnlockLeap)), "common.abilities.axe.leap"),
+            Simple(Axe(BrutalSwing), "common.abilities.axe.brutal_swing"),
+            Simple(Axe(Berserk), "common.abilities.axe.berserk"),
+            Simple(Axe(RisingTide), "common.abilities.axe.rising_tide"),
+            Simple(Axe(SavageSense), "common.abilities.axe.savage_sense"),
+            Simple(Axe(AdrenalineRush), "common.abilities.axe.adrenaline_rush"),
+            Contextualized(
+                pseudo_id: "common.abilities.axe.execute",
+                abilities: [
+                    ((combo: Some(50)), (Axe(Maelstrom), "common.abilities.axe.maelstrom")),
+                    ((), (Axe(Execute), "common.abilities.axe.execute")),
+                ],
+            ),
+            Simple(Axe(Rake), "common.abilities.axe.rake"),
+            Simple(Axe(Bloodfeast), "common.abilities.axe.bloodfeast"),
+            Contextualized(
+                pseudo_id: "common.abilities.axe.fierce_raze",
+                abilities: [
+                    ((dual_wielding_same_kind: true), (Axe(FierceRaze), "common.abilities.axe.dual_fierce_raze")),
+                    ((), (Axe(FierceRaze), "common.abilities.axe.fierce_raze")),
+                ],
+            ),
+            Simple(Axe(Furor), "common.abilities.axe.furor"),
+            Simple(Axe(Fracture), "common.abilities.axe.fracture"),
+            Contextualized(
+                pseudo_id: "common.abilities.axe.lacerate",
+                abilities: [
+                    ((combo: Some(50)), (Axe(Riptide), "common.abilities.axe.riptide")),
+                    ((), (Axe(Lacerate), "common.abilities.axe.lacerate")),
+                ],
+            ),
+            Simple(Axe(SkullBash), "common.abilities.axe.skull_bash"),
+            Simple(Axe(Sunder), "common.abilities.axe.sunder"),
+            Simple(Axe(Plunder), "common.abilities.axe.plunder"),
+            Simple(Axe(Defiance), "common.abilities.axe.defiance"),
+            Simple(Axe(Keelhaul), "common.abilities.axe.keelhaul"),
+            Contextualized(
+                pseudo_id: "common.abilities.axe.bulkhead",
+                abilities: [
+                    ((combo: Some(50)), (Axe(Capsize), "common.abilities.axe.capsize")),
+                    ((), (Axe(Bulkhead), "common.abilities.axe.bulkhead")),
+                ],
+            ),
         ],
     ),
     Tool(Hammer): (
-        primary: Simple(None, "common.abilities.hammer.singlestrike"),
-        secondary: Simple(None, "common.abilities.hammer.charged"),
+        guard: Some(Simple(None, "common.abilities.hammer.basic_guard")),
+        primary: Simple(None, "common.abilities.hammer.solid_smash"),
+        secondary: Simple(None, "common.abilities.hammer.wide_wallop"),
         abilities: [
-            Simple(Some(Hammer(UnlockLeap)), "common.abilities.hammer.leap"),
+            Simple(Hammer(ScornfulSwipe), "common.abilities.hammer.scornful_swipe"),
+            Simple(Hammer(Tremor), "common.abilities.hammer.tremor"),
+            Simple(Hammer(VigorousBash), "common.abilities.hammer.vigorous_bash"),
+            Simple(Hammer(Retaliate), "common.abilities.hammer.retaliate"),
+            Simple(Hammer(SpineCracker), "common.abilities.hammer.spine_cracker"),
+            Simple(Hammer(Breach), "common.abilities.hammer.breach"),
+            Contextualized(
+                pseudo_id: "common.abilities.hammer.iron_tempest",
+                abilities: [
+                    ((dual_wielding_same_kind: true), (Hammer(IronTempest), "common.abilities.hammer.dual_iron_tempest")),
+                    ((), (Hammer(IronTempest), "common.abilities.hammer.iron_tempest")),
+                ],
+            ),
+            Contextualized(
+                pseudo_id: "common.abilities.hammer.upheaval",
+                abilities: [
+                    ((dual_wielding_same_kind: true), (Hammer(Upheaval), "common.abilities.hammer.dual_upheaval")),
+                    ((), (Hammer(Upheaval), "common.abilities.hammer.upheaval")),
+                ],
+            ),
+            Simple(Hammer(Thunderclap), "common.abilities.hammer.thunderclap"),
+            Simple(Hammer(SeismicShock), "common.abilities.hammer.seismic_shock"),
+            Contextualized(
+                pseudo_id: "common.abilities.hammer.heavy_whorl",
+                abilities: [
+                    ((dual_wielding_same_kind: true), (Hammer(HeavyWhorl), "common.abilities.hammer.dual_heavy_whorl")),
+                    ((), (Hammer(HeavyWhorl), "common.abilities.hammer.heavy_whorl")),
+                ],
+            ),
+            Contextualized(
+                pseudo_id: "common.abilities.hammer.intercept",
+                abilities: [
+                    ((dual_wielding_same_kind: true), (Hammer(Intercept), "common.abilities.hammer.dual_intercept")),
+                    ((), (Hammer(Intercept), "common.abilities.hammer.intercept")),
+                ],
+            ),
+            Simple(Hammer(PileDriver), "common.abilities.hammer.pile_driver"),
+            Simple(Hammer(LungPummel), "common.abilities.hammer.lung_pummel"),
+            Simple(Hammer(HelmCrusher), "common.abilities.hammer.helm_crusher"),
+            Simple(Hammer(Rampart), "common.abilities.hammer.rampart"),
+            Simple(Hammer(Tenacity), "common.abilities.hammer.tenacity"),
+            Simple(Hammer(Earthshaker), "common.abilities.hammer.earthshaker"),
+            Simple(Hammer(Judgement), "common.abilities.hammer.judgement"),
         ],
     ),
     Tool(Bow): (
@@ -301,8 +393,9 @@
         abilities: [],
     ),
     Tool(Shield): (
-        primary: Simple(None, "common.abilities.shield.tempbasic"),
-        secondary: Simple(None, "common.abilities.shield.block"),
+        guard: Some(Simple(None, "common.abilities.shield.basic_guard")),
+        primary: Simple(None, "common.abilities.shield.singlestrike"),
+        secondary: Simple(None, "common.abilities.shield.power_guard"),
         abilities: [],
     ),
     Custom("Stone Golem"): (
@@ -310,6 +403,14 @@
         secondary: Simple(None, "common.abilities.custom.stonegolemfist.shockwave"),
         abilities: [
             Simple(None, "common.abilities.custom.stonegolemfist.spin"),
+        ],
+    ),
+    Custom("Iron Golem"): (
+        primary: Simple(None, "common.abilities.custom.irongolemfist.singlestrike"),
+        secondary: Simple(None, "common.abilities.custom.irongolemfist.shockwave"),
+        abilities: [
+            Simple(None, "common.abilities.custom.irongolemfist.iron_pike_bomb"),
+            Simple(None, "common.abilities.custom.irongolemfist.spin"),
         ],
     ),
     Custom("Beast Claws"): (
@@ -366,10 +467,22 @@
         secondary: Simple(None, "common.abilities.custom.quadmedhoof.basic"),
         abilities: [],
     ),
+    Custom("ClaySteed"): (
+        primary: Simple(None, "common.abilities.custom.claysteed.basic"),
+        secondary: Simple(None, "common.abilities.custom.claysteed.shockwave"),
+        abilities: [],
+    ),
     Custom("Quad Med Basic"): (
         primary: Simple(None, "common.abilities.custom.quadmedbasic.singlestrike"),
         secondary: Simple(None, "common.abilities.custom.quadmedbasic.triplestrike"),
         abilities: [],
+    ),
+    Custom("Darkhound"): (
+        primary: Simple(None, "common.abilities.custom.darkhound.leap"),
+        secondary: Simple(None, "common.abilities.custom.darkhound.doublestrike"),
+        abilities: [
+            Simple(None, "common.abilities.custom.darkhound.quickleap"),
+        ],
     ),
     Custom("Frostfang"): (
         primary: Simple(None, "common.abilities.custom.frostfang.singlestrike"),
@@ -409,7 +522,7 @@
     ),
     Custom("Quad Low Tail"): (
         primary: Simple(None, "common.abilities.custom.quadlowtail.charged"),
-        secondary: Simple(None, "common.abilities.custom.quadlowtail.triplestrike"),
+        secondary: Simple(None, "common.abilities.custom.quadlowtail.singlestrike"),
         abilities: [],
     ),
     Custom("Quad Low Quick"): (
@@ -421,6 +534,13 @@
         primary: Simple(None, "common.abilities.custom.quadlowbasic.triplestrike"),
         secondary: Simple(None, "common.abilities.custom.quadlowbasic.singlestrike"),
         abilities: [],
+    ),
+    Custom("Rocksnapper"): (
+        primary: Simple(None, "common.abilities.custom.rocksnapper.triplestrike"),
+        secondary: Simple(None, "common.abilities.custom.rocksnapper.dash"),
+        abilities: [
+            Simple(None, "common.abilities.custom.rocksnapper.leapshockwave"),
+        ],
     ),
     Custom("Quad Low Beam"): (
         primary: Simple(None, "common.abilities.custom.quadlowbeam.lifestealbeam"),
@@ -441,7 +561,7 @@
     ),
     Custom("Mossy Snail"): (
         primary: Simple(None, "common.abilities.custom.mossy_snail.headbutt"),
-        secondary: Simple(None, "common.abilities.custom.mossy_snail.hastened"),
+        secondary: Simple(None, "common.abilities.custom.mossy_snail.harden"),
         abilities: [],
     ),
     Custom("Treant Sapling"): (
@@ -508,6 +628,13 @@
             Simple(None, "common.abilities.custom.arthropods.weevil.threadshot"),
         ],
     ),
+    Custom("Crawler"): (
+        primary: Simple(None, "common.abilities.custom.arthropods.crawler.singlestrike"),
+        secondary: Simple(None, "common.abilities.custom.arthropods.crawler.harden"),
+        abilities: [
+            Simple(None, "common.abilities.custom.arthropods.crawler.threadshot"),
+        ],
+    ),
     Custom("Dagonite"): (
         primary: Simple(None, "common.abilities.custom.arthropods.dagonite.leapshockwave"),
         secondary: Simple(None, "common.abilities.custom.arthropods.dagonite.leapshockwave"),
@@ -515,10 +642,21 @@
             Simple(None, "common.abilities.custom.arthropods.dagonite.leapshockwave"),
         ],
     ),
+    // Crustaceans
+    Custom("Crab"): (
+        primary: Simple(None, "common.abilities.custom.crab.triplestrike"),
+        secondary: Simple(None, "common.abilities.custom.crab.triplestrike"),
+        abilities: [],
+    ),
     /// TODO: Organize the rest into further catagories and give purple tier droppers+ custom skillsets
     Custom("Turret"): (
         primary: Simple(None, "common.abilities.custom.turret.arrows"),
         secondary: Simple(None, "common.abilities.custom.turret.arrows"),
+        abilities: [],
+    ),
+    Custom("Flamethrower"): (
+        primary: Simple(None, "common.abilities.custom.turret.flamethrower_strong"),
+        secondary: Simple(None, "common.abilities.custom.turret.flamethrower_strong"),
         abilities: [],
     ),
     Custom("Organ"): (
@@ -538,6 +676,43 @@
             Simple(None, "common.abilities.custom.mindflayer.dimensionaldoor"),
             Simple(None, "common.abilities.custom.mindflayer.necroticsphere"),
             Simple(None, "common.abilities.custom.mindflayer.summonminions"),
+            Simple(None, "common.abilities.custom.mindflayer.summonextraminions"),
+        ],
+    ),
+    Custom("Flamekeeper"): (
+        primary: Simple(None, "common.abilities.custom.dwarves.flamekeeper.mines"),
+        secondary: Simple(None, "common.abilities.custom.dwarves.flamekeeper.flamecrush"),
+        abilities: [
+            Simple(None, "common.abilities.custom.dwarves.flamekeeper.summon_lavathrower"),
+            Simple(None, "common.abilities.custom.dwarves.flamekeeper.flamethrower"),
+            Simple(None, "common.abilities.custom.dwarves.flamekeeper.lavawave"),
+            Simple(None, "common.abilities.custom.dwarves.flamekeeper.mines"),
+        ],
+    ),
+    Custom("Forgemaster"): (
+        primary: Simple(None, "common.abilities.custom.dwarves.forgemaster.lava_mortar"),
+        secondary: Simple(None, "common.abilities.custom.dwarves.forgemaster.flamecrush"),
+        abilities: [
+            Simple(None, "common.abilities.custom.dwarves.forgemaster.summon_iron_dwarf"),
+            Simple(None, "common.abilities.custom.dwarves.forgemaster.groundislava1"),
+            Simple(None, "common.abilities.custom.dwarves.forgemaster.flamethrower"),
+            Simple(None, "common.abilities.custom.dwarves.forgemaster.lavawave"),
+            Simple(None, "common.abilities.custom.dwarves.forgemaster.groundislava2"),
+            Simple(None, "common.abilities.custom.dwarves.forgemaster.teleport"),
+        ],
+    ),
+    Custom("IronDwarf"): (
+        primary: Simple(None, "common.abilities.custom.dwarves.iron_dwarf.singlestrike"),
+        secondary: Simple(None, "common.abilities.custom.dwarves.iron_dwarf.triplestrike"),
+        abilities: [],
+    ),
+    Custom("Snaretongue"): (
+        primary: Simple(None, "common.abilities.custom.dwarves.snaretongue.tongue"),
+        secondary: Simple(None, "common.abilities.custom.dwarves.snaretongue.wave"),
+        abilities: [
+            Simple(None, "common.abilities.custom.dwarves.snaretongue.bombs"),
+            Simple(None, "common.abilities.custom.dwarves.snaretongue.beam"),
+            Simple(None, "common.abilities.custom.dwarves.snaretongue.heal"),
         ],
     ),
     Custom("Minotaur"): (
@@ -566,13 +741,18 @@
 
         ],
      ),
+    Custom("Grave Warden"): (
+        primary: Simple(None, "common.abilities.custom.gravewarden.strike"),
+        secondary: Simple(None, "common.abilities.custom.gravewarden.laser"),
+        abilities: [
+            Simple(None, "common.abilities.custom.gravewarden.shockwave"),
+            Simple(None, "common.abilities.custom.gravewarden.rocket"),
+        ],
+    ),
     Custom("Clay Golem"): (
         primary: Simple(None, "common.abilities.custom.claygolem.strike"),
-        secondary: Simple(None, "common.abilities.custom.claygolem.laser"),
-        abilities: [
-            Simple(None, "common.abilities.custom.claygolem.shockwave"),
-            Simple(None, "common.abilities.custom.claygolem.rocket"),
-        ],
+        secondary: Simple(None, "common.abilities.custom.claygolem.dashstrike"),
+        abilities: [],
     ),
     Custom("Yeti"): (
         primary: Simple(None, "common.abilities.custom.yeti.strike"),
@@ -582,12 +762,18 @@
             Simple(None, "common.abilities.custom.yeti.snowball"),
         ],
     ),
+    Custom("Ancient Effigy"): (
+        primary: Simple(None, "common.abilities.custom.ancienteffigy.laser"),
+        secondary: Simple(None, "common.abilities.custom.ancienteffigy.blast"),
+        abilities: [],
+    ),
     Custom("Harvester"): (
         primary: Simple(None, "common.abilities.custom.harvester.scythe"),
         secondary: Simple(None, "common.abilities.custom.harvester.firebreath"),
         abilities: [
-            Simple(None, "common.abilities.custom.harvester.ensnaringvines"),
             Simple(None, "common.abilities.custom.harvester.explodingpumpkin"),
+            Simple(None, "common.abilities.custom.harvester.ensnaringvines_sparse"),
+            Simple(None, "common.abilities.custom.harvester.ensnaringvines_dense"),
         ],
     ),
     // TODO: Allow ability sets to expand other ability sets
@@ -634,50 +820,54 @@
         ],
     ),
     Custom("Bird Large Fire"): (
-        primary: Simple(None, "common.abilities.custom.birdlargefire.firebomb"),
-        secondary: Simple(None, "common.abilities.custom.birdlargefire.triplestrike"),
+        primary: Simple(None, "common.abilities.custom.birdlargefire.longstrike"),
+        secondary: Simple(None, "common.abilities.custom.birdlargefire.shortstrike"),
         abilities: [
-            Simple(None, "common.abilities.custom.birdlargefire.fireshockwave"),
+            Simple(None, "common.abilities.custom.birdlargefire.legstrike"),
+            Simple(None, "common.abilities.custom.birdlargefire.summontornadoes"),
+            Simple(None, "common.abilities.custom.birdlargefire.firerain"),
+            Simple(None, "common.abilities.custom.birdlargefire.heat_laser"),
+            Simple(None, "common.abilities.custom.birdlargefire.from_the_ashes"),
         ],
     ),
     Custom("Flame Wyvern"): (
         primary: Simple(None, "common.abilities.custom.flamewyvern.firebomb"),
-        secondary: Simple(None, "common.abilities.custom.flamewyvern.fireshockwave"),
+        secondary: Simple(None, "common.abilities.custom.flamewyvern.triplestrike"),
         abilities: [
-            Simple(None, "common.abilities.custom.flamewyvern.triplestrike"),
+            Simple(None, "common.abilities.custom.flamewyvern.fireshockwave"),
             Simple(None, "common.abilities.custom.flamewyvern.flamethrower"),
         ],
     ),
     Custom("Frost Wyvern"): (
         primary: Simple(None, "common.abilities.custom.frostwyvern.frostbomb"),
-        secondary: Simple(None, "common.abilities.custom.frostwyvern.iceshockwave"),
+        secondary: Simple(None, "common.abilities.custom.frostwyvern.triplestrike"),
         abilities: [
-            Simple(None, "common.abilities.custom.frostwyvern.triplestrike"),
+            Simple(None, "common.abilities.custom.frostwyvern.iceshockwave"),
             Simple(None, "common.abilities.custom.frostwyvern.frostthrower"),
         ],
     ),
     Custom("Cloud Wyvern"): (
-        primary: Simple(None, "common.abilities.custom.cloudwyvern.windbomb"),
-        secondary: Simple(None, "common.abilities.custom.cloudwyvern.windshockwave"),
+        primary: Simple(None, "common.abilities.custom.cloudwyvern.lightningbomb"),
+        secondary: Simple(None, "common.abilities.custom.cloudwyvern.triplestrike"),
         abilities: [
-            Simple(None, "common.abilities.custom.cloudwyvern.triplestrike"),
-            Simple(None, "common.abilities.custom.cloudwyvern.windthrower"),
+            Simple(None, "common.abilities.custom.cloudwyvern.lightningshockwave"),
+            Simple(None, "common.abilities.custom.cloudwyvern.lightningthrower"),
         ],
     ),
     Custom("Sea Wyvern"): (
-        primary: Simple(None, "common.abilities.custom.seawyvern.seabomb"),
-        secondary: Simple(None, "common.abilities.custom.seawyvern.seashockwave"),
+        primary: Simple(None, "common.abilities.custom.seawyvern.inkbomb"),
+        secondary: Simple(None, "common.abilities.custom.seawyvern.triplestrike"),
         abilities: [
-            Simple(None, "common.abilities.custom.seawyvern.triplestrike"),
-            Simple(None, "common.abilities.custom.seawyvern.bubblethrower"),
+            Simple(None, "common.abilities.custom.seawyvern.inkshockwave"),
+            Simple(None, "common.abilities.custom.seawyvern.inkthrower"),
         ],
     ),
     Custom("Weald Wyvern"): (
-        primary: Simple(None, "common.abilities.custom.wealdwyvern.firebomb"),
-        secondary: Simple(None, "common.abilities.custom.wealdwyvern.fireshockwave"),
+        primary: Simple(None, "common.abilities.custom.wealdwyvern.poisonbomb"),
+        secondary: Simple(None, "common.abilities.custom.wealdwyvern.triplestrike"),
         abilities: [
-            Simple(None, "common.abilities.custom.wealdwyvern.triplestrike"),
-            Simple(None, "common.abilities.custom.wealdwyvern.flamethrower"),
+            Simple(None, "common.abilities.custom.wealdwyvern.poisonshockwave"),
+            Simple(None, "common.abilities.custom.wealdwyvern.poisonthrower"),
         ],
     ),
     Custom("Bird Large Basic"): (
@@ -701,6 +891,9 @@
             Simple(None, "common.abilities.custom.gigas_frost.ice_volley"),
             Simple(None, "common.abilities.custom.gigas_frost.frost_summons"),
             Simple(None, "common.abilities.custom.gigas_frost.flashfreeze"),
+            Simple(None, "common.abilities.custom.gigas_frost.icespike_targeted"),
+            Simple(None, "common.abilities.custom.gigas_frost.bonk"),
+            Simple(None, "common.abilities.custom.gigas_frost.whirlwind"),
         ],
     ),
     Custom("Boreal Bow"): (
@@ -722,8 +915,13 @@
         secondary: Simple(None, "common.abilities.empty.basic"),
         abilities: [],
     ),
+    Custom("FieryTornado"): (
+        primary: Simple(None, "common.abilities.custom.fiery_tornado.fiery_spin"),
+        secondary: Simple(None, "common.abilities.custom.fiery_tornado.fiery_aura"),
+        abilities: [],
+    ),
     Custom("Golf Club"): (
-        primary: Simple(None, "common.abilities.hammer.singlestrike"),
+        primary: Simple(None, "common.abilities.tool.golf_club.charged"),
         secondary: Simple(None, "common.abilities.tool.golf_club.charged"),
         abilities: [],
     ),
@@ -792,11 +990,29 @@
         secondary: Simple(None, "common.abilities.music.sitar"),
         abilities: [],
     ),
+    Custom("Steeltonguedrum"): (
+        primary: Simple(None, "common.abilities.music.steeltonguedrum"),
+        secondary: Simple(None, "common.abilities.music.steeltonguedrum"),
+        abilities: [],
+    ),
+    Custom("Shamisen"): (
+        primary: Simple(None, "common.abilities.music.shamisen"),
+        secondary: Simple(None, "common.abilities.music.shamisen"),
+        abilities: [],
+    ),
     Tool(Debug): (
         primary: Simple(None, "common.abilities.debug.forwardboost"),
         secondary: Simple(None, "common.abilities.debug.upboost"),
         abilities: [
             Simple(None, "common.abilities.debug.possess"),
+            Simple(None, "common.abilities.debug.evolve"),
+        ],
+    ),
+    Custom("Admin's Eagle"): (
+        primary: Simple(None, "common.abilities.debug.glide_speeder"),
+        secondary: Simple(None, "common.abilities.debug.glide_boost"),
+        abilities: [
+            Simple(None, "common.abilities.debug.eaglify"),
         ],
     ),
     Tool(Farming): (
@@ -807,6 +1023,11 @@
     Tool(Pick): (
         primary: Simple(None, "common.abilities.pick.swing"),
         secondary: Simple(None, "common.abilities.pick.swing"),
+        abilities: [],
+    ),
+    Tool(Shovel): (
+        primary: Simple(None, "common.abilities.shovel.dig"),
+        secondary: Simple(None, "common.abilities.shovel.dig"),
         abilities: [],
     ),
     Tool(Empty): (
@@ -838,5 +1059,105 @@
             Simple(None, "common.abilities.adlet.elder.trap"),
             Simple(None, "common.abilities.adlet.elder.leap"),
         ],
+    ),
+    // Haniwa
+    Custom("Haniwa Soldier"): (
+        primary: Simple(None, "common.abilities.haniwa.soldier.strike"),
+        secondary: Simple(None, "common.abilities.haniwa.soldier.riposte"),
+        guard: Simple(None, "common.abilities.haniwa.soldier.guard"),
+        abilities: [],
+    ),
+    Custom("Haniwa Guard"): (
+        primary: Simple(None, "common.abilities.haniwa.guard.strike"),
+        secondary: Simple(None, "common.abilities.haniwa.guard.flurry"),
+        abilities: [
+            Simple(None, "common.abilities.haniwa.guard.backpedal")
+        ],
+    ),
+    Custom("Haniwa Archer"): (
+        primary: Simple(None, "common.abilities.haniwa.archer.arrow"),
+        secondary: Simple(None, "common.abilities.haniwa.archer.kick"),
+        abilities: [
+            Simple(None, "common.abilities.haniwa.archer.explosive")
+        ],
+    ),
+    // Terracotta
+    Custom("TerracottaBesieger"): (
+        primary: Simple(None, "common.abilities.custom.terracotta_besieger.doublestrike"),
+        secondary: Simple(None, "common.abilities.custom.terracotta_besieger.multishot"),
+        abilities: [],
+    ),
+    Custom("TerracottaDemolisher"): (
+        primary: Simple(None, "common.abilities.custom.terracotta_demolisher.drop"),
+        secondary: Simple(None, "common.abilities.custom.terracotta_demolisher.throw"),
+        abilities: [],
+    ),
+    Custom("TerracottaPursuer"): (
+        primary: Simple(None, "common.abilities.custom.terracotta_pursuer.doublestrike"),
+        secondary: Simple(None, "common.abilities.custom.terracotta_pursuer.dash"),
+        abilities: [],
+    ),
+    Custom("TerracottaPunisher"): (
+        primary: Simple(None, "common.abilities.custom.terracotta_punisher.doublestrike"),
+        secondary: Simple(None, "common.abilities.custom.terracotta_punisher.doublestrike"),
+        abilities: [],
+    ),
+    Custom("TerracottaStatue"): (
+        primary: Simple(None, "common.abilities.custom.terracotta_statue.trap"),
+        secondary: Simple(None, "common.abilities.custom.terracotta_statue.blast"),
+        abilities: [],
+    ),
+    Custom("Mogwai"): (
+        primary: Simple(None, "common.abilities.custom.mogwai.breathe"),
+        secondary: Simple(None, "common.abilities.custom.mogwai.breathe"),
+        abilities: [],
+    ),
+    Custom("Cursekeeper"): (
+        primary: Simple(None, "common.abilities.custom.cursekeeper.beam"),
+        secondary: Simple(None, "common.abilities.custom.cursekeeper.trap"),
+        abilities: [
+            Simple(None, "common.abilities.custom.cursekeeper.summonmogwai"),
+            Simple(None, "common.abilities.custom.cursekeeper.summonbesieger"),
+            Simple(None, "common.abilities.custom.cursekeeper.summonpursuer"),
+            Simple(None, "common.abilities.custom.cursekeeper.summonshamanicspirit"),
+            Simple(None, "common.abilities.custom.cursekeeper.summonjiangshi"),
+            Simple(None, "common.abilities.custom.cursekeeper.teleport"),
+            Simple(None, "common.abilities.custom.cursekeeper.poisonbomb"),
+        ],
+    ),
+    Custom("CursekeeperFake"): (
+        primary: Simple(None, "common.abilities.custom.cursekeeper.transform"),
+        secondary: Simple(None, "common.abilities.custom.cursekeeper.transform"),
+        abilities: [],
+    ),
+    Custom("ShamanicSpirit"): (
+        primary: Simple(None, "common.abilities.custom.shamanic_spirit.ironspikes"),
+        secondary: Simple(None, "common.abilities.custom.shamanic_spirit.teleport"),
+        abilities: [],
+    ),
+    Custom("Jiangshi"): (
+        primary: Simple(None, "common.abilities.custom.jiangshi.poisonshockwave"),
+        secondary: Simple(None, "common.abilities.custom.jiangshi.teleport"),
+        abilities: [],
+    ),
+    Custom("BipedLargeCultistStaff"): (
+        primary: Simple(None, "common.abilities.custom.biped_large_cultist.staff.firebomb"),
+        secondary: Simple(None, "common.abilities.custom.biped_large_cultist.staff.flamethrower"),
+        abilities: [],
+    ),
+    Custom("BipedLargeCultistSword"): (
+        primary: Simple(None, "common.abilities.custom.biped_large_cultist.sword.doublestrike"),
+        secondary: Simple(None, "common.abilities.custom.biped_large_cultist.sword.dash"),
+        abilities: [],
+    ),
+    Custom("BipedLargeCultistHammer"): (
+        primary: Simple(None, "common.abilities.custom.biped_large_cultist.hammer.doublestrike"),
+        secondary: Simple(None, "common.abilities.custom.biped_large_cultist.hammer.doublestrike"),
+        abilities: [],
+    ),
+    Custom("BipedLargeCultistBow"): (
+        primary: Simple(None, "common.abilities.custom.biped_large_cultist.bow.basic"),
+        secondary: Simple(None, "common.abilities.custom.biped_large_cultist.bow.basic"),
+        abilities: [],
     ),
 })

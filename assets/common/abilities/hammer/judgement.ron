@@ -1,0 +1,21 @@
+FinisherMelee(
+    energy_cost: 0,
+    buildup_duration: 0.3,
+    swing_duration: 0.2,
+    recover_duration: 0.6,
+    melee_constructor: (
+        kind: Bash(
+            damage: 25,
+            poise: 30,
+            knockback: 5,
+            energy_regen: 0,
+        ),
+        range: 4.0,
+        angle: 15.0,
+        damage_effect: Some(StunnedVulnerable(2.5)),
+    ),
+    minimum_combo: 20,
+    meta: (
+        contextual_stats: Some((context: PoiseResilience(80.0), field: Power)),
+    ),
+)

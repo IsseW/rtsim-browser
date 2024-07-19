@@ -1,0 +1,9 @@
+buff-remove = Klikk for å fjerne
+buff-heal = Helbred
+    .desc = Helbred over tid.
+buff-potion = Trylledrikk
+    .desc = Drikker...
+buff-saturation = Metning
+    .desc = Helbred over tid fra forbruksvarer.
+buff-bleed = Blør
+    .desc = Påfører regelmessig skade.

@@ -19,10 +19,30 @@
             central: ("armor.empty"),
         )
     ),
+    Mine: (
+        bone0: (
+            offset: (-5.5, -5.5, 0.0),
+            central: ("sprite.misc.mine"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
     DagonBomb: (
         bone0: (
             offset: (-5.5, -5.5, 0.0),
             central: ("object.dagon_bomb"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    TerracottaDemolisherBomb: (
+        bone0: (
+            offset: (-5.5, -5.5, 0.0),
+            central: ("object.terracotta_demolisher_bomb"),
         ),
         bone1: (
             offset: (0.0, 0.0, 0.0),
@@ -111,7 +131,7 @@
     ),
     ChestVines: (
         bone0: (
-            offset: (-7.5, -6.0, 0.0),
+            offset: (-8.5, -7.0, 0.0),
             central: ("object.chest_vines"),
         ),
         bone1: (
@@ -619,6 +639,16 @@
             central: ("armor.empty"),
         )
     ),
+    FireRainDrop: (
+        bone0: (
+            offset: (-2.0, -10.0, -2.0),
+            central: ("weapon.projectile.firerain_droplet1"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
     TrainingDummy: (
         bone0: (
             offset: (-7.0, -5.0, 0.0),
@@ -679,10 +709,50 @@
             central: ("object.crossbow.bone1"),
         )
     ),
+    Flamethrower: (
+        bone0: (
+            offset: (-6.0, -16.5, -8.0),
+            central: ("object.flamethrower.bone0"),
+        ),
+        bone1: (
+            offset: (-9.0, -7.0, -8.0),
+            central: ("object.flamethrower.bone1"),
+        )
+    ),
+    Lavathrower: (
+        bone0: (
+            offset: (-6.0, -16.5, 4.0),
+            central: ("object.lavathrower.bone0"),
+        ),
+        bone1: (
+            offset: (-9.0, -7.0, 0.0),
+            central: ("object.lavathrower.bone1"),
+        )
+    ),
     ArrowTurret: (
         bone0: (
             offset: (-1.5, -6.5, -1.5),
             central: ("weapon.projectile.turret-arrow"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    ArrowClay: (
+        bone0: (
+            offset: (-1.5, -6.0, -1.5),
+            central: ("weapon.projectile.clay-arrow"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    BoltBesieger: (
+        bone0: (
+            offset: (-2.5, -10.0, -2.5),
+            central: ("weapon.projectile.besieger_bolt"),
         ),
         bone1: (
             offset: (0.0, 0.0, 0.0),
@@ -719,14 +789,26 @@
             central: ("armor.empty"),
         )
     ),
+    GrenadeClay: (
+        bone0: (
+            offset: (-0.5, -6.0, -1.5),
+            central: ("weapon.projectile.clay-missile"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
     HaniwaSentry: (
         bone0: (
             offset: (-5.5, -4.5, -5.5),
-            central: ("object.haniwa_sentry.bone0"),
+            central: ("object.haniwa_sentry.bone"),
+            model_index: 0,
         ),
         bone1: (
             offset: (-5.5, -5.5, -3.0),
-            central: ("object.haniwa_sentry.bone1"),
+            central: ("object.haniwa_sentry.bone"),
+            model_index: 1,
         )
     ),
     SeaLantern: (
@@ -780,6 +862,16 @@
         )
     ),
     Tornado: (
+        bone0: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    FieryTornado: (
         bone0: (
             offset: (0.0, 0.0, 0.0),
             central: ("armor.empty"),
@@ -919,6 +1011,36 @@
             central: ("armor.empty"),
         )
     ),
+    LaserBeamSmall: (
+        bone0: (
+            offset: (-1.0, -9.0, -3.0),
+            central: ("weapon.projectile.laser_beam_small"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    LightningBolt: (
+        bone0: (
+            offset: (-4.5, -80.0, -3.0),
+            central: ("weapon.projectile.lightning_bolt"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    SpearIcicle: (
+        bone0: (
+            offset: (-2.5, -30.0, -2.5),
+            central: ("weapon.projectile.icicle-spear"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
     AdletSpear: (
         bone0: (
             offset: (5.0, -22.0, -2.0),
@@ -933,6 +1055,86 @@
         bone0: (
             offset: (-4.5, -2.5, 0.0),
             central: ("weapon.projectile.adlet-trap"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    TerracottaStatue: (
+        bone0: (
+            offset: (-21.0, -19.0, -0.0),
+            central: ("sprite.furniture.terracotta_statue_4"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    Portal: (
+        bone0: (
+            offset: (-33.0, -33.0, 0.0),
+            central: ("object.portal"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    PortalActive: (
+        bone0: (
+            offset: (-33.0, -33.0, 0.0),
+            central: ("object.portal_active"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    Pebble: (
+        bone0: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("weapon.projectile.pebble"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    SurpriseEgg: (
+        bone0: (
+            offset: (-5.5, -5.5, 0.0),
+            central: ("object.surprise_egg"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    BubbleBomb: (
+        bone0: (
+            offset: (-3.5, -3.5, -3.5),
+            central: ("weapon.projectile.bubble_bomb"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    IronPikeBomb: (
+        bone0: (
+            offset: (-3.5, -8.0, -3.5),
+            central: ("weapon.projectile.iron_pike_bomb"),
+        ),
+        bone1: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("armor.empty"),
+        )
+    ),
+    Scroll: (
+        bone0: (
+            offset: (0.0, 0.0, 0.0),
+            central: ("object.recipe"),
         ),
         bone1: (
             offset: (0.0, 0.0, 0.0),

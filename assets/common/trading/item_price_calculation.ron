@@ -12,14 +12,20 @@ loot_tables: [
     (6.0, true, "common.loot_tables.armor.twigs"),
     (6.0, true, "common.loot_tables.armor.twigsflowers"),
     (6.0, true, "common.loot_tables.armor.twigsleaves"),
-    (0.02, false, "common.trading.jewellery"),
+    (4.0, false, "common.trading.misc_armor"),
+    (0.09, false, "common.loot_tables.armor.cultist"),
+    (0.0016, false, "common.loot_tables.armor.boreal"),
 
     // Ingredients
     (72.5, true, "common.trading.sellable_materials"),
-    (1.7205, false, "common.trading.unsellable_materials"),
+    (3.16184, false, "common.trading.unsellable_materials"),
 
     // Food Ingredients
     (20.375, true, "common.trading.food"),
+
+    // Recipes
+    (1.8, true, "common.trading.sellable_recipe"),
+    (1.5, false, "common.trading.unsellable_recipe"),
 
     // Potions
     //
@@ -44,4 +50,6 @@ good_scaling: [
     (Armor, 0.025), // common.items.armor.misc.pants.worker_blue
     (Tools, 0.015487), // common.items.weapons.staff.starter_staff
     (Ingredients, 0.034626), // common.items.crafting_ing.leather_scraps
+    (Wood, 0.034626), // common.items.log.wood
+    (Recipe, 0.01), // common.items.recipes
 ])

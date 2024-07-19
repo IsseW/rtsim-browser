@@ -1,11 +1,17 @@
 BasicRanged(
     energy_cost: 0,
-    buildup_duration: 1.125,
-    recover_duration: 0.8,
-    projectile: NecroticSphere(
-        damage: 67.5,
-        radius: 5.0,
-        min_falloff: 0.9,
+    buildup_duration: 1.0,
+    recover_duration: 0.7,
+    projectile: (
+        kind: Explosive(
+            radius: 7,
+            min_falloff: 0.2,
+            reagent: Some(Purple),
+        ),
+        attack: Some((
+            damage: 50,
+            energy: 40,
+        )),
     ),
     projectile_body: Object(FireworkPurple),
     projectile_speed: 100.0,

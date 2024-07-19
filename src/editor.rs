@@ -29,6 +29,7 @@ fn do_query(query: &str, npcs: &Npcs) -> Vec<NpcId> {
                     Role::Civilised(_) => "civilised".to_string(),
                     Role::Wild => "wild".to_string(),
                     Role::Monster => "monster".to_string(),
+                    Role::Vehicle => "vehicle".to_string(),
                 },
                 format!("{:?}", npc.mode),
                 npc.get_name(),
@@ -52,7 +53,7 @@ fn do_query(query: &str, npcs: &Npcs) -> Vec<NpcId> {
 
 pub fn ui(
     mut ctx: EguiContexts,
-    server: Res<VelorenServer>,
+    server: NonSend<VelorenServer>,
     mut selected: ResMut<SelectedNpc>,
     mut state: Local<State>,
     mut cam: Query<&mut Transform, With<PanCam>>,
@@ -98,47 +99,75 @@ pub fn ui(
                 }
             });
         }
-        if let Some(id) = selected.0 && let Some(npc) = data.npcs.get(id) {
-            egui::SidePanel::new(egui::panel::Side::Left, "npc").width_range(280.0..=280.0).show(ctx.ctx_mut(), |ui| {
-                ui.heading(format!("{} ({:?})", npc.get_name(), id));
-                ui.label(format!("Role: {:?}", npc.role));
+        if let Some(id) = selected.0
+            && let Some(npc) = data.npcs.get(id)
+        {
+            egui::SidePanel::new(egui::panel::Side::Left, "npc")
+                .width_range(280.0..=280.0)
+                .show(ctx.ctx_mut(), |ui| {
+                    ui.heading(format!("{} ({:?})", npc.get_name(), id));
+                    ui.label(format!("Role: {:?}", npc.role));
 
-                let npc_names = &*veloren_common::npc::NPC_NAMES.read();
-                if let Some(species_meta) = npc_names.get_species_meta(&npc.body) {
-                    ui.label(format!("Body: {}", species_meta.generic));
-                }
+                    let npc_names = &*veloren_common::npc::NPC_NAMES.read();
+                    if let Some(species_meta) = npc_names.get_species_meta(&npc.body) {
+                        ui.label(format!("Body: {}", species_meta.generic));
+                    }
 
-                ui.label(format!("Seed: {}", npc.seed));
-                ui.label(format!("Pos: ({}, {}, {})", npc.wpos.x.floor(), npc.wpos.y.floor(), npc.wpos.z.floor()));
-                ui.label(format!("Home: {:?}", npc.home));
-                ui.label(format!("Faction: {:?}", npc.faction));
-                ui.label(format!("Personality: {:#?}", npc.personality));
+                    ui.label(format!("Seed: {}", npc.seed));
+                    ui.label(format!(
+                        "Pos: ({}, {}, {})",
+                        npc.wpos.x.floor(),
+                        npc.wpos.y.floor(),
+                        npc.wpos.z.floor()
+                    ));
+                    ui.label(format!("Home: {:?}", npc.home));
+                    ui.label(format!("Faction: {:?}", npc.faction));
+                    ui.label(format!("Personality: {:#?}", npc.personality));
 
-                ui.heading("Status");
-                ui.label(format!("Current site: {:?}", npc.current_site));
-                ui.label(format!("Mode: {:?}", npc.mode));
-                ui.label(format!("Riding: {:?}", npc.riding.as_ref().map(|riding| riding.vehicle)));
+                    ui.heading("Status");
+                    ui.label(format!("Current site: {:?}", npc.current_site));
+                    ui.label(format!("Mode: {:?}", npc.mode));
 
-                if let Some(brain) = &npc.brain {
-                    ui.heading("Brain");
-                    let mut bt = Vec::new();
-                    brain.action.backtrace(&mut bt);
-                    egui::ScrollArea::vertical().show(ui, |ui| {
-                        for (i, action) in bt.into_iter().enumerate() {
-                            ui.label(format!("[{i}]: {}", action));
+                    let riding = data
+                        .npcs
+                        .mounts
+                        .get_mount_link(id)
+                        .map(|mount_link| mount_link.mount);
+                    ui.horizontal(|ui| {
+                        ui.label("Riding: ");
+                        match riding {
+                            Some(id) => {
+                                if ui.button("{id:?}").clicked() {
+                                    selected.0 = Some(id);
+                                }
+                            }
+                            None => {
+                                let button = egui::Button::new("None");
+                                ui.add_enabled(false, button);
+                            }
                         }
                     });
-                }
-                ui.horizontal(|ui| {
-                    ui.checkbox(&mut state.follow_selected, "Follow selected");
-                    if state.follow_selected || ui.button("Center").clicked() {
-                        let size = server.world().sim().get_size().as_();
-                        let pos = npc.wpos.xy() - size * 16.0;
-                        let pos = Vec3::new(pos.x, pos.y, 100.0);
-                        cam.translation = pos;
+
+                    if let Some(brain) = &npc.brain {
+                        ui.heading("Brain");
+                        let mut bt = Vec::new();
+                        brain.action.backtrace(&mut bt);
+                        egui::ScrollArea::vertical().show(ui, |ui| {
+                            for (i, action) in bt.into_iter().enumerate() {
+                                ui.label(format!("[{i}]: {}", action));
+                            }
+                        });
                     }
+                    ui.horizontal(|ui| {
+                        ui.checkbox(&mut state.follow_selected, "Follow selected");
+                        if state.follow_selected || ui.button("Center").clicked() {
+                            let size = server.world().sim().get_size().as_();
+                            let pos = npc.wpos.xy() - size * 16.0;
+                            let pos = Vec3::new(pos.x, pos.y, 100.0);
+                            cam.translation = pos;
+                        }
+                    });
                 });
-            });
         }
     } else {
         egui::CentralPanel::default().show(ctx.ctx_mut(), |ui| {

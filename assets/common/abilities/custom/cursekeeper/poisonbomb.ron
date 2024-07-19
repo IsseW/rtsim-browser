@@ -1,0 +1,30 @@
+BasicRanged(
+    energy_cost: 0,
+    buildup_duration: 0.3,
+    recover_duration: 0.3,
+    projectile: (
+        kind: Explosive(
+            radius: 6,
+            min_falloff: 0.1,
+            reagent: Some(Purple),
+            terrain: Some((5, Black)),
+        ),
+        attack: Some((
+            damage: 32,
+            knockback: Some(10),
+            energy: 0,
+            buff: Some((
+                kind: Poisoned,
+                dur_secs: 5,
+                strength: DamageFraction(0.8),
+                chance: 1.0,
+            )),
+        )),
+    ),
+    projectile_body: Object(SpitPoison),
+    projectile_light: None,
+    projectile_speed: 25.0,
+    num_projectiles: 2,
+    projectile_spread: 0.1,
+    move_efficiency: 0.3,
+)

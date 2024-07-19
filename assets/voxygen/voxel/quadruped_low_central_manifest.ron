@@ -155,6 +155,71 @@
             central: ("npc.alligator.male.tail_front"),
         ),
     ),
+    (Snaretongue, Male): (
+        upper: (
+            offset: (-8.5, -6.0, -7.5),
+            central: ("npc.snaretongue.male.snaretongue"),
+            model_index: 0,
+        ),
+        lower: (
+            offset: (-6.5, -2.0, -8.0),
+            central: ("npc.snaretongue.male.snaretongue"),
+            model_index: 1,
+        ),
+        jaw: (
+            offset: (-8.5, 0.0, -6.0),
+            central: ("npc.snaretongue.male.snaretongue"),
+            model_index: 2,
+        ),
+        chest: (
+            offset: (-7.5, -7.5, -8.0),
+            central: ("npc.snaretongue.male.snaretongue"),
+            model_index: 3,
+        ),
+        tail_rear: (
+            offset: (-4.5, -10.5, -4.5),
+            central: ("npc.snaretongue.male.snaretongue"),
+            model_index: 4,
+        ),
+		tail_front: (
+            offset: (-2.5, -10.5, -2.5),
+            central: ("npc.snaretongue.male.snaretongue"),
+            model_index: 5,
+        ),
+    ),
+    (Snaretongue, Female): (
+        upper: (
+            offset: (-8.5, -6.0, -7.5),
+            central: ("npc.snaretongue.male.snaretongue"),
+            model_index: 0,
+        ),
+        lower: (
+            offset: (-6.5, -2.0, -8.0),
+            central: ("npc.snaretongue.male.snaretongue"),
+            model_index: 1,
+        ),
+
+        jaw: (
+            offset: (-8.5, 0.0, -6.0),
+            central: ("npc.snaretongue.male.snaretongue"),
+            model_index: 2,
+        ),
+        chest: (
+            offset: (-7.5, -7.5, -8.0),
+            central: ("npc.snaretongue.male.snaretongue"),
+            model_index: 3,
+        ),
+        tail_rear: (
+            offset: (-4.5, -10.5, -4.5),
+            central: ("npc.snaretongue.male.snaretongue"),
+            model_index: 4,
+        ),
+		tail_front: (
+            offset: (-2.5, -10.5, -2.5),
+            central: ("npc.snaretongue.male.snaretongue"),
+            model_index: 5,
+        ),
+    ),
     (Salamander, Male): (
         upper: (
             offset: (-6.5, 0.0, -2.0),

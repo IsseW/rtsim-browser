@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Emerald Necklace",
-    description: "A cobalt necklace, bearing beautiful emerald gems.",
+    legacy_name: "Emerald Necklace",
+    legacy_description: "A cobalt necklace, bearing beautiful emerald gems.",
     kind: Armor((
         kind: Neck,
         stats: Direct((
@@ -9,6 +9,8 @@ ItemDef(
             energy_reward: Some(-0.15),
         )),
     )),
-    quality: Epic,
-    tags: [],
+    quality: High,
+    tags: [
+        SalvageInto(Emerald, 1),
+    ],
 )

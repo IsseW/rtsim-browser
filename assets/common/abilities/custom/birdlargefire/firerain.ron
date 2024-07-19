@@ -1,0 +1,43 @@
+RepeaterRanged(
+    energy_cost: 0.0,
+    buildup_duration: 0.2,
+    shoot_duration: 0.3,
+    recover_duration: 0.5,
+    max_speed: 8.0,
+    half_speed_at: 5,
+    projectile: (
+        kind: Explosive(
+            radius: 12,
+            min_falloff: 0.5,
+            reagent: Some(Phoenix),
+            terrain: Some((2, Black))
+        ),
+        attack: Some((
+            damage: 31,
+            energy: 20,
+            buff: Some((
+                kind: Burning,
+                dur_secs: 4,
+                strength: DamageFraction(1.0),
+                chance: 1.0,
+            )),
+        )),
+    ),
+    projectile_body: Object(FireRainDrop),
+    projectile_light: Some(LightEmitter(
+        col: Rgb(
+                r: 1.0,
+                g: 0.8,
+                b: 0.3,
+                ),
+        strength: 10.0,
+        flicker: 5.0,
+        animated: true,
+    )),
+    projectile_speed: 0.0,
+    properties_of_aoe: Some(ProjectileOffset(
+        radius: 30,
+        height: 20,
+    )),
+    specifier: Some(FireRain),
+)

@@ -1,4 +1,4 @@
-#version 420 core
+#version 440 core
 
 #include <constants.glsl>
 
@@ -19,8 +19,6 @@
 #define HAS_SHADOW_MAPS
 
 #include <globals.glsl>
-
-layout(location = 0) in vec3 f_pos;
 
 layout(location = 0) out vec4 tgt_color;
 

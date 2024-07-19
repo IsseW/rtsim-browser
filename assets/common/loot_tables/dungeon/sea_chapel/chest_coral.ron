@@ -1,5 +1,16 @@
 [
-    // Ingredients
-    (2.0, Item("common.items.crafting_ing.coral_branch")),
-    (0.5, Item("common.items.crafting_ing.pearl")),
+    (1.0, All([
+        Lottery([
+            // Ingredients
+            (2.0, Item("common.items.crafting_ing.coral_branch")),
+            (0.5, Item("common.items.crafting_ing.pearl")),
+            (0.5, Item("common.items.recipes.armor.brinestone")),
+            (0.25, Item("common.items.recipes.unique.winged_coronet")),
+            (0.25, Item("common.items.recipes.unique.abyssal_ring")),
+        ]),
+        Lottery([
+            (0.6, Nothing),
+            (0.4, LootTable("common.loot_tables.consumables.pyrotechnics")),
+        ])
+    ])),
 ]

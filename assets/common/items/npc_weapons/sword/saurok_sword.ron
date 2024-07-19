@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Saurok Sword",
-    description: "Placeholder",
+    legacy_name: "Saurok Sword",
+    legacy_description: "Placeholder",
     kind: Tool((
         kind: Sword,
         hands: Two,
@@ -9,7 +9,6 @@ ItemDef(
             power: 1.5,
             effect_power: 1.0,
             speed: 0.75,
-            crit_chance: 0.0625,
             range: 1.0,
             energy_efficiency: 1.0,
             buff_strength: 1.0,

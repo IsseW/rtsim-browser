@@ -1,11 +1,11 @@
 ItemDef(
-    name: "Liana Kit",
-    description: "Woven from dried lianas.",
+    legacy_name: "Liana Kit",
+    legacy_description: "Woven from dried lianas.",
     kind: Armor((
         kind: Bag,
         stats: Direct(()),
     )),
-    quality: Moderate,
+    quality: High,
     tags: [Bag],
-    slots: 12,
+    slots: 15,
 )

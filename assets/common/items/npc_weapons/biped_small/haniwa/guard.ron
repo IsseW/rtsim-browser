@@ -1,15 +1,14 @@
 ItemDef(
-    name: "Guard Spear",
-    description: "",
+    legacy_name: "Guard Spear",
+    legacy_description: "",
     kind: Tool((
         kind: Spear,
         hands: Two,
         stats: (
             equip_time_secs: 0.0,
-            power: 1.6,
+            power: 1.0,
             effect_power: 1.0,
             speed: 1.0,
-            crit_chance: 0.05357143,
             range: 1.0,
             energy_efficiency: 1.0,
             buff_strength: 1.0,
@@ -17,5 +16,5 @@ ItemDef(
     )),
     quality: Low,
     tags: [],
-    ability_spec: None,
+    ability_spec: Some(Custom("Haniwa Guard")),
 )

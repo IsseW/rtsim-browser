@@ -1,4 +1,4 @@
-#version 420 core
+#version 440 core
 
 #define FIGURE_SHADER
 
@@ -145,7 +145,7 @@ void main() {
 #endif
 
 #if (SHADOW_MODE == SHADOW_MODE_CHEAP || SHADOW_MODE == SHADOW_MODE_MAP)
-    vec4 f_shadow = textureBicubic(t_horizon, s_horizon, pos_to_tex(f_pos.xy));
+    vec4 f_shadow = textureMaybeBicubic(t_horizon, s_horizon, pos_to_tex(f_pos.xy));
     float sun_shade_frac = horizon_at2(f_shadow, f_alt, f_pos, sun_dir);
 #elif (SHADOW_MODE == SHADOW_MODE_NONE)
     float sun_shade_frac = 1.0;//horizon_at2(f_shadow, f_alt, f_pos, sun_dir);
@@ -288,8 +288,8 @@ void main() {
     /*
     if ((material & (1u << 1u)) > 0u && false) {
         vec3 reflect_ray_dir = reflect(cam_to_frag, f_norm);
-        reflect_color = get_sky_color(reflect_ray_dir, time_of_day.x, f_pos, vec3(-100000), 0.125, true);
-        reflect_color = get_cloud_color(reflect_color, reflect_ray_dir, cam_pos.xyz, time_of_day.x, 100000.0, 0.25);
+        reflect_color = get_sky_color(reflect_ray_dir, f_pos, vec3(-100000), 0.125, true);
+        reflect_color = get_cloud_color(reflect_color, reflect_ray_dir, cam_pos.xyz, 100000.0, 0.25);
         reflectance = 1.0;
     }
     */

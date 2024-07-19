@@ -1,13 +1,13 @@
 ItemDef(
-    name: "Mushroom",
-    description: "Hopefully this one is not poisonous",
+    legacy_name: "Mushroom",
+    legacy_description: "Hopefully this one is not poisonous",
     kind: Consumable(
         kind: Food,
         effects: One(
             Buff((
                 kind: Saturation,
                 data: (
-                    strength: 1.0,
+                    strength: 2.0,
                     duration: Some(5),
                     ),
                 cat_ids: [Natural],

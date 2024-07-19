@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Bonerattler Boots",
-    description: "Boots made from the claws and hide of a bonerattler.",
+    legacy_name: "Bonerattler Boots",
+    legacy_description: "Boots made from the claws and hide of a bonerattler.",
     kind: Armor((
         kind: Foot,
         stats: FromSet("Bonerattler"),
@@ -8,6 +8,5 @@ ItemDef(
     quality: High,
     tags: [
         Material(Leather),
-        SalvageInto(Leather),
     ],
 )

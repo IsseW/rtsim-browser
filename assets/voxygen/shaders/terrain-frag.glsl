@@ -1,4 +1,4 @@
-#version 420 core
+#version 440 core
 // #extension GL_ARB_texture_storage : require
 
 #include <constants.glsl>
@@ -27,7 +27,6 @@ layout(location = 0) in vec3 f_pos;
 // in vec3 f_chunk_pos;
 // #ifdef FLUID_MODE_SHINY
 layout(location = 1) flat in uint f_pos_norm;
-layout(location = 2) flat in float f_load_time;
 // #else
 // const uint f_pos_norm = 0u;
 // #endif
@@ -92,6 +91,8 @@ void main() {
     float f_light, f_glow, f_ao, f_sky_exposure;
     uint f_kind;
     vec3 f_col = greedy_extract_col_light_kind_terrain(t_col_light, s_col_light, t_kind, f_uv_pos, f_light, f_glow, f_ao, f_sky_exposure, f_kind);
+
+    uint f_mat = MAT_BLOCK;
 
     #ifdef EXPERIMENTAL_BAREMINIMUM
         tgt_color = vec4(simple_lighting(f_pos.xyz, f_col, f_light), 1);
@@ -245,7 +246,7 @@ void main() {
     #else
         const float f_alpha = 1.0;
     #endif
-    #if (CLOUD_MODE != CLOUD_MODE_NONE)
+    #if (CLOUD_MODE != CLOUD_MODE_NONE && REFLECTION_MODE >= REFLECTION_MODE_MEDIUM)
         if (rain_density > 0 && !faces_fluid && f_norm.z > 0.5) {
             vec3 pos = f_pos + focus_off.xyz;
             vec3 drop_density = vec3(2, 2, 2);
@@ -267,17 +268,20 @@ void main() {
                 if (puddle > 0.0) {
                     f_alpha = puddle * 0.2 * max(1.0 + cam_to_frag.z, 0.3);
                     #ifdef EXPERIMENTAL_PUDDLEDETAILS
-                        float h = (noise_2d((f_pos.xy + focus_off.xy) * 0.3) - 0.5) * sin(tick.x * 8.0 + f_pos.x * 3)
-                            + (noise_2d((f_pos.xy + focus_off.xy) * 0.6) - 0.5) * sin(tick.x * 3.5 - f_pos.y * 6);
-                        float hx = (noise_2d((f_pos.xy + focus_off.xy + vec2(0.1, 0)) * 0.3) - 0.5) * sin(tick.x * 8.0 + f_pos.x * 3)
-                            + (noise_2d((f_pos.xy + focus_off.xy + vec2(0.1, 0)) * 0.6) - 0.5) * sin(tick.x * 3.5 - f_pos.y * 6);
-                        float hy = (noise_2d((f_pos.xy + focus_off.xy + vec2(0, 0.1)) * 0.3) - 0.5) * sin(tick.x * 8.0 + f_pos.x * 3)
-                            + (noise_2d((f_pos.xy + focus_off.xy + vec2(0, 0.1)) * 0.6) - 0.5) * sin(tick.x * 3.5 - f_pos.y * 6);
+                        float t0 = sin(tick_loop(2.0 * PI, 8.0, f_pos.x * 3));
+                        float t1 = sin(tick_loop(2.0 * PI, 3.5, -f_pos.x * 6));
+                        float h = (noise_2d((f_pos.xy + focus_off.xy) * 0.3) - 0.5) * t0
+                            + (noise_2d((f_pos.xy + focus_off.xy) * 0.6) - 0.5) * t1;
+                        float hx = (noise_2d((f_pos.xy + focus_off.xy + vec2(0.1, 0)) * 0.3) - 0.5) * t0
+                            + (noise_2d((f_pos.xy + focus_off.xy + vec2(0.1, 0)) * 0.6) - 0.5) * t1;
+                        float hy = (noise_2d((f_pos.xy + focus_off.xy + vec2(0, 0.1)) * 0.3) - 0.5) * t0
+                            + (noise_2d((f_pos.xy + focus_off.xy + vec2(0, 0.1)) * 0.6) - 0.5) * t1;
                         f_norm.xy += mix(vec2(0), vec2(h - hx, h - hy) / 0.1 * 0.03, puddle);
                     #endif
                     alpha = mix(1.0, 0.2, puddle);
                     f_col.rgb *= mix(1.0, 0.7, puddle);
                     k_s = mix(k_s, vec3(0.7, 0.7, 1.0), puddle);
+                    f_mat = MAT_FLUID;
                 }
             #endif
 
@@ -304,14 +308,22 @@ void main() {
         }
     #endif
 
+    #if (REFLECTION_MODE >= REFLECTION_MODE_HIGH)
+    // Reflections on ice
+    if (f_kind == BLOCK_ICE && f_norm.z == 1.0) {
+        f_alpha = min(f_alpha, 0.3);
+        k_s = mix(k_s, vec3(0.7, 0.7, 1.0), 0.5);
+    }
+    #endif
+
     // float sun_light = get_sun_brightness(sun_dir);
     // float moon_light = get_moon_brightness(moon_dir);
     /* float sun_shade_frac = horizon_at(f_pos, sun_dir);
     float moon_shade_frac = horizon_at(f_pos, moon_dir); */
     // float f_alt = alt_at(f_pos.xy);
-    // vec4 f_shadow = textureBicubic(t_horizon, pos_to_tex(f_pos.xy));
+    // vec4 f_shadow = textureMaybeBicubic(t_horizon, pos_to_tex(f_pos.xy));
 #if (SHADOW_MODE == SHADOW_MODE_CHEAP || SHADOW_MODE == SHADOW_MODE_MAP)
-    vec4 f_shadow = textureBicubic(t_horizon, s_horizon, pos_to_tex(f_pos.xy));
+    vec4 f_shadow = textureMaybeBicubic(t_horizon, s_horizon, pos_to_tex(f_pos.xy));
     float sun_shade_frac = horizon_at2(f_shadow, f_alt, f_pos, sun_dir);
 #elif (SHADOW_MODE == SHADOW_MODE_NONE)
     float sun_shade_frac = 1.0;//horizon_at2(f_shadow, f_alt, f_pos, sun_dir);
@@ -387,7 +399,7 @@ void main() {
     vec3 emitted_light = vec3(1.0);
     vec3 reflected_light = vec3(1.0);
 
-    float sun_diffuse = get_sun_diffuse2(/*time_of_day.x, */sun_info, moon_info, f_norm, view_dir, f_pos, mu, cam_attenuation, fluid_alt, k_a/* * (shade_frac * 0.5 + light_frac * 0.5)*/, k_d, k_s, alpha, f_norm, 1.0, emitted_light, reflected_light);
+    float sun_diffuse = get_sun_diffuse2(sun_info, moon_info, f_norm, view_dir, f_pos, mu, cam_attenuation, fluid_alt, k_a/* * (shade_frac * 0.5 + light_frac * 0.5)*/, k_d, k_s, alpha, f_norm, 1.0, emitted_light, reflected_light);
     max_light += sun_diffuse;
 
     // emitted_light *= f_light * point_shadow * max(shade_frac, MIN_SHADOW);
@@ -536,11 +548,27 @@ void main() {
     // vec3 col = /*srgb_to_linear*/(f_col + noise); // Small-scale noise
     // vec3 col = /*srgb_to_linear*/(f_col + hash(vec4(floor(f_pos * 3.0 - f_norm * 0.5), 0)) * 0.01); // Small-scale noise
     vec3 surf_color = illuminate(max_light, view_dir, col * emitted_light, col * reflected_light);
+    #ifdef EXPERIMENTAL_SNOWGLITTER
+    if (f_kind == BLOCK_SNOW || f_kind == BLOCK_ART_SNOW) {
+        float cam_distance = distance(cam_pos.xyz, f_pos);
+        vec3 pos = f_pos + focus_off.xyz;
+
+        float map = max(noise_3d(pos), 0.0);
+
+        vec4 lpos = vec4(floor(pos * 35.0), 0.0);
+        
+        vec3 n = normalize(vec3(hash(lpos + 128), hash(lpos - 435), hash(lpos + 982)));
+
+        float s = pow(abs(dot(n, view_dir)), 4.0);
+
+        surf_color += pow(map * s, 10.0) * 5.0 / max(1.0, cam_distance * 0.5);
+    }
+    #endif
 
     float f_select = (select_pos.w > 0 && select_pos.xyz == floor(f_pos - f_norm * 0.5)) ? 1.0 : 0.0;
     surf_color += f_select * (surf_color + 0.1) * vec3(0.5, 0.5, 0.5);
 
     tgt_color = vec4(surf_color, f_alpha);
-    tgt_mat = uvec4(uvec3((f_norm + 1.0) * 127.0), MAT_BLOCK);
+    tgt_mat = uvec4(uvec3((f_norm + 1.0) * 127.0), f_mat);
     //tgt_color = vec4(f_norm, f_alpha);
 }

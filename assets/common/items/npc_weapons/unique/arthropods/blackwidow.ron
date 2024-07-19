@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Black Widow",
-    description: "testing123",
+    legacy_name: "Black Widow",
+    legacy_description: "testing123",
     kind: Tool((
         kind: Natural,
         hands: Two,
@@ -9,13 +9,12 @@ ItemDef(
             power: 1.0,
             effect_power: 1.0,
             speed: 1.0,
-            crit_chance: 0.1,
             range: 1.0,
             energy_efficiency: 1.0,
             buff_strength: 1.0,
         ),
     )),
-    quality: Epic,
+    quality: High,
     tags: [],
     ability_spec: Some(Custom("Black Widow")),
 )

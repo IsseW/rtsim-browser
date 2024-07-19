@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Cobalt Shoulderguards",
-    description: "Ornamental and impenetrable, the metal will never dull.",
+    legacy_name: "Cobalt Shoulderguards",
+    legacy_description: "Ornamental and impenetrable, the metal will never dull.",
     kind: Armor((
         kind: Shoulder,
         stats: FromSet("Cobalt"),
@@ -8,6 +8,6 @@ ItemDef(
     quality: High,
     tags: [
         Material(Cobalt),
-        SalvageInto(Cobalt),
+        SalvageInto(Cobalt, 1),
     ],
 )

@@ -1,0 +1,25 @@
+BasicRanged(
+    energy_cost: 0,
+    buildup_duration: 1.0,
+    recover_duration: 2.5,
+    projectile: (
+        kind: Pointed,
+        attack: Some((
+            damage: 25,
+            knockback: Some(12),
+            energy: 4,
+            buff: Some((
+                kind: Bleeding,
+                dur_secs: 10,
+                strength: DamageFraction(0.1),
+                chance: 0.1,
+            )),
+        )),
+    ),
+    projectile_body: Object(BoltBesieger),
+    projectile_light: None,
+    projectile_speed: 60.0,
+    num_projectiles: 4,
+    projectile_spread: 0.05,
+    move_efficiency: 0.3,
+)

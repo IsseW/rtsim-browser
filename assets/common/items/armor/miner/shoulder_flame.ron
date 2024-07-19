@@ -1,0 +1,10 @@
+ItemDef(
+    legacy_name: "Flamekeeper's Pauldrons.",
+    legacy_description: "",
+    kind: Armor((
+        kind: Shoulder,
+        stats: FromSet("Miner"),
+    )),
+    quality: High,
+    tags: [],
+)

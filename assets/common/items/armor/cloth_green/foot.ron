@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Green Linen Boots",
-    description: "Cobbled rough fabric boots, dyed green.",
+    legacy_name: "Green Linen Boots",
+    legacy_description: "Cobbled rough fabric boots, dyed green.",
     kind: Armor((
         kind: Foot,
         stats: FromSet("Cloth Green"),
@@ -8,6 +8,6 @@ ItemDef(
     quality: Common,
     tags: [
         Material(Linen),
-        SalvageInto(Linen),
+        SalvageInto(Linen, 1),
     ],
 )

@@ -1,0 +1,10 @@
+[
+    (1.0, All([
+        // Key
+        Item("common.items.keys.terracotta_key_door"),
+        Lottery([
+            (1.0, Nothing),
+            (0.5, Item("common.items.mineral.ore.ancient_gold")),
+        ]),
+    ])),
+]

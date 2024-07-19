@@ -1,4 +1,4 @@
-#version 420 core
+#version 440 core
 
 #include <globals.glsl>
 #include <constants.glsl>

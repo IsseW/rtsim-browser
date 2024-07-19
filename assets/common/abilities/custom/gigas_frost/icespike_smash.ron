@@ -3,8 +3,8 @@ SpriteSummon(
     cast_duration: 0.1,
     recover_duration: 1.1,
     sprite: IceSpike,
-    del_timeout: Some((2, 5)),
-    summon_distance: (2, 12),
-    sparseness: 0.95,
+    del_timeout: Some((5, 15)),
+    summon_distance: (2, 18),
+    sparseness: 0.96,
     angle: 360,
 )

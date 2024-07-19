@@ -1,0 +1,70 @@
+sprite-grass-grass_long_5 = Herbe longue
+    .desc = Plus verte qu'un museau d'orc.
+sprite-wood-item-bamboo = Bambou
+    .desc = Une herbe boisée géante. Elle peut être utilisée pour fabriquer des armes en bois.
+sprite-wood-item-frostwood = Bûches de bois de givre
+    .desc = Bois froid provenant de biomes froids. Froid au toucher. On peut s'en servir pour fabriquer des armes en bois.
+sprite-wood-item-hardwood = Bûches de bois dur
+    .desc = Bûches très épaisses et robustes. On peut s'en servir pour fabriquer des armes en bois.
+sprite-wood-item-ironwood = Bûches de bois de fer
+    .desc = Un bois particulièrement robuste. On peut s'en servir pour fabriquer des armes en bois.
+sprite-wood-item-eldwood = Bûches de bois d'Eld
+    .desc = Vieilles bûches qui dégagent de la magie. On peut s'en servir pour fabriquer des armes en bois.
+sprite-crafting_ing-bowl = Bol
+    .desc = Un simple bol pour préparer les repas.
+sprite-crafting_ing-abyssal_heart = Cœur abyssal
+    .desc = Source du pouvoir des dagons.
+sprite-wood-item-wood = Bûches de bois
+    .desc = Rondins de bois réguliers et robustes. Elles peuvent être utilisées pour fabriquer des armes en bois.
+sprite-crafting_ing-brinestone = Pierre de Brin
+    .desc = Utilisé pour la fabrication d'armures.
+sprite-cacti-flat_cactus_med = Cactus
+    .desc = Pousse dans les endroits chauds et secs. Très piquant !
+sprite-crafting_ing-coral_branch = Branche de corail
+    .desc = Trésor du fond de la mer.
+sprite-crafting_ing-cotton_boll = Boule de coton
+    .desc = Cueillie sur un plant de coton ordinaire.
+sprite-crafting_ing-living_embers = Braises vivantes
+    .desc = Les restes fumants d'une créature ardente.
+sprite-crafting_ing-oil = Huile
+    .desc = Une mesure d'huile épaisse et boueuse.
+sprite-crafting_ing-pearl = Perle
+    .desc = ferait une belle lampe.
+sprite-crafting_ing-resin = Résine
+    .desc = Utilisée pour le travail du bois.
+sprite-seashells-shell-0 = Coquillages
+    .desc = Coquillages d'une créature marine.
+sprite-crafting_ing-sentient_seed = Graine sensible
+    .desc = Le rejeton non développé d'une plante sensible.
+sprite-crafting_ing-sticky_thread = Fil collant
+    .desc = Un extrait d'araignée désordonné, mais un tailleur peut en avoir l'utilité.
+sprite-crafting_ing-hide-troll_hide = Peau de troll
+    .desc = Pillé sur les trolls des cavernes.
+sprite-crafting_ing-hide-tough_hide = Peau dure
+    .desc = Peau relativement dure et rugueuse. Devient du cuir.
+sprite-crafting_ing-animal_misc-fur = Fourrure douce
+    .desc = Fourrure douce d'un animal.
+sprite-crafting_ing-animal_misc-grim_eyeball = Boule de cristal sinistre
+    .desc = Lance un regard pétrifiant.
+sprite-crafting_ing-animal_misc-large_horn = Grande corne
+    .desc =
+        Une grande corne provenant d'une bête redoutable.
+
+        Les armes fabriquées avec cette corne ont des effets de capacité renforcés.
+sprite-crafting_ing-animal_misc-lively_vine = Vigne vive
+    .desc = Je pense qu'elle vient de bouger...
+sprite-crafting_ing-animal_misc-phoenix_feather = Plume de phénix
+    .desc = On dit qu'elle a des propriétés magiques.
+sprite-crafting_ing-animal_misc-claw = Griffe du prédateur
+    .desc =
+        La griffe agile d'un prédateur féroce.
+
+        Peut-être utilisée pour fabriquer des armes rapides et agiles.
+sprite-crafting_ing-hide-rugged_hide = Peau robuste
+    .desc = Peau durable de créatures féroces, appréciée des maroquiniers.
+sprite-crafting_ing-hide-dragon_scale = Écaille de dragon
+    .desc = Écaille dure d'une bête légendaire, chaude au toucher.
+sprite-crafting_ing-hide-plate = Plaque
+    .desc = Plaque durable d'un animal blindé.
+sprite-crafting_ing-hide-scale = Écailles
+    .desc = Écailles brillantes trouvées sur un animal.

@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Scratched Ring",
-    description: "Barely fits your finger.",
+    legacy_name: "Scratched Ring",
+    legacy_description: "Barely fits your finger.",
     kind: Armor((
         kind: Ring,
         stats: Direct((
@@ -8,5 +8,7 @@ ItemDef(
         )),
     )),
     quality: Low,
-    tags: [],
+    tags: [
+        SalvageInto(Bronze, 1),
+    ],
 )

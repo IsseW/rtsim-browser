@@ -1,20 +1,21 @@
 ItemDef(
-    name: "Blazing Charm",
-    description: "Flame is your ally, harness its power to burn your foes.",
+    legacy_name: "Blazing Charm",
+    legacy_description: "Flame is your ally, harness its power to burn your foes.",
     kind: Consumable(
-        kind: Drink,
+        kind: Charm,
         effects: All([
             Buff((
                 kind: Flame,
                 data: (
                     strength: 0.4,
                     duration: Some(20),
-                    ),
-                cat_ids: [Natural],
+                    secondary_duration: Some(5),
+                ),
+                cat_ids: [RemoveOnAttack],
             )),
-           
+
         ])
     ),
     quality: Legendary,
-    tags: [],
+    tags: [Charm],
 )

@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Mitre",
-    description: "Calls strength down from above.",
+    legacy_name: "Mitre",
+    legacy_description: "Calls strength down from above.",
     kind: Armor((
         kind: Head,
         stats: Direct((
@@ -11,5 +11,7 @@ ItemDef(
         )),
     )),
     quality: High,
-    tags: [],
+    tags: [
+        SalvageInto(Silver, 1),
+    ],
 )

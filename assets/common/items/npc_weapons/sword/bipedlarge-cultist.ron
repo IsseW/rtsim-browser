@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Giant Cultist Greatsword",
-    description: "This belonged to an evil Cult Leader.",
+    legacy_name: "Giant Cultist Greatsword",
+    legacy_description: "This belonged to an evil Cult Leader.",
     kind: Tool((
         kind: Sword,
         hands: Two,
@@ -9,7 +9,6 @@ ItemDef(
             power: 3.6,
             effect_power: 1.0,
             speed: 0.6,
-            crit_chance: 0.140625,
             range: 1.0,
             energy_efficiency: 1.0,
             buff_strength: 1.0,
@@ -17,5 +16,5 @@ ItemDef(
     )),
     quality: Epic,
     tags: [],
-    ability_spec: Some(Custom("Sword Simple")),
+    ability_spec: Some(Custom("BipedLargeCultistSword")),
 )

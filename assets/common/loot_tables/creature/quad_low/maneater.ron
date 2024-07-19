@@ -1,5 +1,12 @@
 [
-    (9.0, Item("common.items.crafting_ing.animal_misc.lively_vine")),
-    (9.0, LootTable("common.loot_tables.food.wild_ingredients")),
-    (1.0, Item("common.items.armor.misc.head.bamboo_twig")),
+    (1, All([
+		    MultiDrop(Item("common.items.crafting_ing.animal_misc.lively_vine"), 6, 10),
+		    MultiDrop(LootTable("common.loot_tables.food.wild_ingredients"), 1, 3),
+		    MultiDrop(Item("common.items.crafting_ing.sentient_seed"), 3, 6),
+		    Lottery([
+                (0.5, Item("common.items.armor.misc.head.bamboo_twig")),
+                (9.5, Nothing),
+		    ]),
+		],
+    )),
 ]

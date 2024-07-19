@@ -1,13 +1,13 @@
 ItemDef(
-    name: "Plain Salad",
-    description: "Literally just chopped lettuce. Does this even count as a salad?",
+    legacy_name: "Plain Salad",
+    legacy_description: "Literally just chopped lettuce. Does this even count as a salad?",
     kind: Consumable(
         kind: Food,
         effects: One(
             Buff((
                 kind: Saturation,
                 data: (
-                    strength: 2.0,
+                    strength: 2.5,
                     duration: Some(5),
                     ),
                 cat_ids: [Natural],

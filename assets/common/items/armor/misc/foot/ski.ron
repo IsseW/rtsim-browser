@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Wooden skis",
-    description: "Best used downhill on snow.",
+    legacy_name: "Wooden skis",
+    legacy_description: "Best used downhill on snow.",
     kind: Armor((
         kind: Foot,
         stats: Direct((
@@ -11,6 +11,6 @@ ItemDef(
     quality: Moderate,
     tags: [
         Material(Wood),
-//        SalvageInto(Twigs),
+        SalvageInto(Twig, 1),
     ],
 )

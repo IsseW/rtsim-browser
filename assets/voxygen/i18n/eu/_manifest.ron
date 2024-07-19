@@ -3,7 +3,7 @@
 /// Localization for "global" Euskara
 (
     metadata: (
-        language_name: "Euskara",
+        language_name: "Euskara (Basque)",
         language_identifier: "eu",
     ),
     convert_utf8_to_ascii: false,

@@ -5,6 +5,7 @@
         (Item("common.items.debug.admin_sword"),1),
         (Item("common.items.debug.velorite_bow_debug"), 1),
         (Item("common.items.debug.admin"),1),
+        (Item("common.items.debug.glider"),1),
         (Item("common.items.debug.golden_cheese"),100),
     ],
     "consumables": [
@@ -74,6 +75,7 @@
         (Item("common.items.armor.misc.ring.scratched"), 2),
         (Item("common.items.armor.misc.ring.gold"), 2),
         (Item("common.items.armor.cultist.ring"), 2),
+        (Item("common.items.armor.misc.ring.abyssal_ring"), 2),
     ],
     "tier-5": [
          // Hide
@@ -102,6 +104,7 @@
         (Item("common.items.armor.mail.orichalcum.hand"), 1),
         (Item("common.items.armor.mail.orichalcum.pants"), 1),
         (Item("common.items.armor.mail.orichalcum.shoulder"), 1),
+        (Item("common.items.armor.mail.orichalcum.head"), 1),
 
         // Weapons
         (ModularWeapon(tool: Sword, material: Orichalcum),1),
@@ -412,5 +415,7 @@
         (Item("common.items.tool.instruments.sitar"),1),
         (Item("common.items.tool.instruments.washboard"),1),
         (Item("common.items.tool.instruments.wildskin_drum"),1),
+        (Item("common.items.tool.instruments.steeltonguedrum"),1),
+        (Item("common.items.tool.instruments.shamisen"),1),
     ],
 })

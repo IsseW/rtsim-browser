@@ -17,7 +17,7 @@ struct DirectionalLight {
     // float brightness;
 };
 
-const float PI = 3.141592;
+const float PI = 3.141592653;
 
 const vec3 SKY_DAWN_TOP = vec3(0.10, 0.1, 0.10);
 const vec3 SKY_DAWN_MID = vec3(1.2, 0.3, 0.2);
@@ -94,7 +94,7 @@ vec3 glow_light(vec3 pos) {
 float CLOUD_AVG_ALT = view_distance.z + (view_distance.w - view_distance.z) * 1.25;
 
 const float wind_speed = 0.25;
-vec2 wind_offset = vec2(time_of_day.x * wind_speed);
+vec2 wind_offset = vec2(time_of_day.y * wind_speed * (3600.0 * 24.0));
 
 float cloud_scale = view_distance.z / 150.0;
 
@@ -140,7 +140,7 @@ float cloud_shadow(vec3 pos, vec3 light_dir) {
     #endif
 }
 
-float magnetosphere = sin(time_of_day.x / (3600 * 24));
+float magnetosphere = sin(time_of_day.y);
 #if (CLOUD_MODE <= CLOUD_MODE_LOW)
     const vec3 magnetosphere_tint = vec3(1);
 #else
@@ -156,7 +156,7 @@ float magnetosphere = sin(time_of_day.x / (3600 * 24));
 #if (CLOUD_MODE > CLOUD_MODE_NONE)
     float emission_strength = clamp((magnetosphere - 0.3) * 1.3, 0, 1) * max(-moon_dir.z, 0);
     #if (CLOUD_MODE >= CLOUD_MODE_MEDIUM)
-        float emission_br = abs(pow(fract(time_of_day.x * 0.000005) * 2 - 1, 2));
+        float emission_br = abs(pow(fract(time_of_day.y * 0.5) * 2 - 1, 2));
     #else
         float emission_br = 0.5;
     #endif
@@ -236,7 +236,7 @@ const float LIGHTNING_HEIGHT = 25.0;
 const float MAX_LIGHTNING_PERIOD = 5.0;
 
 float lightning_intensity() {
-    float time_since_lightning = tick.x - last_lightning.w;
+    float time_since_lightning = time_since(last_lightning.w);
     return
         // Strength
         1000000
@@ -247,7 +247,7 @@ float lightning_intensity() {
 }
 
 vec3 lightning_at(vec3 wpos) {
-    float time_since_lightning = tick.x - last_lightning.w;
+    float time_since_lightning = time_since(last_lightning.w);
     if (time_since_lightning < MAX_LIGHTNING_PERIOD) {
         vec3 diff = wpos + focus_off.xyz - (last_lightning.xyz + vec3(0, 0, LIGHTNING_HEIGHT));
         float dist = length(diff);
@@ -316,11 +316,11 @@ vec3 lightning_at(vec3 wpos) {
 // cam_attenuation is the total light attenuation due to the substance for beams between the point and the camera.
 // surface_alt is the altitude of the attenuating surface.
 float get_sun_diffuse2(DirectionalLight sun_info, DirectionalLight moon_info, vec3 norm, vec3 dir, vec3 wpos, vec3 mu, vec3 cam_attenuation, float surface_alt, vec3 k_a, vec3 k_d, vec3 k_s, float alpha, vec3 voxel_norm, float voxel_lighting, out vec3 emitted_light, out vec3 reflected_light) {
-    const vec3 SUN_AMBIANCE = MU_SCATTER;//0.23;/* / 1.8*/;// 0.1 / 3.0;
+    const vec3 SUN_AMBIANCE = MU_SCATTER;
     #ifdef EXPERIMENTAL_PHOTOREALISTIC
         const vec3 MOON_AMBIANCE = MU_SCATTER;
     #else
-        // Boost moon ambiance, because we don't properly compensate for pupil dilation (which should occur *before* HDR,
+        // Boost ambiance, because we don't properly compensate for pupil dilation (which should occur *before* HDR,
         // not in the end user's eye). Also, real nights are too dark to be fun.
         const vec3 MOON_AMBIANCE = vec3(0.15, 0.25, 0.23) * 5;
     #endif
@@ -440,7 +440,14 @@ float get_sun_diffuse2(DirectionalLight sun_info, DirectionalLight moon_info, ve
     vec3 R_t_r = R_d + R_r;
 
     // vec3 half_vec = normalize(-norm + dir);
-    vec3 light_frac = R_t_b * (sun_chroma * SUN_AMBIANCE + moon_chroma * MOON_AMBIANCE) * light_reflection_factor(norm, /*norm*//*dir*/dir, /*-norm*/-/*dir*/norm, /*k_d*/k_d/* * (1.0 - k_s)*/, /*k_s*/vec3(0.0), alpha, voxel_norm, voxel_lighting);
+    #ifdef EXPERIMENTAL_PHOTOREALISTIC
+        vec3 lrf = light_reflection_factor(norm, dir, -norm, k_d, vec3(0.0), alpha, voxel_norm, voxel_lighting);
+    #else
+        // In practice, for gameplay purposes, we often want extra light at earlier and later times, so we use a
+        // non-physical LRF to boost light during dawn and dusk.
+        float lrf = pow(dot(norm, vec3(0, 0, 1)) + 1, 2) * 0.25;
+    #endif
+    vec3 light_frac = R_t_b * (sun_chroma * SUN_AMBIANCE + moon_chroma * MOON_AMBIANCE) * lrf;
     // vec3 light_frac = /*vec3(1.0)*//*H_d * */
     //     SUN_AMBIANCE * /*sun_light*/sun_chroma * light_reflection_factor(norm, dir, /*vec3(0, 0, -1.0)*/-norm, vec3((1.0 + cos_sun) * 0.5), vec3(k_s * (1.0 - cos_sun) * 0.5), alpha) +
     //     MOON_AMBIANCE * /*sun_light*/moon_chroma * light_reflection_factor(norm, dir, /*vec3(0, 0, -1.0)*/-norm, vec3((1.0 + cos_moon) * 0.5), vec3(k_s * (1.0 - cos_moon) * 0.5), alpha);
@@ -489,7 +496,6 @@ float get_sun_diffuse2(DirectionalLight sun_info, DirectionalLight moon_info, ve
 
 // This has been extracted into a function to allow quick exit when detecting a star.
 float is_star_at(vec3 dir) {
-
     float star_scale = 80.0;
 
     // Star positions
@@ -516,7 +522,7 @@ float is_star_at(vec3 dir) {
     return power * max(sun_dir.z, 0.1) / (1.0 + pow(dist * 750, 8));
 }
 
-vec3 get_sky_light(vec3 dir, float time_of_day, bool with_stars) {
+vec3 get_sky_light(vec3 dir, bool with_stars) {
     // Add white dots for stars. Note these flicker and jump due to FXAA
     float star = 0.0;
     if (with_stars) {
@@ -580,15 +586,11 @@ vec3 get_sky_light(vec3 dir, float time_of_day, bool with_stars) {
     return sky_color * magnetosphere_tint;
 }
 
-vec3 get_sky_color(vec3 dir, float time_of_day, vec3 origin, vec3 f_pos, float quality, bool with_features, float refractionIndex, bool fake_clouds, float sun_shade_frac) {
+vec3 get_sky_color(vec3 dir, vec3 origin, vec3 f_pos, float quality, bool with_features, float refractionIndex, bool fake_clouds, float sun_shade_frac) {
     // Sky color
-    /* vec3 sun_dir = get_sun_dir(time_of_day);
-    vec3 moon_dir = get_moon_dir(time_of_day); */
     vec3 sun_dir = sun_dir.xyz;
     vec3 moon_dir = moon_dir.xyz;
 
-    // sun_dir = sun_dir.z <= 0 ? refract(sun_dir/*-view_dir*/, vec3(0.0, 0.0, 1.0), refractionIndex) : sun_dir;
-    // moon_dir = moon_dir.z <= 0 ? refract(moon_dir/*-view_dir*/, vec3(0.0, 0.0, 1.0), refractionIndex) : moon_dir;
 
     // Sun
     const vec3 SUN_SURF_COLOR = vec3(1.5, 0.9, 0.35) * 10.0;
@@ -660,10 +662,10 @@ vec3 get_sky_color(vec3 dir, float time_of_day, vec3 origin, vec3 f_pos, float q
     #else
         if (fake_clouds || medium.x == MEDIUM_WATER) {
     #endif
-        sky_color = get_sky_light(dir, time_of_day, !fake_clouds);
+        sky_color = get_sky_light(dir, !fake_clouds);
     } else {
         if (medium.x == MEDIUM_WATER) {
-            sky_color = get_sky_light(dir, time_of_day, true);
+            sky_color = get_sky_light(dir, true);
         } else {
             vec3 star_dir = normalize(sun_dir.xyz * dir.z + cross(sun_dir.xyz, vec3(0, 1, 0)) * dir.x + vec3(0, 1, 0) * dir.y);
             float star = is_star_at(star_dir);
@@ -674,12 +676,12 @@ vec3 get_sky_color(vec3 dir, float time_of_day, vec3 origin, vec3 f_pos, float q
     return sky_color + sun_light + moon_light;
 }
 
-vec3 get_sky_color(vec3 dir, float time_of_day, vec3 origin, vec3 f_pos, float quality, bool with_features, float refractionIndex) {
-    return get_sky_color(dir, time_of_day, origin, f_pos, quality, with_features, refractionIndex, false, 1.0);
+vec3 get_sky_color(vec3 dir, vec3 origin, vec3 f_pos, float quality, bool with_features, float refractionIndex) {
+    return get_sky_color(dir, origin, f_pos, quality, with_features, refractionIndex, false, 1.0);
 }
 
-vec3 get_sky_color(vec3 dir, float time_of_day, vec3 origin, vec3 f_pos, float quality, bool with_stars) {
-    return get_sky_color(dir, time_of_day, origin, f_pos, quality, with_stars, 1.0, false, 1.0);
+vec3 get_sky_color(vec3 dir, vec3 origin, vec3 f_pos, float quality, bool with_stars) {
+    return get_sky_color(dir, origin, f_pos, quality, with_stars, 1.0, false, 1.0);
 }
 
 float fog(vec3 f_pos, vec3 focus_pos, uint medium) {
@@ -807,6 +809,19 @@ vec3 simple_lighting(vec3 pos, vec3 col, float shade) {
     // Bad fake lantern so we can see in caves
     vec3 d = pos.xyz - focus_pos.xyz;
     return col * clamp(2.5 / dot(d, d), shade * (get_sun_brightness() + 0.01), 1);
+}
+
+float wind_wave(float off, float scaling, float speed, float strength) {
+    float aspeed = abs(speed);
+
+    // TODO: Right now, the wind model is pretty simplistic. This means that there is frequently no wind at all, which
+    // looks bad. For now, we add a lower bound on the wind speed to keep things looking nice.
+    strength = max(strength, 6.0);
+    aspeed = max(aspeed, 5.0);
+
+    return (sin(tick_loop(2.0 * PI, 0.35 * scaling * floor(aspeed), off)) * (1.0 - fract(aspeed))
+        + sin(tick_loop(2.0 * PI, 0.35 * scaling * ceil(aspeed), off)) * fract(aspeed)) * abs(strength) * 0.25;
+    //return sin(tick.x * 1.5 * scaling + off) + sin(tick.x * 0.35 * scaling + off);
 }
 
 #endif

@@ -1,4 +1,5 @@
 #![feature(let_chains)]
+use specs::{Join, WorldExt};
 use std::cmp::Ordering;
 
 use bevy::{
@@ -13,7 +14,6 @@ use bevy::{
 use bevy_egui::EguiPlugin;
 use bevy_pancam::{PanCam, PanCamPlugin};
 use seldom_fn_plugin::FnPluginExt;
-use specs::{Join, WorldExt};
 use veloren_common::{
     comp::{Body, Pos, Presence},
     rtsim::{NpcId, Role},
@@ -44,11 +44,13 @@ fn main() {
             .in_base_set(CoreSet::PostUpdate)
             .after(VisibilitySystems::CheckVisibility),
     )
+    .init_resource::<RtsimSprites>()
+    .add_system(extract_sprites.in_base_set(CoreSet::PostUpdate))
     .fn_plugin(server::veloren_plugin);
 
     if let Ok(render_app) = app.get_sub_app_mut(RenderApp) {
         render_app.add_system(
-            extract_sprites
+            extract_sprites_render
                 .in_schedule(ExtractSchedule)
                 .after(SpriteSystem::ExtractSprites),
         );
@@ -62,6 +64,7 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
         humanoid: asset_server.load("rtsim/humanoid.png"),
         monster: asset_server.load("rtsim/monster.png"),
         bird: asset_server.load("rtsim/bird.png"),
+        ship: asset_server.load("rtsim/ship.png"),
         white: asset_server.load("rtsim/white.png"),
     });
     commands.spawn_empty().insert(UnitEntity);
@@ -89,6 +92,7 @@ struct ImageAssets {
     humanoid: Handle<Image>,
     monster: Handle<Image>,
     bird: Handle<Image>,
+    ship: Handle<Image>,
     white: Handle<Image>,
 }
 
@@ -101,7 +105,7 @@ pub struct SelectedNpc(Option<NpcId>);
 fn select_npcs(
     mut visible_npcs: ResMut<VisibleNpcs>,
     mut selected_npc: ResMut<SelectedNpc>,
-    server: Res<server::VelorenServer>,
+    server: NonSend<server::VelorenServer>,
     cam: Query<(&GlobalTransform, &Frustum, &Camera, &OrthographicProjection), With<PanCam>>,
     input: Res<Input<MouseButton>>,
     window: Query<&Window>,
@@ -129,7 +133,7 @@ fn select_npcs(
         }
         if let Some(cursor_pos) = window
             .cursor_position()
-            .and_then(|cursor| cam.2.viewport_to_world_2d(&cam.0, cursor))
+            .and_then(|cursor| cam.2.viewport_to_world_2d(cam.0, cursor))
         {
             if input.just_pressed(MouseButton::Right) {
                 if let Some((id, _, _)) = visible_npcs
@@ -148,16 +152,29 @@ fn select_npcs(
     }
 }
 
-fn extract_sprites(
-    mut extracted_sprites: ResMut<ExtractedSprites>,
-    images: Extract<Res<ImageAssets>>,
-    server: Extract<Res<server::VelorenServer>>,
-    entity: Extract<Query<Entity, With<UnitEntity>>>,
-    visible_npcs: Extract<Res<VisibleNpcs>>,
-    selected_npc: Extract<Res<SelectedNpc>>,
-    cam: Extract<Query<(&OrthographicProjection, &Frustum), With<PanCam>>>,
+#[derive(Resource, Default)]
+struct RtsimSprites(Vec<ExtractedSprite>);
+
+fn extract_sprites_render(
+    mut extraced_sprites: ResMut<ExtractedSprites>,
+    rtsim_sprites: Extract<Res<RtsimSprites>>,
 ) {
-    if let server::VelorenServer::Running { server, .. } = &**server {
+    extraced_sprites
+        .sprites
+        .extend(rtsim_sprites.0.iter().cloned());
+}
+
+fn extract_sprites(
+    mut rtsim_sprites: ResMut<RtsimSprites>,
+    images: Res<ImageAssets>,
+    server: NonSend<server::VelorenServer>,
+    entity: Query<Entity, With<UnitEntity>>,
+    visible_npcs: Res<VisibleNpcs>,
+    selected_npc: Res<SelectedNpc>,
+    cam: Query<(&OrthographicProjection, &Frustum), With<PanCam>>,
+) {
+    rtsim_sprites.0.clear();
+    if let server::VelorenServer::Running { server, .. } = &*server {
         let (proj, frustum) = cam.single();
         let entity = entity.single();
         let ecs = server.state().ecs();
@@ -169,7 +186,7 @@ fn extract_sprites(
             Vec3::new(pos.x, pos.y, z)
         };
         let mut extract_npc = |pos: Vec3, color: Color, image: &Handle<Image>| {
-            extracted_sprites.sprites.push(ExtractedSprite {
+            rtsim_sprites.0.push(ExtractedSprite {
                 entity,
                 transform: Transform::from_translation(pos)
                     .with_scale(Vec3::splat((0.5 * proj.scale).max(0.1)))
@@ -199,6 +216,7 @@ fn extract_sprites(
                     Role::Civilised(_) => Color::YELLOW,
                     Role::Wild => Color::ORANGE,
                     Role::Monster => Color::RED,
+                    Role::Vehicle => Color::ALICE_BLUE,
                 }
             };
             let image = if proj.scale > 2.0 {
@@ -207,6 +225,7 @@ fn extract_sprites(
                 match npc.body {
                     Body::Humanoid(_) => &images.humanoid,
                     Body::BirdLarge(_) => &images.bird,
+                    Body::Ship(_) => &images.ship,
                     _ => &images.monster,
                 }
             };
@@ -234,7 +253,7 @@ fn extract_sprites(
                 let size = max - min;
                 let half_size = size / 2.0;
                 let center = min + half_size;
-                extracted_sprites.sprites.push(ExtractedSprite {
+                rtsim_sprites.0.push(ExtractedSprite {
                     entity,
                     transform: Transform::from_translation(center)
                         .with_scale(Vec3::new(half_size.x, half_size.y, 1.0) / 8.0)
@@ -249,16 +268,18 @@ fn extract_sprites(
                 });
             };
         const ROAD_COLOR: Color = Color::rgb(0.25, 0.2, 0.1);
-        let index = server.index();
+        let index = ecs.read_resource::<veloren_world::IndexOwned>();
         for site in data.sites.values() {
             if let Some(wsite) = site.world_site.map(|s| index.sites.get(s)) {
                 let Some(wsite) = (match &wsite.kind {
-                    | SiteKind::Refactor(s)
+                    SiteKind::Refactor(s)
                     | SiteKind::CliffTown(s)
                     | SiteKind::SavannahPit(s)
                     | SiteKind::DesertCity(s) => Some(s),
                     _ => None,
-                }) else { continue };
+                }) else {
+                    continue;
+                };
                 if !contains_aabr(wsite.bounds()) {
                     continue;
                 }

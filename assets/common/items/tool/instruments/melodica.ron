@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Melodica",
-    description: "Wooden Melodica.",
+    legacy_name: "Melodica",
+    legacy_description: "Wooden Melodica.",
     kind: Tool((
         kind: Instrument,
         hands: Two,
@@ -9,7 +9,6 @@ ItemDef(
             power: 0.0,
             effect_power: 1.0,
             speed: 1.0,
-            crit_chance: 0.0,
             range: 0.0,
             energy_efficiency: 1.0,
             buff_strength: 1.0,

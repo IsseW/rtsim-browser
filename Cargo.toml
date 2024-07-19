@@ -19,8 +19,8 @@ seldom_fn_plugin = "0.3.0"
 num_cpus = "1.15.0"
 futures-lite = "1.13.0"
 bevy_pancam = "0.8.0"
-vek = "0.15.10"
-specs = { version = "0.18", features = ["nightly"] }
+vek = "0.17.0"
+specs = { version = "0.20", features = ["nightly"] }
 
 [profile.dev]
 opt-level = 2
@@ -34,3 +34,8 @@ incremental = true
 [profile.dev.package."*"]
 # TODO: seems like opt-level=2 should be sufficient here....
 opt-level = 3
+
+[patch.crates-io]
+# until next specs release
+specs = { git = "https://github.com/amethyst/specs.git", rev = "4e2da1df29ee840baa9b936593c45592b7c9ae27" }
+

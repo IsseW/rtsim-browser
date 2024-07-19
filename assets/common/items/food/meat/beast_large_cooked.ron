@@ -1,13 +1,13 @@
 ItemDef(
-    name: "Cooked Meat Slab",
-    description: "Medium Rare.",
+    legacy_name: "Cooked Meat Slab",
+    legacy_description: "Medium Rare.",
     kind: Consumable(
         kind: Food,
         effects: One(
             Buff((
                 kind: Saturation,
                 data: (
-                    strength: 2.5,
+                    strength: 6.0,
                     duration: Some(10),
                     ),
                 cat_ids: [Natural],

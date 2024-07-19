@@ -1,10 +1,9 @@
 ItemDef(
-    name: "Rusty Tower Key",
-    description: "Smells like magic with a bit of... cheese?",
+    legacy_name: "Rusty Tower Key",
+    legacy_description: "Smells like magic with a bit of... cheese?",
     kind: Utility(
         kind: Key,
     ),
-    amount: 1,
     quality: Epic,
     tags: [],
 )

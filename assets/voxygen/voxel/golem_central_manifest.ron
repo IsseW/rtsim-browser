@@ -71,10 +71,10 @@
             central: ("npc.treant.male.chest_lower"),
         ),
     ),
-    (ClayGolem, Male): (
+    (Gravewarden, Male): (
         head: (
             offset: (-10.5, -3.0, -3.0),
-            central: ("npc.claygolem.male.head"),
+            central: ("npc.gravewarden.male.head"),
         ),
         jaw: (
             offset: (-9.5, 0.0, -3.0),
@@ -82,29 +82,113 @@
         ),
         torso_upper: (
             offset: (-9.5, -7.0, -6.5),
-            central: ("npc.claygolem.male.chest_upper"),
+            central: ("npc.gravewarden.male.chest_upper"),
         ),
         torso_lower: (
             offset: (-9.5, -7.0, -8.0),
-            central: ("npc.claygolem.male.chest_lower"),
+            central: ("npc.gravewarden.male.chest_lower"),
+        ),
+    ),
+    (Gravewarden, Female): (
+        head: (
+            offset: (-10.5, -3.0, -3.0),
+            central: ("npc.gravewarden.male.head"),
+        ),
+        jaw: (
+            offset: (-9.5, 0.0, -3.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-9.5, -7.0, -6.5),
+            central: ("npc.gravewarden.male.chest_upper"),
+        ),
+        torso_lower: (
+            offset: (-9.5, -7.0, -8.0),
+            central: ("npc.gravewarden.male.chest_lower"),
+        ),
+    ),
+    (ClayGolem, Male): (
+        head: (
+            offset: (-7.5, -3.5, -3.0),
+            central: ("npc.claygolem.male.claygolem"),
+            model_index: 0,
+        ),
+        jaw: (
+            offset: (-9.5, 0.0, -3.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-13.5, -7.5, -8.0),
+            central: ("npc.claygolem.male.claygolem"),
+            model_index: 1,
+        ),
+        torso_lower: (
+            offset: (-8.5, -7.0, -7.0),
+            central: ("npc.claygolem.male.claygolem"),
+            model_index: 2,
         ),
     ),
     (ClayGolem, Female): (
         head: (
-            offset: (-10.5, -3.0, -3.0),
-            central: ("npc.claygolem.male.head"),
+            offset: (-7.5, -3.5, -3.0),
+            central: ("npc.claygolem.male.claygolem"),
+            model_index: 0,
         ),
         jaw: (
             offset: (-9.5, 0.0, -3.0),
             central: ("armor.empty"),
         ),
         torso_upper: (
-            offset: (-9.5, -7.0, -6.5),
-            central: ("npc.claygolem.male.chest_upper"),
+            offset: (-13.5, -7.5, -8.0),
+            central: ("npc.claygolem.male.claygolem"),
+            model_index: 1,
         ),
         torso_lower: (
-            offset: (-9.5, -7.0, -8.0),
-            central: ("npc.claygolem.male.chest_lower"),
+            offset: (-8.5, -7.0, -7.0),
+            central: ("npc.claygolem.male.claygolem"),
+            model_index: 2,
+        ),
+    ),
+    (AncientEffigy, Male): (
+        head: (
+            offset: (-7.5, -3.0, -5.0),
+            central: ("npc.ancienteffigy.male.ancienteffigy"),
+            model_index: 0,
+        ),
+        jaw: (
+            offset: (-9.5, 0.0, -3.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-11.5, -5.0, -5.5),
+            central: ("npc.ancienteffigy.male.ancienteffigy"),
+            model_index: 1,
+        ),
+        torso_lower: (
+            offset: (-7.5, -5.5, -5.5),
+            central: ("npc.ancienteffigy.male.ancienteffigy"),
+            model_index: 2,
+        ),
+    ),
+    (AncientEffigy, Female): (
+        head: (
+            offset: (-7.5, -3.0, -5.0),
+            central: ("npc.ancienteffigy.male.ancienteffigy"),
+            model_index: 0,
+        ),
+        jaw: (
+            offset: (-9.5, 0.0, -3.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-11.5, -5.0, -5.5),
+            central: ("npc.ancienteffigy.male.ancienteffigy"),
+            model_index: 1,
+        ),
+        torso_lower: (
+            offset: (-7.5, -5.5, -5.5),
+            central: ("npc.ancienteffigy.male.ancienteffigy"),
+            model_index: 2,
         ),
     ),
     (WoodGolem, Male): (
@@ -177,6 +261,84 @@
         torso_lower: (
             offset: (-4.5, -4.0, -8.0),
             central: ("npc.coralgolem.male.chest_lower"),
+        ),
+    ),
+    (Mogwai, Male): (
+        head: (
+            offset: (-14.0, -9.5, -10.5),
+            central: ("npc.mogwai.male.mogwai"),
+            model_index: 0,
+        ),
+        jaw: (
+            offset: (-8.0, 8.0, -3.5),
+            central: ("npc.mogwai.male.mogwai"),
+            model_index: 1,
+        ),
+        torso_upper: (
+            offset: (-11.5, -5.0, -5.5),
+            central: ("armor.empty"),
+
+        ),
+        torso_lower: (
+            offset: (-7.5, -5.5, -5.5),
+            central: ("armor.empty"),
+        ),
+    ),
+    (Mogwai, Female): (
+        head: (
+            offset: (-14.0, -9.5, -10.5),
+            central: ("npc.mogwai.male.mogwai"),
+            model_index: 0,
+        ),
+        jaw: (
+            offset: (-8.0, 8.0, -3.5),
+            central: ("npc.mogwai.male.mogwai"),
+            model_index: 1,
+        ),
+        torso_upper: (
+            offset: (-11.5, -5.0, -5.5),
+            central: ("armor.empty"),
+
+        ),
+        torso_lower: (
+            offset: (-7.5, -5.5, -5.5),
+            central: ("armor.empty"),
+        ),
+    ),
+    (IronGolem, Male): (
+        head: (
+            offset: (-6.5, -7.0, -0.0),
+            central: ("npc.irongolem.male.head"),
+        ),
+        jaw: (
+            offset: (-3.5, -4.0, -0.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-10.5, -11.5, -10.5),
+            central: ("npc.irongolem.male.chest_upper"),
+        ),
+        torso_lower: (
+            offset: (-10.5, -8.0, -10.0),
+            central: ("npc.irongolem.male.chest_lower"),
+        ),
+    ),
+    (IronGolem, Female): (
+        head: (
+            offset: (-6.5, -7.0, -0.0),
+            central: ("npc.irongolem.male.head"),
+        ),
+        jaw: (
+            offset: (-3.5, -4.0, -0.0),
+            central: ("armor.empty"),
+        ),
+        torso_upper: (
+            offset: (-10.5, -11.5, -10.5),
+            central: ("npc.irongolem.male.chest_upper"),
+        ),
+        torso_lower: (
+            offset: (-10.5, -8.0, -10.0),
+            central: ("npc.irongolem.male.chest_lower"),
         ),
     ),
 })

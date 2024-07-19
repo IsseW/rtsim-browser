@@ -1,0 +1,11 @@
+hud-do_not_show_on_startup = 開啟時不顯示這個
+hud-show_tips = 顯示提示
+hud-quests = 任務
+hud-you_died = 死亡
+hud-press_key_to_show_keybindings_fmt = 按 { $key } 以顯示按鍵設置
+hud-press_key_to_show_debug_info_fmt = 按 { $key } 以顯示除錯資訊
+hud-press_key_to_toggle_keybindings_fmt = 按 { $key } 以切換按鍵設置
+hud-press_key_to_toggle_debug_info_fmt = 按 { $key } 以切換除錯資訊
+hud-press_key_to_respawn = 按 { $key } 以重生在上一個營火堆。
+hud-spell = 法術
+hud-free_look_indicator = 進入自由視角中

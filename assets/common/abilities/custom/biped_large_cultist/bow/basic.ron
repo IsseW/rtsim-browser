@@ -1,0 +1,25 @@
+BasicRanged(
+    energy_cost: 0,
+    buildup_duration: 0.9,
+    recover_duration: 0.3,
+    projectile: (
+        kind: Pointed,
+        attack: Some((
+            damage: 12,
+            energy: 4,
+            knockback: Some(5),
+            buff: Some((
+                kind: Bleeding,
+                dur_secs: 10,
+                strength: DamageFraction(0.1),
+                chance: 0.1,
+            )),
+        )),
+    ),
+    projectile_body: Object(Arrow),
+    projectile_light: None,
+    projectile_speed: 100.0,
+    num_projectiles: 1,
+    projectile_spread: 0.0,
+    move_efficiency: 0.3,
+)

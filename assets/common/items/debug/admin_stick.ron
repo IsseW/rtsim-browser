@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Belzeshrub the Broom-God",
-    description: "You can hear him giggle whenever\nyou hit the ground a bit too hard...",
+    legacy_name: "Belzeshrub the Broom-God",
+    legacy_description: "You can hear him giggle whenever\nyou hit the ground a bit too hard...",
     kind: Tool((
         kind: Debug,
         hands: Two,
@@ -9,7 +9,6 @@ ItemDef(
             power: 1.0,
             effect_power: 1.0,
             speed: 1.0,
-            crit_chance: 0.0,
             range: 1.0,
             energy_efficiency: 1.0,
             buff_strength: 1.0,

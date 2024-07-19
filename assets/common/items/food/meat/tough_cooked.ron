@@ -1,14 +1,14 @@
 ItemDef(
-    name: "Cooked Tough Meat",
-    description: "Tastes exotic.",
+    legacy_name: "Cooked Tough Meat",
+    legacy_description: "Tastes exotic.",
     kind: Consumable(
         kind: Food,
         effects: One(
             Buff((
                 kind: Saturation,
                 data: (
-                    strength: 2.0,
-                    duration: Some(10),
+                    strength: 4.2,
+                    duration: Some(8.5),
                     ),
                 cat_ids: [Natural],
             )),

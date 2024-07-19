@@ -3,11 +3,6 @@
 ({
     "max": [
         // General skills
-        (General(HealthIncrease), 10),
-        (General(EnergyIncrease), 5),
-        (Roll(Cost), 2),
-        (Roll(Strength), 2),
-        (Roll(Duration), 2),
         (Climb(Cost), 2),
         (Climb(Speed), 2),
         (Swim(Speed), 2),
@@ -42,42 +37,49 @@
         (Sword(DefensiveDeflect), 1),
         // Axe
         (UnlockGroup(Weapon(Axe)), 1),
-
-        (Axe(DsCombo), 1),
-        (Axe(DsDamage), 3),
-        (Axe(DsRegen), 2),
-        (Axe(DsSpeed), 3),
-
-        (Axe(SInfinite), 1),
-        (Axe(SHelicopter), 1),
-        (Axe(SDamage), 3),
-        (Axe(SSpeed), 2),
-        (Axe(SCost), 2),
-
-        (Axe(UnlockLeap), 1),
-        (Axe(LDamage), 2),
-        (Axe(LKnockback), 2),
-        (Axe(LCost), 2),
-        (Axe(LDistance), 2),
+        (Axe(BrutalSwing), 1),
+        (Axe(Berserk), 1),
+        (Axe(RisingTide), 1),
+        (Axe(SavageSense), 1),
+        (Axe(AdrenalineRush), 1),
+        (Axe(Execute), 1),
+        (Axe(Maelstrom), 1),
+        (Axe(Rake), 1),
+        (Axe(Bloodfeast), 1),
+        (Axe(FierceRaze), 1),
+        (Axe(Furor), 1),
+        (Axe(Fracture), 1),
+        (Axe(Lacerate), 1),
+        (Axe(Riptide), 1),
+        (Axe(SkullBash), 1),
+        (Axe(Sunder), 1),
+        (Axe(Plunder), 1),
+        (Axe(Defiance), 1),
+        (Axe(Keelhaul), 1),
+        (Axe(Bulkhead), 1),
+        (Axe(Capsize), 1),
         // Hammer
         (UnlockGroup(Weapon(Hammer)), 1),
+        (Hammer(ScornfulSwipe), 1),
+        (Hammer(Tremor), 1),
+        (Hammer(VigorousBash), 1),
+        (Hammer(Intercept), 1),
+        (Hammer(HeavyWhorl), 1),
+        (Hammer(Retaliate), 1),
+        (Hammer(Breach), 1),
+        (Hammer(SpineCracker), 1),
+        (Hammer(HelmCrusher), 1),
+        (Hammer(LungPummel), 1),
+        (Hammer(PileDriver), 1),
+        (Hammer(IronTempest), 1),
+        (Hammer(Upheaval), 1),
+        (Hammer(Tenacity), 1),
+        (Hammer(Rampart), 1),
+        (Hammer(Thunderclap), 1),
+        (Hammer(SeismicShock), 1),
+        (Hammer(Judgement), 1),
+        (Hammer(Earthshaker), 1),
 
-        (Hammer(SsKnockback), 2),
-        (Hammer(SsDamage), 3),
-        (Hammer(SsRegen), 2),
-        (Hammer(SsSpeed), 3),
-
-        (Hammer(CDamage), 3),
-        (Hammer(CKnockback), 3),
-        (Hammer(CDrain), 2),
-        (Hammer(CSpeed), 2),
-
-        (Hammer(UnlockLeap), 1),
-        (Hammer(LDamage), 2),
-        (Hammer(LCost), 2),
-        (Hammer(LDistance), 2),
-        (Hammer(LKnockback), 2),
-        (Hammer(LRange), 2),
         // Bow
         (UnlockGroup(Weapon(Bow)), 1),
 
@@ -141,54 +143,15 @@
     ],
     // Just copypasta from max with random reductions
     "middle": [
-        // General skills
-        (General(HealthIncrease), 6),
-        (General(EnergyIncrease), 4),
-        (Roll(Cost), 2),
-        (Roll(Strength), 1),
-        (Roll(Duration), 1),
-
         // Sword
         (UnlockGroup(Weapon(Sword)), 1),
 
         // Axe
         (UnlockGroup(Weapon(Axe)), 1),
 
-        (Axe(DsCombo), 1),
-        (Axe(DsDamage), 2),
-        (Axe(DsRegen), 2),
-        (Axe(DsSpeed), 1),
-
-        (Axe(SInfinite), 1),
-        (Axe(SHelicopter), 1),
-        (Axe(SDamage), 2),
-        (Axe(SSpeed), 2),
-        (Axe(SCost), 2),
-
-        (Axe(UnlockLeap), 1),
-        (Axe(LDamage), 2),
-        (Axe(LKnockback), 2),
-        (Axe(LCost), 2),
-        (Axe(LDistance), 2),
         // Hammer
         (UnlockGroup(Weapon(Hammer)), 1),
 
-        (Hammer(SsKnockback), 1),
-        (Hammer(SsDamage), 2),
-        (Hammer(SsRegen), 2),
-        (Hammer(SsSpeed), 2),
-
-        (Hammer(CDamage), 2),
-        (Hammer(CKnockback), 1),
-        (Hammer(CDrain), 2),
-        (Hammer(CSpeed), 2),
-
-        (Hammer(UnlockLeap), 1),
-        (Hammer(LDamage), 2),
-        (Hammer(LCost), 2),
-        (Hammer(LDistance), 1),
-        (Hammer(LKnockback), 2),
-        (Hammer(LRange), 2),
         // Bow
         (UnlockGroup(Weapon(Bow)), 1),
 
@@ -247,20 +210,15 @@
     ],
     // Basic skill preset to unlock all abilities
     "basic": [
-        // General skills
-
         // Sword
         (UnlockGroup(Weapon(Sword)), 1),
 
         // Axe
         (UnlockGroup(Weapon(Axe)), 1),
 
-        (Axe(UnlockLeap), 1),
-
         // Hammer
         (UnlockGroup(Weapon(Hammer)), 1),
 
-        (Hammer(UnlockLeap), 1),
         // Bow
         (UnlockGroup(Weapon(Bow)), 1),
 

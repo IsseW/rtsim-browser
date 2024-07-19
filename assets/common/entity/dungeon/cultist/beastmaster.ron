@@ -1,0 +1,21 @@
+#![enable(implicit_some)]
+(
+    name: Name("Beastmaster"),
+    body: RandomWith("humanoid"),
+    alignment: Alignment(Enemy),
+    loot: LootTable("common.loot_tables.dungeon.cultist.beastmaster"),
+    inventory: (
+        loadout: Inline((
+            inherit: Asset("common.loadout.dungeon.cultist.beastmaster"),
+            active_hands: InHands((Choice([
+                (1, Item("common.items.weapons.axe.malachite_axe-0")),
+                (1, ModularWeapon(tool: Sword, material: Bloodsteel, hands: Two)),
+                (1, Item("common.items.weapons.bow.velorite")),
+            ]), None)),
+        )),
+    ),
+    pets: [("common.entity.dungeon.cultist.hound", ( start: 4, end: 5 ))],
+    meta: [
+        SkillSetAsset("common.skillset.preset.rank5.fullskill"),
+    ],
+)

@@ -107,6 +107,50 @@
             lateral: ("npc.alligator.male.foot_br", false),
         ),
     ),
+    (Snaretongue, Male): (
+        front_left: (
+            offset: (-8.0, 0.0, -10.0),
+            lateral: ("npc.snaretongue.male.snaretongue", false),
+            model_index: 6,
+        ),
+        front_right: (
+            offset: (-0.0, 0.0, -10.0),
+            lateral: ("npc.snaretongue.male.snaretongue", false),
+            model_index: 6,
+        ),
+        back_left: (
+            offset: (-15.0, -8.0, -11.0),
+            lateral: ("npc.snaretongue.male.snaretongue", false),
+            model_index: 8,
+        ),
+        back_right: (
+            offset: (-0.0, -8.0, -11.0),
+            lateral: ("npc.snaretongue.male.snaretongue", false),
+            model_index: 8,
+        ),
+    ),
+    (Snaretongue, Female): (
+        front_left: (
+            offset: (-8.0, 0.0, -10.0),
+            lateral: ("npc.snaretongue.male.snaretongue", false),
+            model_index: 6,
+        ),
+        front_right: (
+            offset: (-0.0, 0.0, -10.0),
+            lateral: ("npc.snaretongue.male.snaretongue", false),
+            model_index: 6,
+        ),
+        back_left: (
+            offset: (-15.0, -8.0, -11.0),
+            lateral: ("npc.snaretongue.male.snaretongue", false),
+            model_index: 8,
+        ),
+        back_right: (
+            offset: (-0.0, -8.0, -11.0),
+            lateral: ("npc.snaretongue.male.snaretongue", false),
+            model_index: 8,
+        ),
+    ),
     (Salamander, Male): (
         front_left: (
             offset: (-6.0, 0.0, -3.0),

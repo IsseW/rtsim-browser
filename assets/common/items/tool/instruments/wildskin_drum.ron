@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Wildskin Drum",
-    description: "one, two, you know what to do!",
+    legacy_name: "Wildskin Drum",
+    legacy_description: "one, two, you know what to do!",
     kind: Tool((
         kind: Instrument,
         hands: Two,
@@ -9,7 +9,6 @@ ItemDef(
             power: 0.0,
             effect_power: 1.0,
             speed: 1.0,
-            crit_chance: 0.0,
             range: 0.0,
             energy_efficiency: 1.0,
             buff_strength: 1.0,

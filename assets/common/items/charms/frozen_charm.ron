@@ -1,20 +1,21 @@
 ItemDef(
-    name: "Freezing Charm",
-    description: "Let your enemies feel the sting of cold as you freeze them in their tracks.",
+    legacy_name: "Freezing Charm",
+    legacy_description: "Let your enemies feel the sting of cold as you freeze them in their tracks.",
     kind: Consumable(
-        kind: Drink,
+        kind: Charm,
         effects: All([
             Buff((
                 kind: Frigid,
                 data: (
                     strength: 0.4,
                     duration: Some(20),
-                    ),
-                cat_ids: [Natural],
+                    secondary_duration: Some(5),
+                ),
+                cat_ids: [RemoveOnAttack],
             )),
-           
+
         ])
     ),
     quality: Legendary,
-    tags: [],
+    tags: [Charm],
 )

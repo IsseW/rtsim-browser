@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Gnarling White Totem",
-    description: "Yeet",
+    legacy_name: "Gnarling White Totem",
+    legacy_description: "Yeet",
     kind: Tool((
         kind: Natural,
         hands: Two,
@@ -9,7 +9,6 @@ ItemDef(
             power: 1.0,
             effect_power: 1.0,
             speed: 1.0,
-            crit_chance: 0.1,
             range: 1.0,
             energy_efficiency: 1.0,
             buff_strength: 1.0,

@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Sabre Blade",
-    description: "",
+    legacy_name: "Sabre Blade",
+    legacy_description: "",
     kind: ModularComponent(
         ToolPrimaryComponent(
             toolkind: Sword,
@@ -9,7 +9,6 @@ ItemDef(
                 power: 1.4,
                 effect_power: 0.8,
                 speed: 0.9,
-                crit_chance: 0.14,
                 range: 1.0,
                 energy_efficiency: 1.1,
                 buff_strength: 0.8,

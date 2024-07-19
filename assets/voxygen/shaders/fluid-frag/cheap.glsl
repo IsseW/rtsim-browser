@@ -1,4 +1,4 @@
-#version 420 core
+#version 440 core
 
 #include <constants.glsl>
 
@@ -65,8 +65,8 @@ vec4 water_col(vec4 posx, vec4 posy) {
 
 float water_col_vel(vec2 pos){
     vec4 cols = water_col(
-        pos.x - tick.x * floor(f_vel.x) - vec2(0.0, tick.x).xyxy,
-        pos.y - tick.x * floor(f_vel.y) - vec2(0.0, tick.x).xxyy
+        pos.x - tick.z * floor(f_vel.x) - vec2(0.0, tick.z).xyxy,
+        pos.y - tick.z * floor(f_vel.y) - vec2(0.0, tick.z).xxyy
     );
     return mix(
         mix(cols.x, cols.y, fract(f_vel.x + 1.0)),
@@ -121,7 +121,7 @@ void main() {
 #endif
 
 #if (SHADOW_MODE == SHADOW_MODE_CHEAP || SHADOW_MODE == SHADOW_MODE_MAP)
-    vec4 f_shadow = textureBicubic(t_horizon, s_horizon, pos_to_tex(f_pos.xy));
+    vec4 f_shadow = textureMaybeBicubic(t_horizon, s_horizon, pos_to_tex(f_pos.xy));
     float sun_shade_frac = horizon_at2(f_shadow, f_alt, f_pos, sun_dir);
 #elif (SHADOW_MODE == SHADOW_MODE_NONE)
     float sun_shade_frac = 1.0;//horizon_at2(f_shadow, f_alt, f_pos, sun_dir);
@@ -163,7 +163,7 @@ void main() {
 
     vec3 reflect_color = vec3(0.0);
     #if (REFLECTION_MODE >= REFLECTION_MODE_MEDIUM)
-        reflect_color = get_sky_color(reflect_ray_dir, time_of_day.x, f_pos, vec3(-100000), 0.125, true, 1.0, true, sun_shade_frac);
+        reflect_color = get_sky_color(reflect_ray_dir, f_pos, vec3(-100000), 0.125, true, 1.0, true, sun_shade_frac);
     #endif
 
     vec3 emitted_light, reflected_light;

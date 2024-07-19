@@ -1,4 +1,4 @@
-#version 420 core
+#version 440 core
 
 #include <constants.glsl>
 
@@ -45,6 +45,15 @@ uniform u_locals {
 #ifdef BLOOM_FACTOR
 layout(set = 1, binding = 5)
 uniform texture2D t_src_bloom;
+#ifdef EXPERIMENTAL_GRADIENTSOBEL
+layout(set = 1, binding = 6)
+uniform utexture2D t_src_mat;
+#endif
+#else
+#ifdef EXPERIMENTAL_GRADIENTSOBEL
+layout(set = 1, binding = 5)
+uniform utexture2D t_src_mat;
+#endif
 #endif
 
 layout(location = 0) out vec4 tgt_color;
@@ -165,6 +174,13 @@ vec3 aa_sample(vec2 uv, vec2 off) {
     return aa_apply(t_src_color, s_src_color, t_src_depth, s_src_depth, uv * screen_res.xy + off, screen_res.xy).rgb;
 }
 #endif
+#ifdef EXPERIMENTAL_GRADIENTSOBEL
+vec3 aa_sample_grad(vec2 uv, vec2 off) {
+    uvec2 mat_sz = textureSize(usampler2D(t_src_mat, s_src_depth), 0);
+    uvec4 mat = texelFetch(usampler2D(t_src_mat, s_src_depth), clamp(ivec2(uv * mat_sz + off), ivec2(0), ivec2(mat_sz) - 1), 0);
+    return vec3(mat.xyz) / 255.0;
+}
+#endif
 
 #ifdef EXPERIMENTAL_COLORDITHERING
     float dither(ivec2 p, float level) {
@@ -228,7 +244,9 @@ void main() {
     vec2 sample_uv = uv;
     #ifdef EXPERIMENTAL_UNDERWARPER
         if (medium.x == MEDIUM_WATER) {
-            sample_uv += sin(uv.yx * 60 + tick.xx * 3.0) * 0.003;
+            float x = tick_loop(2.0 * PI, 3.0, uv.y * 60);
+            float y = tick_loop(2.0 * PI, 3.0, uv.x * 60);
+            sample_uv += sin(vec2(x, y)) * 0.003;
         }
     #endif
 
@@ -249,10 +267,25 @@ void main() {
         float mag = length(gx) + length(gy);
         aa_color.rgb = mix(vec3(0.9), aa_color.rgb * 0.8, clamp(1.0 - mag * 0.3, 0.0, 1.0));
     #endif
+    #ifdef EXPERIMENTAL_GRADIENTSOBEL
+        vec3 s2[8];
+        s2[0] = aa_sample_grad(uv, vec2(-1,  1));
+        s2[1] = aa_sample_grad(uv, vec2( 0,  1));
+        s2[2] = aa_sample_grad(uv, vec2( 1,  1));
+        s2[3] = aa_sample_grad(uv, vec2(-1,  0));
+        s2[4] = aa_sample_grad(uv, vec2( 1,  0));
+        s2[5] = aa_sample_grad(uv, vec2(-1, -1));
+        s2[6] = aa_sample_grad(uv, vec2( 0, -1));
+        s2[7] = aa_sample_grad(uv, vec2( 1, -1));
+        vec3 gx2 = s2[0] + s2[3] * 2.0 + s2[5] - s2[2] - s2[4] * 2 - s2[7];
+        vec3 gy2 = s2[0] + s2[1] * 2.0 + s2[2] - s2[5] - s2[6] * 2 - s2[7];
+        float mag2 = length(gx2) + length(gy2);
+        aa_color.rgb = mix(vec3(0.0), aa_color.rgb * 0.8, clamp(1.0 - mag2 * 0.3, 0.0, 1.0));
+    #endif
 
     // Bloom
     #ifdef BLOOM_FACTOR
-        vec4 bloom = textureLod(sampler2D(t_src_bloom, s_src_color), uv, 0);
+        vec4 bloom = textureLod(sampler2D(t_src_bloom, s_src_color), sample_uv, 0);
         #if (BLOOM_UNIFORM_BLUR == false)
             // divide by 4.0 to account for adding blurred layers together
             bloom /= 4.0;
@@ -263,7 +296,11 @@ void main() {
     // Tonemapping
     float exposure_offset = 1.0;
     // Adding an in-code offset to gamma and exposure let us have more precise control over the game's look
-    float gamma_offset = 0.3;
+    #ifdef EXPERIMENTAL_CINEMATIC
+        float gamma_offset = 0.5;
+    #else
+        float gamma_offset = 0.3;
+    #endif
     aa_color.rgb = vec3(1.0) - exp(-aa_color.rgb * (gamma_exposure.y + exposure_offset));
     // gamma correction
     aa_color.rgb = pow(aa_color.rgb, vec3(gamma_exposure.x + gamma_offset));
@@ -275,7 +312,7 @@ void main() {
         float dist = distance(wpos, cam_pos.xyz);
         vec3 dir = (wpos - cam_pos.xyz) / dist;
 
-        aa_color.rgb = get_cloud_color(aa_color.rgb, dir, cam_pos.xyz, time_of_day.x, dist, 1.0);
+        aa_color.rgb = get_cloud_color(aa_color.rgb, dir, cam_pos.xyz, dist, 1.0);
     #endif
     */
 
@@ -340,6 +377,10 @@ void main() {
             float d = dither(ivec2(uv * screen_res.xy), sqrt(length(final_color.rgb) * 0.25));
             final_color.rgb = vec3(d) * sqrt(normalize(final_color.rgb));
         #endif
+    #endif
+
+    #ifdef EXPERIMENTAL_CINEMATIC
+        final_color.rgb = hsv2rgb(rgb2hsv(final_color.rgb) * vec3(1, 1, 1.3) + vec3(-0.01, 0.05, 0));
     #endif
 
     tgt_color = vec4(final_color.rgb, 1);

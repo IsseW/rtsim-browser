@@ -1,0 +1,10 @@
+ItemDef(
+    legacy_name: "Miner's Backpack",
+    legacy_description: "Battered from heavy rocks being carried inside.",
+    kind: Armor((
+        kind: Backpack,
+        stats: FromSet("Miner"),
+    )),
+    quality: High,
+    tags: [],
+)

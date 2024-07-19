@@ -1,4 +1,4 @@
-#version 420 core
+#version 440 core
 
 #include <constants.glsl>
 
@@ -97,7 +97,7 @@ vec4 wave_height(vec4 posx, vec4 posy) {
     for(int i = 0; i < iters; i ++) {
         vec2 p = vec2(sin(iter), cos(iter));
         vec4 wave, dx;
-        wave_dx(posx, posy, p, speed, phase, tick.x, wave, dx);
+        wave_dx(posx, posy, p, speed, phase, tick.z, wave, dx);
         posx += p.x * dx * weight * drag_factor;
         posy += p.y * dx * weight * drag_factor;
         w += wave * weight;
@@ -112,8 +112,8 @@ vec4 wave_height(vec4 posx, vec4 posy) {
 
 float wave_height_vel(vec2 pos) {
     vec4 heights = wave_height(
-        pos.x - tick.x * floor(f_vel.x) - vec2(0.0, tick.x).xyxy,
-        pos.y - tick.x * floor(f_vel.y) - vec2(0.0, tick.x).xxyy
+        pos.x - tick.z * floor(f_vel.x) - vec2(0.0, tick.z).xyxy,
+        pos.y - tick.z * floor(f_vel.y) - vec2(0.0, tick.z).xxyy
     );
     return mix(
         mix(heights.x, heights.y, fract(f_vel.x + 1.0)),
@@ -258,7 +258,7 @@ void main() {
     /* vec3 sun_dir = get_sun_dir(time_of_day.x);
     vec3 moon_dir = get_moon_dir(time_of_day.x); */
 #if (SHADOW_MODE == SHADOW_MODE_CHEAP || SHADOW_MODE == SHADOW_MODE_MAP)
-    vec4 f_shadow = textureBicubic(t_horizon, s_horizon, pos_to_tex(f_pos.xy));
+    vec4 f_shadow = textureMaybeBicubic(t_horizon, s_horizon, pos_to_tex(f_pos.xy));
     float sun_shade_frac = horizon_at2(f_shadow, f_alt, f_pos, sun_dir);
 #elif (SHADOW_MODE == SHADOW_MODE_NONE)
     float sun_shade_frac = 1.0;//horizon_at2(f_shadow, f_alt, f_pos, sun_dir);
@@ -275,7 +275,7 @@ void main() {
         /* reflect_color = get_cloud_color(reflect_color, ray_dir, f_pos.xyz, time_of_day.x, 100000.0, 0.1); */
         reflect_color = vec3(0);
     #else
-        reflect_color = get_sky_color(ray_dir, time_of_day.x, f_pos, vec3(-100000), 0.125, true, 1.0, true, sun_shade_frac);
+        reflect_color = get_sky_color(ray_dir, f_pos, vec3(-100000), 0.125, true, 1.0, true, sun_shade_frac);
     #endif
     // Sort of non-physical, but we try to balance the reflection intensity with the direct light from the sun,
     // resulting in decent reflection of the ambient environment even after the sun has gone down.

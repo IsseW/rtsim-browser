@@ -1,8 +1,8 @@
 ItemDef(
-    name: "Rugged Backpack",
-    description: "Keeps all your stuff together.",
+    legacy_name: "Rugged Backpack",
+    legacy_description: "Keeps all your stuff together.",
     kind: Armor((
-        kind: Back,
+        kind: Backpack,
         stats: Direct((
             protection: Some(Normal(0.0)),
             poise_resilience: Some(Normal(0.0)),

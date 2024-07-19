@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Iron Shoulderpads",
-    description: "Sturdy and unyielding, across ages of war.",
+    legacy_name: "Iron Shoulderpads",
+    legacy_description: "Sturdy and unyielding, across ages of war.",
     kind: Armor((
         kind: Shoulder,
         stats: FromSet("Iron"),
@@ -8,6 +8,6 @@ ItemDef(
     quality: Common,
     tags: [
         Material(Iron),
-        SalvageInto(Iron),
+        SalvageInto(Iron, 1),
     ],
 )

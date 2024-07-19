@@ -1,15 +1,14 @@
 ItemDef(
-    name: "Cultist Staff",
-    description: "The fire gives off no heat.",
+    legacy_name: "Cultist Staff",
+    legacy_description: "The fire gives off no heat.",
     kind: Tool((
         kind: Staff,
         hands: Two,
         stats: (
             equip_time_secs: 0.3,
-            power: 1.75,
+            power: 1.45,
             effect_power: 1.0,
             speed: 0.65,
-            crit_chance: 0.140625,
             range: 1.0,
             energy_efficiency: 1.0,
             buff_strength: 1.0,

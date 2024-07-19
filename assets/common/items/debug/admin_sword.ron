@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Admin Greatsword",
-    description: "Shouldn't this be a hammer?",
+    legacy_name: "Admin Greatsword",
+    legacy_description: "Shouldn't this be a hammer?",
     kind: Tool((
         kind: Sword,
         hands: Two,
@@ -9,7 +9,6 @@ ItemDef(
             power: 999.9,
             effect_power: 999.9,
             speed: 1.0,
-            crit_chance: 0.5,
             range: 1.0,
             energy_efficiency: 1.0,
             buff_strength: 1.0,

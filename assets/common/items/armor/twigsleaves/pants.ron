@@ -1,11 +1,12 @@
 ItemDef(
-    name: "Leafy Pants",
-    description: "Leaves cover the magically imbued chainmail twigs, providing protection from the elements.",
+    legacy_name: "Leafy Pants",
+    legacy_description: "Leaves cover the magically imbued chainmail twigs, providing protection from the elements.",
     kind: Armor((
         kind: Pants,
         stats: FromSet("Twigs Leaves"),
     )),
     quality: Moderate,
     tags: [
+        SalvageInto(Twig, 2),
     ],
 )

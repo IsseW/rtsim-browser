@@ -1,4 +1,4 @@
-#version 420 core
+#version 440 core
 
 #include <constants.glsl>
 
@@ -56,6 +56,7 @@ const float EXTRA_NEG_Z = 32768.0;
 const float VERT_EXTRA_NEG_XY = 128.0;
 const float VERT_EXTRA_NEG_Z = 128.0;
 const uint VERT_PAGE_SIZE = 256;
+const uint VERT_PAGE_SIZE_BITS = VERT_PAGE_SIZE - 1;
 
 // vec4(vec3(position), distance)
 vec4 nearest_entity(in vec3 sprite_pos, const float entity_radius_factor) {
@@ -75,19 +76,6 @@ vec4 nearest_entity(in vec3 sprite_pos, const float entity_radius_factor) {
     return closest;
 }
 
-float wind_wave(float off, float scaling, float speed, float strength) {
-    float aspeed = abs(speed);
-
-    // TODO: Right now, the wind model is pretty simplistic. This means that there is frequently no wind at all, which
-    // looks bad. For now, we add a lower bound on the wind speed to keep things looking nice.
-    strength = max(strength, 6.0);
-    aspeed = max(aspeed, 5.0);
-
-    return (sin(tick.x * 0.35 * scaling * floor(aspeed) + off) * (1.0 - fract(aspeed))
-        + sin(tick.x * 0.35 * scaling * ceil(aspeed) + off) * fract(aspeed)) * abs(strength) * 0.25;
-    //return sin(tick.x * 1.5 * scaling + off) + sin(tick.x * 0.35 * scaling + off);
-}
-
 void main() {
     // Matrix to transform this sprite instance from model space to chunk space
     mat4 inst_mat;
@@ -104,12 +92,14 @@ void main() {
     f_inst_light = vec2(inst_light, inst_glow);
 
     // Index of the vertex data in the 1D vertex texture
-    int vertex_index = int(uint(gl_VertexIndex) % VERT_PAGE_SIZE + inst_vert_page * VERT_PAGE_SIZE);
+    int vertex_index = int((uint(gl_VertexIndex) & VERT_PAGE_SIZE_BITS) + inst_vert_page * VERT_PAGE_SIZE);
     uvec2 pos_atlas_pos_norm_ao = verts[vertex_index];
     uint v_pos_norm = pos_atlas_pos_norm_ao.x;
     uint v_atlas_pos = pos_atlas_pos_norm_ao.y;
 
     // Expand the model vertex position bits into float values
+    // TODO: Use this instead, see [https://gitlab.com/veloren/veloren/-/merge_requests/3091]
+    //vec3 v_pos = vec3(ivec3((uvec3(v_pos_norm) >> uvec3(0, 8, 16)) & uvec3(0xFFu, 0xFFu, 0x0FFFu)) - ivec3(VERT_EXTRA_NEG_XY, VERT_EXTRA_NEG_XY, VERT_EXTRA_NEG_Z));
     vec3 v_pos = vec3(
         float(v_pos_norm & 0xFFu) - VERT_EXTRA_NEG_XY,
         float((v_pos_norm >> 8) & 0xFFu) - VERT_EXTRA_NEG_XY,
@@ -119,7 +109,6 @@ void main() {
     // Position of the sprite block in the chunk
     // Used for highlighting the selected sprite, and for opening doors
     vec3 sprite_pos = inst_mat[3].xyz + chunk_offs;
-    float sprite_ori = (inst_pos_ori_door >> 29) & 0x7u;
 
     #ifndef EXPERIMENTAL_BAREMINIMUM
         if((inst_pos_ori_door & (1 << 28)) != 0) {
@@ -128,6 +117,7 @@ void main() {
             float min_entity_dist = nearest_entity(sprite_pos, 1.0).w;
 
             if (min_entity_dist < MAX_OPEN_DIST) {
+                float sprite_ori = (inst_pos_ori_door >> 29) & 0x7u;
                 float flip = sprite_ori <= 3 ? 1.0 : -1.0;
                 float theta = mix(PI/2.0, 0, pow(max(0.0, min_entity_dist - MIN_OPEN_DIST) / (MAX_OPEN_DIST - MIN_OPEN_DIST), 1.0));
                 float costheta = cos(flip * theta);
@@ -150,9 +140,9 @@ void main() {
     f_pos += chunk_offs;
 
     #ifndef EXPERIMENTAL_BAREMINIMUM
-        #ifndef EXPERIMENTAL_NOTERRAINPOP
+        #ifdef EXPERIMENTAL_TERRAINPOP
             // Terrain 'pop-in' effect
-            f_pos.z -= 250.0 * (1.0 - min(1.0001 - 0.02 / pow(tick.x - load_time, 10.0), 1.0));
+            f_pos.z -= 250.0 * (1.0 - min(1.0001 - 0.02 / pow(time_since(load_time), 10.0), 1.0));
         #endif
     #endif
 
@@ -173,7 +163,7 @@ void main() {
             * SCALE_FACTOR;
 
         if (model_wind_sway > 0.0) {
-            vec2 center = sprite_pos.xy + 0.5;
+            vec2 center = sprite_pos.xy;
             vec4 min_entity = nearest_entity(vec3(center, sprite_pos.z), 0.0);
 
             const float PUSH_FACTOR = 5;

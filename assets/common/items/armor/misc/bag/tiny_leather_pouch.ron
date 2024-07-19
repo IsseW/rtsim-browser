@@ -1,11 +1,14 @@
 ItemDef(
-    name: "Small Leather Pouch",
-    description: "A small reliable leather pouch.",
+    legacy_name: "Small Leather Pouch",
+    legacy_description: "A small reliable leather pouch.",
     kind: Armor((
         kind: Bag,
         stats: Direct(()),
     )),
     quality: Common,
-    tags: [Bag],
+    tags: [
+        Bag,
+        SalvageInto(Rawhide, 1),
+    ],
     slots: 6,
 )

@@ -571,6 +571,10 @@
                 keyword: "bristleback",
                 generic: "Bristleback"
             ),
+            claysteed: (
+                keyword: "claysteed",
+                generic: "Clay Steed"
+            ),
         )
     ),
     quadruped_small: (
@@ -981,6 +985,34 @@
             sea_bishop: (
                 keyword: "sea_bishop",
                 generic: "Sea Bishop"
+            ),
+            haniwa_general: (
+                keyword: "haniwa_general",
+                generic: "Haniwa General"
+            ),
+            terracotta_besieger: (
+                keyword: "terracotta_besieger",
+                generic: "Terracotta Besieger"
+            ),
+            terracotta_demolisher: (
+                keyword: "terracotta_demolisher",
+                generic: "Terracotta Demolisher"
+            ),
+            terracotta_punisher: (
+                keyword: "terracotta_punisher",
+                generic: "Terracotta Punisher"
+            ),
+            terracotta_pursuer: (
+                keyword: "terracotta_pursuer",
+                generic: "Terracotta Pursuer"
+            ),
+            cursekeeper: (
+                keyword: "cursekeeper",
+                generic: "Cursekeeper"
+            ),
+            forgemaster: (
+                keyword: "forgemaster",
+                generic: "Forgemaster"
             )
         )
     ),
@@ -994,7 +1026,7 @@
         species: (
             stonegolem: (
                 keyword: "stonegolem",
-                generic: "StoneGolem"
+                generic: "Stone Golem"
             ),
             treant: (
                 keyword: "treant",
@@ -1004,13 +1036,29 @@
                 keyword: "woodgolem",
                 generic: "Wooden Golem"
             ),
+            gravewarden: (
+                keyword: "gravewarden",
+                generic: "Gravewarden"
+            ),
             claygolem: (
                 keyword: "claygolem",
-                generic: "ClayGolem"
+                generic: "Clay Golem"
+            ),
+            ancienteffigy: (
+                keyword: "ancienteffigy",
+                generic: "Ancient Effigy"
+            ),
+            mogwai: (
+                keyword: "mogwai",
+                generic: "Mogwai"
             ),
             coralgolem: (
                 keyword: "coralgolem",
-                generic: "CoralGolem"
+                generic: "Coral Golem"
+            ),
+            irongolem: (
+                keyword: "irongolem",
+                generic: "IronGolem"
             )
         )
     ),
@@ -1113,6 +1161,14 @@
                 keyword: "gnome",
                 generic: "Gnome"
             ),
+            iron_dwarf: (
+                keyword: "iron_dwarf",
+                generic: "Iron Dwarf"
+            ),
+            flamekeeper: (
+                keyword: "flamekeeper",
+                generic: "Flamekeeper"
+            ),
             sahagin: (
                 keyword: "sahagin",
                 generic: "Sahagin"
@@ -1151,11 +1207,11 @@
             ),
             husk: (
                 keyword: "husk",
-                generic: "Husk"
+                generic: "Cultist Husk"
             ),
             boreal: (
                 keyword: "boreal",
-                generic: "Boreal",
+                generic: "Boreal Warrior",
             ),
             bushly: (
                 keyword: "bushly",
@@ -1164,6 +1220,22 @@
             irrwurz: (
                 keyword: "irrwurz",
                 generic: "Irrwurz",
+            ),
+            shamanic_spirit: (
+                keyword: "shamanic_spirit",
+                generic: "Shamanic Spirit",
+            ),
+            jiangshi: (
+                keyword: "jiangshi",
+                generic: "Jiangshi",
+            ),
+            treasure_egg: (
+                keyword: "treasure_egg",
+                generic: "Treasure Egg",
+            ),
+            gnarling_chieftain: (
+                keyword: "gnarling_chieftain",
+                generic: "Gnarling Chieftain"
             ),
         )
     ),
@@ -1264,6 +1336,10 @@
             alligator: (
                 keyword: "alligator",
                 generic: "Alligator"
+            ),
+            snaretongue: (
+                keyword: "snaretongue",
+                generic: "Snaretongue"
             ),
             salamander: (
                 keyword: "salamander",
@@ -1402,6 +1478,18 @@
             emberfly: (
                 keyword: "emberfly",
                 generic: "Emberfly"
+            ),
+        )
+    ),
+    crustacean: (
+        body: (
+            keyword: "crustacean",
+            names_0: ["Ferris"],
+        ),
+        species: (
+            crab: (
+                keyword: "crab",
+                generic: "Crab",
             ),
         )
     ),

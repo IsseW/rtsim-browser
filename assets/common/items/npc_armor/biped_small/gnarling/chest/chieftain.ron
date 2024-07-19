@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Gnarling Chieftain",
-    description: "Only worn by the most spiritual of Gnarlings.",
+    legacy_name: "Gnarling Chieftain",
+    legacy_description: "Only worn by the most spiritual of Gnarlings.",
     kind: Armor((
         kind: Chest,
         stats: Direct((
@@ -8,7 +8,7 @@ ItemDef(
             poise_resilience: Some(Normal(60.0)),
             energy_max: Some(120.0),
             energy_reward: Some(0.027),
-            crit_power: Some(0.025),
+            precision_power: Some(0.025),
         )),
     )),
     quality: Low,

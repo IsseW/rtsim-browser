@@ -17,11 +17,11 @@ hud-trade-result-completed = Trade completed successfully.
 hud-trade-result-declined = Trade declined.
 hud-trade-result-nospace = Not enough space to complete the trade.
 hud-trade-buy = Buy Price: { $coin_num ->
-    [one] one coin
+    [1] one coin
     *[other] { $coin_formatted } coins
 }
 hud-trade-sell = Sell Price: { $coin_num ->
-    [one] one coin.
+    [1] one coin
     *[other] { $coin_formatted } coins
 }
 hud-trade-tooltip_hint_1 = <Shift-Click to Add/Remove from trade.>
@@ -29,3 +29,4 @@ hud-trade-tooltip_hint_2 = <Ctrl-Click to Auto-Balance with this.>
 hud-trade-your_offer = Your offer
 hud-trade-their_offer = Their offer
 hud-trade-amount_input = Select an item
+hud-confirm-trade-for-nothing = Really give away these items in exchange for nothing?

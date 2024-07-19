@@ -1,3 +1,5 @@
+## Generic NPC messages
+
 npc-speech-villager =
     .a0 = I love cheese.
 npc-speech-villager_open =
@@ -8,13 +10,12 @@ npc-speech-villager_open =
     .a4 = I left some cheese with my sibling. Now I don't know if it exists or not. I call it Schrödinger's cheese.
     .a5 = Have you ever caught a firefly?
     .a6 = They say shiny gems of all kinds can be found in caves.
-    .a7 = I just can't understand where those Sauroks keep coming from.
+    .a7 = I just can't understand where those sauroks keep coming from.
 npc-speech-villager_adventurous =
     .a0 = I hope to make my own glider someday.
     .a1 = I'd like to go spelunking in a cave when I'm stronger.
 npc-speech-villager_closed =
     .a0 = You're not from around here are you?
-    .a1 = Don't you think our village is the best?
     .a2 = They say mushrooms are good for your health. Never eat them myself.
     .a3 = To be, or not to be? I think I'll be a farmer.
 npc-speech-villager_conscientious =
@@ -74,7 +75,7 @@ npc-speech-villager_busy =
 npc-speech-merchant_advertisement =
     .a0 = Can I interest you in a trade?
     .a1 = Do you want to trade with me?
-    .a2 = I have plenty of goods, Do you want to take a look?
+    .a2 = I have plenty of goods. Do you want to take a look?
 npc-speech-merchant_busy =
     .a0 = Please wait, I'm only one person.
     .a1 = Just a moment, let me finish.
@@ -249,14 +250,59 @@ npc-speech-merchant_sell_directed =
     .a0 = You there! Are you in need of a new thingamabob?
     .a1 = Are you hungry? I'm sure I've got some cheese you can buy.
     .a2 = You look like you could do with some new armour!
+
+## NPC site hints
+## Available variables:
+## - $dir references npc-speech-dir-* variables below
+## - $dist references npc-speech-dist-* variables below
+## - $site represents hard-coded site in the world
+
 npc-speech-tell_site =
-    .a0 = Have you visited { $site }? It's just { $dir } of here!
+    .a0 = There's { $site } { $dir } of here. Have you visited it?
     .a1 = You should visit { $site } some time.
-    .a2 = If you travel { $dist } to the { $dir }, you can get to { $site }.
-    .a3 = To the { $dir } you'll find { $site }, it's { $dist }.
+    .a2 = If you travel { $dist } { $dir }, you can get to { $site }.
+    .a3 = { $dir } you'll find { $site }, it's { $dist }.
+
+npc-speech-site =
+    .a0 = Don't you think our village is the best?
+    .a1 = Welcome to { $site } !
+    .a2 = { $site } is a pleasant village to live in.
+
+## NPC monster hints
+## Available variables:
+## - $dir references npc-speech-dir-* variables below
+## - $dist references npc-speech-dist-* variables below
+## - $body references body-npc-speech-* variables in `body` component
+
 npc-speech-tell_monster =
-    .a0 = They say there's a { $body } to the { $dir }, { $dist }...
-    .a1 = You think you're tough? To the { $dir } there's a { $body }.
+    .a0 = They say there's { $body } { $dir }, { $dist }...
+    .a1 = You think you're tough? There's { $body } { $dir }.
+
+## Direction hints, used ONLY in npc-speech-tell* above
+
+npc-speech-dir_north = to the north
+npc-speech-dir_north_east = to the north-east
+npc-speech-dir_east = to the east
+npc-speech-dir_south_east = to the south-east
+npc-speech-dir_south = to the south
+npc-speech-dir_south_west = to the south-west
+npc-speech-dir_west = to the west
+npc-speech-dir_north_west = to the north-west
+
+## Distance hints, used ONLY in npc-speech-tell* above
+
+npc-speech-dist_very_far = very far away
+npc-speech-dist_far = far away
+npc-speech-dist_ahead = some way away
+npc-speech-dist_near = nearby
+npc-speech-dist_near_to = very close
+
+## NPC proposals
+
+npc-speech-arena = Let's sit over there!
+
+## NPC reactions
+
 npc-speech-witness_murder =
     .a0 = Murderer!
     .a1 = How could you do this?
@@ -273,17 +319,7 @@ npc-speech-welcome-aboard =
     .a0 = Welcome aboard!
     .a1 = Can I see your ticket... just kidding it's free!
     .a2 = Have a nice ride!
-npc-speech-dir_north = north
-npc-speech-dir_north_east = north-east
-npc-speech-dir_east = east
-npc-speech-dir_south_east = south-east
-npc-speech-dir_south = south
-npc-speech-dir_south_west = south-west
-npc-speech-dir_west = west
-npc-speech-dir_north_west = north-west
-
-npc-speech-dist_very_far = very far away
-npc-speech-dist_far = far away
-npc-speech-dist_ahead = some way away
-npc-speech-dist_near = nearby
-npc-speech-dist_near_to = very close
+npc-speech-night =
+    .a0 = Lanterns are handy for getting around at night!
+    .a1 = I hope we are alone in the dark...
+    .a2 = Boo!

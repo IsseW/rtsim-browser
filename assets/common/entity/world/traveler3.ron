@@ -5,7 +5,7 @@
     name: Name("Experienced Traveler"),
     body: RandomWith("humanoid"),
     alignment: Alignment(Npc),
-    loot: LootTable("common.loot_tables.world.traveler3"),
+    loot: LootTable("common.loot_tables.nothing"),
     inventory: (
         loadout: Inline((
             inherit: Choice([
@@ -30,6 +30,7 @@
                 (2, Item("common.items.weapons.staff.laevateinn")),
                 (1, Item("common.items.weapons.sceptre.caduceus")),
             ]), None)),
+            glider: Item("common.items.glider.sunset"),
         )),
         items: [
             (50, "common.items.consumable.potion_big"),

@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Magical Cultist Dagger",
-    description: "This belonged to an evil Cult Leader.",
+    legacy_name: "Magical Cultist Dagger",
+    legacy_description: "This belonged to an evil Cult Leader.",
     kind: Tool((
         kind: Dagger,
         hands: One,
@@ -9,7 +9,6 @@ ItemDef(
             power: 2.0,
             effect_power: 1.0,
             speed: 1.0,
-            crit_chance: 0.140625,
             range: 1.0,
             energy_efficiency: 1.0,
             buff_strength: 1.0,

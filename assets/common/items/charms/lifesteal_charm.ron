@@ -1,20 +1,20 @@
 ItemDef(
-    name: "Siphon Charm",
-    description: "Siphon your target life and use it for your own.",
+    legacy_name: "Siphon Charm",
+    legacy_description: "Siphon your target life and use it for your own.",
     kind: Consumable(
-        kind: Drink,
+        kind: Charm,
         effects: All([
             Buff((
                 kind: Lifesteal,
                 data: (
                     strength: 0.4,
                     duration: Some(20),
-                    ),
-                cat_ids: [Natural],
+                ),
+                cat_ids: [RemoveOnAttack],
             )),
-           
+
         ])
     ),
     quality: Legendary,
-    tags: [],
+    tags: [Charm],
 )

@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Green Linen Skirt",
-    description: "A stylish, rough fabric skirt, dyed green.",
+    legacy_name: "Green Linen Skirt",
+    legacy_description: "A stylish, rough fabric skirt, dyed green.",
     kind: Armor((
         kind: Pants,
         stats: FromSet("Cloth Green"),
@@ -8,6 +8,6 @@ ItemDef(
     quality: Common,
     tags: [
         Material(Linen),
-        SalvageInto(Linen),
+        SalvageInto(Linen, 2),
     ],
 )

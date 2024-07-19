@@ -1,8 +1,8 @@
 ItemDef(
-    name: "Merchant Backpack",
-    description: "",
+    legacy_name: "Merchant Backpack",
+    legacy_description: "",
     kind: Armor((
-        kind: Back,
+        kind: Backpack,
         stats: FromSet("Merchant"),
     )),
     quality: High,

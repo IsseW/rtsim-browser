@@ -1,4 +1,4 @@
-#version 420 core
+#version 440 core
 
 #include <constants.glsl>
 
@@ -25,7 +25,7 @@ layout(location = 3) in vec3 model_pos;
 layout(location = 4) flat in uint f_flags;
 
 const uint FLAG_SNOW_COVERED = 1;
-const uint FLAG_IS_BUILDING = 2;
+const uint FLAG_GLOW = 2;
 
 layout(location = 0) out vec4 tgt_color;
 layout(location = 1) out uvec4 tgt_mat;
@@ -34,7 +34,15 @@ layout(location = 1) out uvec4 tgt_mat;
 #include <light.glsl>
 #include <lod.glsl>
 
-const float FADE_DIST = 32.0;
+float lod_voxel_noise(vec3 f_pos) {
+    #ifdef EXPERIMENTAL_PROCEDURALLODDETAIL
+        vec3 block_pos = floor(f_pos) + 0.5;
+        //return (hash_three(uvec3((block_pos + focus_off.xyz) * 0.35)) - 0.5) * 5.0;
+        return floor((noise_3d((block_pos + focus_off.xyz) * 0.015) - 0.5) * 5.0);
+    #else
+        return 0.0;
+    #endif
+}
 
 void main() {
     #ifdef EXPERIMENTAL_BAREMINIMUM
@@ -52,7 +60,7 @@ void main() {
 #endif
 
 #if (SHADOW_MODE == SHADOW_MODE_CHEAP || SHADOW_MODE == SHADOW_MODE_MAP)
-    vec4 f_shadow = textureBicubic(t_horizon, s_horizon, pos_to_tex(f_pos.xy));
+    vec4 f_shadow = textureMaybeBicubic(t_horizon, s_horizon, pos_to_tex(f_pos.xy));
     float sun_shade_frac = horizon_at2(f_shadow, f_alt, f_pos, sun_dir);
 #elif (SHADOW_MODE == SHADOW_MODE_NONE)
     float sun_shade_frac = 1.0;
@@ -75,35 +83,36 @@ void main() {
     vec3 k_d = vec3(1.0);
     vec3 k_s = vec3(R_s);
 
-    vec3 my_norm = vec3(f_norm.xy, abs(f_norm.z));
-    vec3 voxel_norm;
+    vec3 voxel_norm = f_norm;
     float my_alt = f_pos.z + focus_off.z;
     float f_ao = 1.0;
     const float VOXELIZE_DIST = 2000;
-    float voxelize_factor = clamp(1.0 - (distance(focus_pos.xy, f_pos.xy) - view_distance.x) / VOXELIZE_DIST, 0, 0.65);
-    vec3 cam_dir = normalize(cam_pos.xyz - f_pos.xyz);
-    vec3 side_norm = normalize(vec3(my_norm.xy, 0));
-    vec3 top_norm = vec3(0, 0, 1);
+    float voxelize_factor = clamp(1.0 - (distance(cam_pos.xy, f_pos.xy) - view_distance.x) * (1.0 / VOXELIZE_DIST), 0, 1.0);
+    vec3 cam_dir = cam_to_frag;
     #ifdef EXPERIMENTAL_NOLODVOXELS
-        f_ao = 1.0;
-        voxel_norm = normalize(mix(side_norm, top_norm, cam_dir.z));
+        //vec3 side_norm = normalize(vec3(f_norm.xy, 0));
+        //vec3 top_norm = vec3(0, 0, 1);
+        voxel_norm = f_norm;//normalize(mix(side_norm, top_norm, cam_dir.z));
     #else
-        float side_factor = 1.0 - my_norm.z;
-        // min(dot(vec3(0, -sign(cam_dir.y), 0), -cam_dir), dot(vec3(-sign(cam_dir.x), 0, 0), -cam_dir))
-        if (max(abs(my_norm.x), abs(my_norm.y)) < 0.01 || fract(my_alt) * clamp(dot(normalize(vec3(cam_dir.xy, 0)), side_norm), 0, 1) < cam_dir.z / my_norm.z) {
-            f_ao *= mix(1.0, clamp(fract(my_alt) / length(my_norm.xy) + clamp(dot(side_norm, -cam_dir), 0, 1), 0, 1), voxelize_factor);
-            voxel_norm = top_norm;
-        } else {
-            f_ao *= mix(1.0, clamp(pow(fract(my_alt), 0.5), 0, 1), voxelize_factor);
+        float base_surf_depth = lod_voxel_noise(f_pos);
+        float t = -1.5 + base_surf_depth;
+        while (t < 1.5 + base_surf_depth) {
+            vec3 deltas = (step(vec3(0), -cam_dir) - fract(f_pos - cam_dir * t)) / -cam_dir;
+            float m = min(min(deltas.x, deltas.y), deltas.z);
 
-            if (fract(f_pos.x) * abs(my_norm.y / cam_dir.x) < fract(f_pos.y) * abs(my_norm.x / cam_dir.y)) {
-                voxel_norm = vec3(sign(cam_dir.x), 0, 0);
-            } else {
-                voxel_norm = vec3(0, sign(cam_dir.y), 0);
+            t += max(m, 0.01);
+
+            vec3 block_pos = floor(f_pos - cam_dir * t) + 0.5;
+            float surf_depth = lod_voxel_noise(f_pos);
+            if (dot(block_pos - f_pos - f_norm * surf_depth, -f_norm) < 0.0) {
+                vec3 to_center = abs(block_pos - (f_pos - cam_dir * t));
+                voxel_norm = step(max(max(to_center.x, to_center.y), to_center.z), to_center) * sign(-cam_dir);
+                voxel_norm = mix(f_norm, voxel_norm, voxelize_factor);
+                surf_color *= mix(0.65, 1.0, hash_three(uvec3(block_pos + focus_off.xyz)));
+                f_ao = mix(1.0, clamp(1.0 + t - surf_depth, 0.1, 1.0), voxelize_factor * max(0.0, -dot(cam_dir, f_norm)));
+                break;
             }
         }
-        f_ao = min(f_ao, max(f_norm.z * 0.5 + 0.5, 0.0));
-        voxel_norm = mix(my_norm, voxel_norm == vec3(0.0) ? f_norm : voxel_norm, voxelize_factor);
     #endif
 
     vec3 emitted_light, reflected_light;
@@ -121,13 +130,8 @@ void main() {
     reflected_light *= f_ao;
 
     vec3 glow = vec3(0);
-    if ((f_flags & FLAG_IS_BUILDING) > 0u && abs(f_norm.z) < 0.1) {
-        ivec3 wpos = ivec3((f_pos.xyz + focus_off.xyz) * 0.2);
-        if (((wpos.x & wpos.y & wpos.z) & 1) == 1) {
-            glow += vec3(1, 0.7, 0.3) * 2;
-        } else {
-            reflected_light += vec3(1, 0.7, 0.3) * 0.9;
-        }
+    if ((f_flags & FLAG_GLOW) > 0u) {
+        glow += vec3(1, 0.7, 0.3) * 2;
     }
 
     vec3 side_color = surf_color;

@@ -3,7 +3,7 @@
     name: Name("Chef"),
     body: RandomWith("humanoid"),
     alignment: Alignment(Npc),
-    loot: LootTable("common.loot_tables.creature.humanoid"),
+    loot: LootTable("common.loot_tables.nothing"),
     inventory: (
         loadout: Inline((
             inherit: Asset("common.loadout.village.chef"),
@@ -19,6 +19,7 @@
         items: [
             (10, "common.items.consumable.potion_big"),
             (10, "common.items.food.sunflower_icetea"),
+            (1, "common.items.recipes.food"),
         ],
     ),
     meta: [

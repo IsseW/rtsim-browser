@@ -1,11 +1,12 @@
 ItemDef(
-    name: "Flowery Belt",
-    description: "Magically imbued twigs, held together with a flower intertwining its stem to hold the belt together.",
+    legacy_name: "Flowery Belt",
+    legacy_description: "Magically imbued twigs, held together with a flower intertwining its stem to hold the belt together.",
     kind: Armor((
         kind: Belt,
         stats: FromSet("Twigs Flowers"),
     )),
     quality: Moderate,
     tags: [
+        SalvageInto(Twig, 1),
     ],
 )

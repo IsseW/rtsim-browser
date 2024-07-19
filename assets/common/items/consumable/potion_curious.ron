@@ -1,0 +1,74 @@
+ItemDef(
+    legacy_name: "Curious Potion",
+    legacy_description: "Wonder what this does...",
+    kind: Consumable(
+        kind: Drink,
+        effects: Any([
+            Buff((
+                kind: Polymorphed,
+                data: (
+                    strength: 0.0,
+                    duration: Some(60),
+                    misc_data: Some(Body(QuadrupedSmall(( species: Frog, body_type: Female )))),
+                ),
+                cat_ids: [Natural],
+            )),
+            Buff((
+                kind: Polymorphed,
+                data: (
+                    strength: 0.0,
+                    duration: Some(60),
+                    misc_data: Some(Body(QuadrupedSmall(( species: Rabbit, body_type: Female )))),
+                ),
+                cat_ids: [Natural],
+            )),
+            Buff((
+                kind: Polymorphed,
+                data: (
+                    strength: 0.0,
+                    duration: Some(60),
+                    misc_data: Some(Body(QuadrupedSmall(( species: Rat, body_type: Female )))),
+                ),
+                cat_ids: [Natural],
+            )),
+            Buff((
+                kind: Polymorphed,
+                data: (
+                    strength: 0.0,
+                    duration: Some(60),
+                    misc_data: Some(Body(QuadrupedSmall(( species: Squirrel, body_type: Female )))),
+                ),
+                cat_ids: [Natural],
+            )),
+            Buff((
+                kind: Polymorphed,
+                data: (
+                    strength: 0.0,
+                    duration: Some(60),
+                    misc_data: Some(Body(QuadrupedSmall(( species: Cat, body_type: Female )))),
+                ),
+                cat_ids: [Natural],
+            )),
+            Buff((
+                kind: Polymorphed,
+                data: (
+                    strength: 0.0,
+                    duration: Some(60),
+                    misc_data: Some(Body(QuadrupedSmall(( species: Fungome, body_type: Female )))),
+                ),
+                cat_ids: [Natural],
+            )),
+            Buff((
+                kind: Polymorphed,
+                data: (
+                    strength: 0.0,
+                    duration: Some(60),
+                    misc_data: Some(Body(QuadrupedSmall(( species: Pig, body_type: Female )))),
+                ),
+                cat_ids: [Natural],
+            )),
+        ])
+    ),
+    quality: Common,
+    tags: [Potion],
+)

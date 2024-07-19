@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Green Blanket",
-    description: "Keeps your shoulders warm.",
+    legacy_name: "Green Blanket",
+    legacy_description: "Keeps your shoulders warm.",
     kind: Armor((
         kind: Back,
         stats: Direct((
@@ -10,6 +10,6 @@ ItemDef(
     quality: Common,
     tags: [
         Material(Linen),
-        SalvageInto(Linen),
+        SalvageInto(Linen, 1),
     ],
 )

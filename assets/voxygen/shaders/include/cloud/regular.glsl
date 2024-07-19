@@ -16,7 +16,7 @@ float billow_noise_2d(vec2 pos) {
 }
 
 // Returns vec4(r, g, b, density)
-vec4 cloud_at(vec3 pos, float dist, out vec3 emission, out float not_underground) {
+vec4 cloud_at(vec3 pos, float dist, vec3 dir, out vec3 emission, out float not_underground) {
     #ifdef EXPERIMENTAL_CURVEDWORLD
         pos.z += pow(distance(pos.xy, focus_pos.xy + focus_off.xy) * 0.05, 2);
     #endif
@@ -30,7 +30,7 @@ vec4 cloud_at(vec3 pos, float dist, out vec3 emission, out float not_underground
     // bright, because it has to travel through an infinite amount of atmosphere. This doesn't happen in reality
     // because the earth has curvature and so there is an upper bound on the amount of atmosphere that a sunset must
     // travel through. We 'simulate' this by fading out the atmosphere density with distance.
-    float flat_earth_hack = 1.0 / (1.0 + dist * 0.0001);
+    float flat_earth_hack = max(0.0, 1.0 - dist * 0.00003 * pow(max(0.0, dir.z), 0.2));
     float air = 0.025 * clamp((atmosphere_alt - pos.z) / 20000, 0, 1) * flat_earth_hack;
 
     float alt = alt_at(pos.xy - focus_off.xy);
@@ -61,8 +61,8 @@ vec4 cloud_at(vec3 pos, float dist, out vec3 emission, out float not_underground
         ;
     }
 
-    float CLOUD_DEPTH = (view_distance.w - view_distance.z) * (0.2 + sqrt(cloud_tendency) * 0.5);
-    float cloud_alt = alt + CLOUD_DEPTH * 2 + 1000.0;
+    float CLOUD_DEPTH = (view_distance.w - view_distance.z) * (0.14 + sqrt(cloud_tendency) * 0.35);
+    float cloud_alt = alt + CLOUD_DEPTH * 2 + 1500.0;
 
     //vec2 cloud_attr = get_cloud_heights(wind_pos.xy);
     float sun_access = 0.0;
@@ -95,8 +95,8 @@ vec4 cloud_at(vec3 pos, float dist, out vec3 emission, out float not_underground
         ;
 
         // Sample twice to allow for self-shadowing
-        float cloud_p0 = noise_3d((wind_pos + vec3(0, 0, small_nz) * 250 - sun_dir.xyz * 250) * vec3(0.55, 0.55, 1) / (cloud_scale * 20000.0));
-        float cloud_p1 = noise_3d((wind_pos + vec3(0, 0, small_nz) * 250 + sun_dir.xyz * 250) * vec3(0.55, 0.55, 1) / (cloud_scale * 20000.0));
+        float cloud_p0 = noise_3d((wind_pos + vec3(0, 0, small_nz) * 150 - sun_dir.xyz * 150) * vec3(0.55, 0.55, 1) / (cloud_scale * 20000.0));
+        float cloud_p1 = noise_3d((wind_pos + vec3(0, 0, small_nz) * 150 + sun_dir.xyz * 150) * vec3(0.55, 0.55, 1) / (cloud_scale * 20000.0));
 
         float cloud_factor = pow(max(((cloud_p0 + cloud_p1) * 0.5
             - 0.5
@@ -112,8 +112,8 @@ vec4 cloud_at(vec3 pos, float dist, out vec3 emission, out float not_underground
         // Basically, just throw together a few values that roughly approximate this term and come up with an average
         cloud_sun_access = clamp(
             0.7
-                + pow(abs(cloud_p1 - cloud_p0), 0.5) * sign(cloud_p1 - cloud_p0) * 0.5
-                + (pos.z - cloud_alt) / CLOUD_DEPTH * 0.4
+                + pow(abs(cloud_p1 - cloud_p0), 0.5) * sign(cloud_p1 - cloud_p0) * 0.75
+                + (pos.z - cloud_alt) / CLOUD_DEPTH * 0.2
                 - pow(cloud * 10000000.0, 0.2) * 0.0075
             ,
             0.15,
@@ -142,7 +142,7 @@ vec4 cloud_at(vec3 pos, float dist, out vec3 emission, out float not_underground
     if (emission_strength <= 0.0) {
         emission = vec3(0);
     } else {
-        float nz = textureLod(sampler2D(t_noise, s_noise), wind_pos.xy * 0.00005 - time_of_day.x * 0.0001, 0).x;//noise_3d(vec3(wind_pos.xy * 0.00005 + cloud_tendency * 0.2, time_of_day.x * 0.0002));
+        float nz = textureLod(sampler2D(t_noise, s_noise), wind_pos.xy * 0.00005 - time_of_day.y * 8.0, 0).x;//noise_3d(vec3(wind_pos.xy * 0.00005 + cloud_tendency * 0.2, time_of_day.x * 0.0002));
 
         float emission_alt = alt * 0.5 + 1000 + 1000 * nz;
         float emission_height = 1000.0;
@@ -181,21 +181,21 @@ vec4 cloud_at(vec3 pos, float dist, out vec3 emission, out float not_underground
     const uint QUALITY = 2u;
 #endif
 
-const float STEP_SCALE = DIST_CAP / (10.0 * float(QUALITY));
+const float STEP_SCALE = DIST_CAP / (1000.0 * float(QUALITY));
 
 float step_to_dist(float step, float quality) {
-    return pow(step, 2) * STEP_SCALE / quality;
+    return pow(step, 4) * STEP_SCALE / quality;
 }
 
 float dist_to_step(float dist, float quality) {
-    return pow(dist / STEP_SCALE * quality, 0.5);
+    return pow(dist / STEP_SCALE * quality, 0.25);
 }
 
 // This *MUST* go here: when clouds are enabled, it relies on the declaration of `clouds_at` above. Sadly, GLSL doesn't
 // consistently support forward declarations (not surprising, it's designed for single-pass compilers).
 #include <point_glow.glsl>
 
-vec3 get_cloud_color(vec3 surf_color, vec3 dir, vec3 origin, const float time_of_day, float max_dist, const float quality) {
+vec3 get_cloud_color(vec3 surf_color, vec3 dir, vec3 origin, float max_dist, const float quality) {
     // Limit the marching distance to reduce maximum jumps
     max_dist = min(max_dist, DIST_CAP);
 
@@ -205,7 +205,7 @@ vec3 get_cloud_color(vec3 surf_color, vec3 dir, vec3 origin, const float time_of
     // improves visual quality for low cloud settings
     float splay = 1.0;
     #if (CLOUD_MODE == CLOUD_MODE_MINIMAL)
-        splay += (textureLod(sampler2D(t_noise, s_noise), vec2(atan2(dir.x, dir.y) * 2 / PI, dir.z) * 5.0 - time_of_day * 0.00005, 0).x - 0.5) * 0.025 / (1.0 + pow(dir.z, 2) * 10);
+        splay += (textureLod(sampler2D(t_noise, s_noise), vec2(atan2(dir.x, dir.y) * 2 / PI, dir.z) * 5.0 - time_of_day.y * 4.0, 0).x - 0.5) * 0.025 / (1.0 + pow(dir.z, 2) * 10);
     #endif
 
     const vec3 RAYLEIGH = vec3(0.025, 0.1, 0.5);
@@ -215,7 +215,7 @@ vec3 get_cloud_color(vec3 surf_color, vec3 dir, vec3 origin, const float time_of
     float moon_scatter = dot(-dir, moon_dir.xyz) * 0.5 + 0.7;
     float net_light = get_sun_brightness() + get_moon_brightness();
     vec3 sky_color = RAYLEIGH * net_light;
-    vec3 sky_light = get_sky_light(dir, time_of_day, false);
+    vec3 sky_light = get_sky_light(dir, false);
     vec3 sun_color = get_sun_color();
     vec3 moon_color = get_moon_color();
 
@@ -244,7 +244,7 @@ vec3 get_cloud_color(vec3 surf_color, vec3 dir, vec3 origin, const float time_of
         float not_underground; // Used to prevent sunlight leaking underground
         vec3 pos = origin + dir * ldist * splay;
         // `sample` is a reserved keyword
-        vec4 sample_ = cloud_at(origin + dir * ldist * splay, ldist, emission, not_underground);
+        vec4 sample_ = cloud_at(origin + dir * ldist * splay, ldist, dir, emission, not_underground);
 
         // DEBUG
         // if (max_dist > ldist && max_dist < ldist * 1.02) {

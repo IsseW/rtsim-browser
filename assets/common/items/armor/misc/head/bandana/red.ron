@@ -1,13 +1,15 @@
 ItemDef(
-    name: "Red Bandana",
-    description: "Very sneaky, but also, bright red.",
+    legacy_name: "Red Bandana",
+    legacy_description: "Very sneaky, but also, bright red.",
     kind: Armor((
         kind: Head,
         stats: Direct((
-            crit_power: Some(0.006),
+            precision_power: Some(0.006),
             stealth: Some(0.14),
         )),
     )),
     quality: Common,
-    tags: [],
+    tags: [
+        SalvageInto(RedLinen, 3)
+    ],
 )

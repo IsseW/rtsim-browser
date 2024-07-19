@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Sea Bishop Sceptre",
-    description: "Hits like a wave.",
+    legacy_name: "Sea Bishop Sceptre",
+    legacy_description: "Hits like a wave.",
     kind: Tool((
         kind: Sceptre,
         hands: Two,
@@ -9,7 +9,6 @@ ItemDef(
             power: 1.2,
             effect_power: 0.8,
             speed: 1.2,
-            crit_chance: 0.4,
             range: 1.0,
             energy_efficiency: 1.0,
             buff_strength: 1.0,

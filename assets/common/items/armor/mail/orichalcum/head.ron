@@ -1,0 +1,16 @@
+ItemDef(
+    legacy_name: "Orichalcum Helmet",
+    legacy_description: "The plume glows as you charge into battle.",
+    kind: Armor((
+        kind: Head,
+        stats: Direct((
+            protection: Some(Normal(18.0)),
+            poise_resilience: Some(Normal(6.0)),
+        )),
+    )),
+    quality: Legendary,
+    tags: [
+        Material(Orichalcum),
+        SalvageInto(Orichalcum, 1),
+    ],
+)

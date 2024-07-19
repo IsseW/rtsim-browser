@@ -3,7 +3,7 @@
     name: Name("Herbalist"),
     body: RandomWith("humanoid"),
     alignment: Alignment(Npc),
-    loot: LootTable("common.loot_tables.creature.humanoid"),
+    loot: LootTable("common.loot_tables.nothing"),
     inventory: (
         loadout: Inline((
             inherit: Asset("common.loadout.village.herbalist"),
@@ -15,6 +15,8 @@
         items: [
             (10, "common.items.food.cheese"),
             (10, "common.items.food.plainsalad"),
+            (1, "common.items.recipes.food"),
+            (1, "common.items.recipes.armor.woolen"),
         ],
     ),
     meta: [],

@@ -1,6 +1,6 @@
 ItemDef(
-    name: "Long Pole Shaft",
-    description: "",
+    legacy_name: "Long Pole Shaft",
+    legacy_description: "",
     kind: ModularComponent(
         ToolPrimaryComponent(
             toolkind: Staff,
@@ -9,7 +9,6 @@ ItemDef(
                 power: 0.8,
                 effect_power: 0.8,
                 speed: 0.8,
-                crit_chance: 0.2,
                 range: 1.3,
                 energy_efficiency: 0.8,
                 buff_strength: 0.8,

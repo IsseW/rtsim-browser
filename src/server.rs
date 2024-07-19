@@ -72,12 +72,14 @@ pub fn init_server() -> Server {
         editable_settings,
         database_settings,
         &server_data_dir,
+        &|stage| {
+            info!("{stage:?}");
+        },
         runtime,
     )
     .expect("Failed to create server instance!")
 }
 
-#[derive(Resource)]
 pub enum VelorenServer {
     Starting(Task<Server>),
     Running { server: Server, tps: u32 },
@@ -94,7 +96,7 @@ impl FromWorld for VelorenServer {
 }
 
 pub fn veloren_plugin(app: &mut App) {
-    app.init_resource::<VelorenServer>()
+    app.init_non_send_resource::<VelorenServer>()
         .add_system(handle_server_task);
 }
 
@@ -134,7 +136,7 @@ fn create_world_image(server: &Server) -> Image {
 fn handle_server_task(
     mut commands: Commands,
     mut images: ResMut<Assets<Image>>,
-    mut server: ResMut<VelorenServer>,
+    mut server: NonSendMut<VelorenServer>,
     time: Res<Time>,
     mut last_ran: Local<Option<f64>>,
 ) {

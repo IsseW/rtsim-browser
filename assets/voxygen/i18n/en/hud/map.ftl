@@ -16,6 +16,7 @@ hud-map-town = Town
 hud-map-castle = Castle
 hud-map-bridge = Bridge
 hud-map-dungeon = Dungeon
+hud-map-df_mine = Mine
 hud-map-difficulty_dungeon =
     Dungeon
     
@@ -34,4 +35,8 @@ hud-map-zoom_minimap_explanation =
 hud-map-gnarling = Gnarling Fortification
 hud-map-chapel_site = Sea Chapel
 hud-map-adlet = Adlet Stronghold
+hud-map-haniwa = Haniwa Catacomb
+hud-map-cultist = Cultist Dungeon
+hud-map-sahagin = Sahagin Island
+hud-map-terracotta = Terracotta Ruins
 hud-map-placed_by = Placed by { $name }

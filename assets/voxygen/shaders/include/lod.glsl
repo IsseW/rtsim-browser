@@ -77,6 +77,16 @@ vec4 textureBicubic(texture2D tex, sampler sampl, vec2 texCoords) {
     , sy);
 }
 
+vec4 textureMaybeBicubic(texture2D tex, sampler sampl, vec2 texCoords) {
+    // TODO: Allow regular `texture` to be used when cause of light leaking issues is found
+    //#if (CLOUD_MODE >= CLOUD_MODE_HIGH)
+        return textureBicubic(tex, sampl, texCoords);
+    //#else
+    //    vec2 offset = (texCoords + vec2(-1.0, 0.5)) / textureSize(sampler2D(tex, sampl), 0);
+    //    return texture(sampler2D(tex, sampl), offset);
+    //#endif
+}
+
 // 16 bit version (each of the 2 8-bit components are combined after bilinear sampling)
 // NOTE: We assume the sampled coordinates are already in "texture pixels".
 vec2 textureBicubic16(texture2D tex, sampler sampl, vec2 texCoords) {
@@ -152,8 +162,7 @@ float alt_at_real(vec2 pos) {
 }
 
 
-float horizon_at2(vec4 f_horizons, float alt, vec3 pos, /*float time_of_day*/vec4 light_dir) {
-    // vec3 sun_dir = get_sun_dir(time_of_day);
+float horizon_at2(vec4 f_horizons, float alt, vec3 pos, vec4 light_dir) {
     const float PI_2 = 3.1415926535897932384626433832795 / 2.0;
     const float MIN_LIGHT = 0.0;//0.115/*0.0*/;
 
@@ -242,7 +251,7 @@ float horizon_at2(vec4 f_horizons, float alt, vec3 pos, /*float time_of_day*/vec
 }
 
 // float horizon_at(vec3 pos, /*float time_of_day*/vec3 light_dir) {
-//     vec4 f_horizons = textureBicubic(t_horizon, pos_to_tex(pos.xy));
+//     vec4 f_horizons = textureMaybeBicubic(t_horizon, pos_to_tex(pos.xy));
 //     // f_horizons.xyz = /*linear_to_srgb*/(f_horizons.xyz);
 //     float alt = alt_at_real(pos.xy);
 //     return horizon_at2(f_horizons, alt, pos, light_dir);

@@ -18,7 +18,7 @@ void apply_point_glow_light(Light L, vec3 wpos, vec3 dir, float max_dist, inout 
     #if (CLOUD_MODE >= CLOUD_MODE_HIGH)
         vec3 _unused;
         float unused2;
-        float spread = 1.0 / (1.0 + sqrt(max(cloud_at(nearest, 0.0, _unused, unused2).z, 0.0)) * 0.01);
+        float spread = 1.0 / (1.0 + sqrt(max(cloud_at(nearest, 0.0, dir, _unused, unused2).z, 0.0)) * 0.01);
     #else
         const float spread = 1.0;
     #endif
@@ -33,7 +33,7 @@ void apply_point_glow_light(Light L, vec3 wpos, vec3 dir, float max_dist, inout 
         strength *= clamp(cam_dist_2 / 9.0, 0.25, 1.0);
     #endif
 
-    vec3 light_color = srgb_to_linear(L.light_col.rgb) * strength;
+    vec3 light_color = L.light_col.rgb * strength;
 
     const float LIGHT_AMBIANCE = 0.025;
     color += light_color
@@ -58,7 +58,7 @@ vec3 apply_point_glow(vec3 wpos, vec3 dir, float max_dist, vec3 color) {
     #endif
 
     #ifdef FLASHING_LIGHTS_ENABLED
-        float time_since_lightning = tick.x - last_lightning.w;
+        float time_since_lightning = time_since(last_lightning.w);
         if (time_since_lightning < MAX_LIGHTNING_PERIOD) {
             // Apply lightning
             apply_point_glow_light(Light(last_lightning.xyzw + vec4(0, 0, LIGHTNING_HEIGHT, 0), vec4(vec3(0.2, 0.4, 1) * lightning_intensity() * 0.003, 1)), wpos, dir, max_dist, color);

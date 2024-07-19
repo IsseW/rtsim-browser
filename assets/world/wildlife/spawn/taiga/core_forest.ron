@@ -1,10 +1,10 @@
 SpawnEntry (
-    name: "Taiga rare forest wildlife.",
+    name: "Taiga core forest wildlife.",
     note: "Search for them in the heart of the taiga, if you are feeling lucky.",
     rules: [
         Pack(
             groups: [
-                (1, (1, 1, "common.entity.wild.aggressive.wendigo")),
+                // We need more entities to fill this out
                 (1, (1, 1, "common.entity.wild.aggressive.dreadhorn")),
             ],
             spawn_mode: Land,
@@ -12,9 +12,8 @@ SpawnEntry (
         ),
         Pack(
             groups: [
-                (1, (1, 1, "common.entity.wild.aggressive.wendigo")),
                 (1, (1, 1, "common.entity.wild.aggressive.dreadhorn")),
-                (1, (1, 1, "common.entity.wild.aggressive.irrwurz")),
+                (4, (1, 1, "common.entity.wild.aggressive.irrwurz")),
             ],
             spawn_mode: Land,
             day_period: [Night],

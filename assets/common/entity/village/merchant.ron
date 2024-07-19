@@ -3,7 +3,7 @@
     name: Name("Merchant"),
     body: RandomWith("humanoid"),
     alignment: Alignment(Npc),
-    loot: LootTable("common.loot_tables.creature.humanoid"),
+    loot: LootTable("common.loot_tables.nothing"),
     inventory: (
         loadout: Inline((
             inherit: Asset("common.loadout.village.merchant"),
@@ -14,6 +14,11 @@
                 (2, ModularWeapon(tool: Staff, material: Ironwood, hands: None)),
             ]), None)),
         )),
+        items: [
+            (1, "common.items.recipes.equipment.basic"),
+            (1, "common.items.recipes.armor.leather"),
+            (1, "common.items.recipes.weapons.bamboo"),
+        ],
     ),
     meta: [
         SkillSetAsset("common.skillset.preset.rank3.fullskill"),
